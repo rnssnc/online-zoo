@@ -1,0 +1,21 @@
+@import '../../styles/variables'
+
+.button 
+  position: relative
+  text-decoration: none
+  color: var(--color-text-primary)
+  font-size: 16px
+
+  &--current
+    font-weight: bold
+    &::after
+      position: absolute
+      content: ''
+      width: 49px
+      height: 1px
+      background-color: var(--color-text-primary)
+      left: 0
+      bottom: -1px
+  &:viseted
+    text-decoration: none
+

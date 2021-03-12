@@ -1,0 +1,18 @@
+
+block variables
+
+doctype html
+html(lang="ru" data-color-mode="light")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name="format-detection" content="telephone=no")
+    title #{pageTitle}
+    meta(name='description', content= pageDescription)
+    meta(name='keywords', content= pageKeywords)
+    block links
+  body(class=bodyClass)
+    block header
+    main.main
+      block main

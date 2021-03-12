@@ -21,11 +21,15 @@ const cssLoaders = (extra) => {
     },
   ];
 
-  if (extra) extra.forEach((element) => basicLoader.push(element));
+  if (extra)
+    extra.forEach((element) => {
+      basicLoader.push(element);
+    });
 
   return basicLoader;
 };
 
+// Get pages
 fs.readdirSync(path.resolve(__dirname, '..', 'src', 'pages'))
   .filter((file) => file.indexOf('base') !== 0)
   .forEach((file) => {
@@ -34,6 +38,7 @@ fs.readdirSync(path.resolve(__dirname, '..', 'src', 'pages'))
 
 const ENTRIES = {};
 pages.forEach((page) => {
+  console.log(page);
   ENTRIES[page] = `/pages/${page}/${page}.js`;
   console.log(ENTRIES[page]);
 });
@@ -41,16 +46,14 @@ pages.forEach((page) => {
 const PATHS = {
   src: path.resolve(__dirname, '..', 'src'),
   dist: path.resolve(__dirname, '..', 'dist'),
+  node: path.resolve(__dirname, '..', 'node_modules'),
 };
 
 module.exports = {
   context: PATHS.src,
   entry: ENTRIES,
   optimization: {
-    minimizer: [
-      new TerserWebpackPlugin({}),
-      new OptimizeCssAssetsWebpackPlugin({}),
-    ],
+    minimizer: [new TerserWebpackPlugin({}), new OptimizeCssAssetsWebpackPlugin({})],
     splitChunks: {
       cacheGroups: {
         commons: {
@@ -69,6 +72,7 @@ module.exports = {
   resolve: {
     alias: {
       '@': PATHS.src,
+      '~': PATHS.node,
     },
   },
   plugins: [
@@ -87,16 +91,13 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
     }),
-
     // Generate html-webpack-plugin for each page
     ...pages.map(
       (fileName) =>
         new HtmlWebpackPlugin({
           getData: () => {
             try {
-              return JSON.parse(
-                fs.readFileSync(`../src/pages/${fileName}/data.json`, 'utf8')
-              );
+              return JSON.parse(fs.readFileSync(`../src/pages/${fileName}/data.json`, 'utf8'));
             } catch (e) {
               console.warn(`data.json was not provided for page ${fileName}`);
               return {};
@@ -153,7 +154,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           publicPath: './',
-          name: 'images/[name].[fullhash:8].[ext]',
+          name: 'images/[name].[ext]',
         },
       },
       {

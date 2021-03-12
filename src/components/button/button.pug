@@ -1,0 +1,21 @@
+//-
+  options.value - текст
+  options.type - тип ('', 'ghost', 'icon')
+  options.modifier - дополнительный класс
+  options.realButton - bool, кнопка или ссылка?
+  options.isSubmit - bull
+  options.form - фарма
+mixin button(options = {})
+  -
+    var classes = options.addClass ? options.addClass : ''
+    classes += ' button'
+    classes += options.type ? ' button-' + options.type : ''
+    classes += options.modifier ? ' button--' + options.modifier : ''
+
+  if (options.isInput)
+    if(options.isSub)
+      input(class=classes.trim() type='submit', form=options.form, value=options.value)
+    else
+      input(class=classes.trim() type='submit', form=options.form, value=options.value)
+  else
+    a(class=classes.trim(), href=options.href)= options.value

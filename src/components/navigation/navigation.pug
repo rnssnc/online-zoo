@@ -1,0 +1,11 @@
+include ../button/button.pug
+
+mixin navigation(items = [],options = {})
+  -
+    var classes = 'navigation '
+    classes += options.class ? options.class : ''
+  nav(class=classes.trim())
+    ul.navigation__list
+      each item in items
+        li.navigation__item
+          +button({value: item.value, href: item.href, addClass: 'navigation__link', type: item.type, icon: item.icon, modifier: item.modifier})

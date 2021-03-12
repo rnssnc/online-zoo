@@ -1,0 +1,9 @@
+include ../logotype/logotype.pug
+include ../navigation/navigation.pug
+include ../toggle/toggle.pug
+
+mixin header()
+  header.header.section
+    +logotype({href: '#'})
+    +navigation([{href: '#',value:'About',modifier:'current'},{href: '#',value:'Map'},{href: '#',value:'Contact Us'}],{class: 'navigation-header-main'})
+    +toggle()
