@@ -1,0 +1,10 @@
+include ../socials/socials.pug
+
+mixin hero()
+  .section-wrapper.hero-section-wrapper
+      section.hero-section.section
+        .section-content-wrapper
+          h1.typography__page-title.hero-section__title Watch your favorite animal online
+          .hero-section__button-watch-wrapper
+            +button({href:'#',type:'filled',value:'watch online',icon:'play',addClass:''})
+        +socials([{href: "#",value:'',icon: 'instagram'},{href: "#",value:'',icon: 'twitter'},{href: "#",value:'',icon: 'youtube'},{href: "#",value:'',icon: 'vk'}])

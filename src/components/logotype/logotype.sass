@@ -1,15 +1,21 @@
-@import  ../../styles/variables.sass
-
 .logotype
+  padding-left: 1px
+  width: 70px
+  height: 42px
   display: flex
   flex-direction: column
-  color: var(--color-text-primary)
   font-weight: bold
   text-decoration: none
-  &__icon-top
-    width: 59px
-    line-height: 42px  
-  &__icon-bottom
-  
-// .logotype:viseted
-//   color: var(sass.--color-text-primary)
+  fill: var(--color-secondary)
+  &--theme-light
+    fill: var(--color-logotype-light)
+
+.logotype:hover .logotype__icon-top,
+.logotype:hover .logotype__icon-bottom
+  transition: transform 0.3s ease
+
+.logotype:hover .logotype__icon-top
+  transform: translateY(-2px)
+
+.logotype:hover .logotype__icon-bottom
+  transform: translateY(2px)

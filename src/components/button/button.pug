@@ -19,3 +19,5 @@ mixin button(options = {})
       input(class=classes.trim() type='submit', form=options.form, value=options.value)
   else
     a(class=classes.trim(), href=options.href)= options.value
+      if(options.icon)
+        span(class='button__icon '+options.icon+'-icon')

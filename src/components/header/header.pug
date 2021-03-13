@@ -2,8 +2,9 @@ include ../logotype/logotype.pug
 include ../navigation/navigation.pug
 include ../toggle/toggle.pug
 
-mixin header()
-  header.header.section
-    +logotype({href: '#'})
-    +navigation([{href: '#',value:'About',modifier:'current'},{href: '#',value:'Map'},{href: '#',value:'Contact Us'}],{class: 'navigation-header-main'})
-    +toggle()
+mixin header(options = {})
+  .section-wrapper.header-section-wrapper
+    header.header
+      +logotype({href: '#'})
+      +navigation(options.navigationItems,{class: 'navigation-header-main'})
+      +toggle()

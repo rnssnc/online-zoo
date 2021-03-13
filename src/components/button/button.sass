@@ -1,11 +1,9 @@
-@import '../../styles/variables'
-
 .button 
   position: relative
+  display: flex
   text-decoration: none
   color: var(--color-text-primary)
   font-size: 16px
-
   &--current
     font-weight: bold
     &::after
@@ -18,4 +16,26 @@
       bottom: -1px
   &:viseted
     text-decoration: none
-
+  &-filled
+    flex-direction: row-reverse
+    gap: 5px
+    justify-content: center
+    vertical-align: center
+    align-items: center
+    width: 245px
+    height: 55px
+    border-radius: 3px
+    color: var(--color-button-text)
+    font-size: 18px
+    font-weight: bold
+    text-transform: uppercase
+    line-height: 21px
+    background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+  &__icon
+    display: inline-block
+    width: 20px
+    height: 20px
+    &.play-icon
+      width: 32px
+      height: 32px
+      background-image: url(../../assets/images/icons/play.svg)

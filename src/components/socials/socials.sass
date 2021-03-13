@@ -1,0 +1,32 @@
+.socials
+  list-style-type: none
+  display: flex
+  align-items: flex-start
+  justify-content: flex-end
+  flex-direction: column
+  gap: 15px
+  transition: all 0.3s ease
+
+.socials__item,
+.socials__link
+  width: 20px
+  height: 20px
+
+.socials__link:focus>span, .socials__link>span:hover 
+  transform: scale(1.1)
+  background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+
+.instagram-icon,
+.twitter-icon,
+.youtube-icon,
+.vk-icon
+  background-color: #fefefe
+
+.instagram-icon
+  -webkit-mask: url(../../assets/images/icons/instagram.svg) no-repeat
+.twitter-icon
+  -webkit-mask: url(../../assets/images/icons/twitter.svg) no-repeat
+.youtube-icon
+  -webkit-mask: url(../../assets/images/icons/youtube.svg) no-repeat
+.vk-icon
+  -webkit-mask: url(../../assets/images/icons/vk.svg) no-repeat

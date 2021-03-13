@@ -1,11 +1,15 @@
 extends ../base/base.pug
 
 include ../../components/header/header.pug
+include ../../components/hero/hero.pug
 
 block variables
   -
     pageTitle = 'Online zoo'
 
 block header 
-  +header()
+  +header({
+    navigationItems: [{href: '#',value:'About',modifier:'current'},{href: '#',value:'Map'},{href: '#',value:'Contact Us'}]
+  })
 block main 
+  +hero()
