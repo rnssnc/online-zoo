@@ -1,0 +1,8 @@
+mixin pet-card(options = {})
+  .pet-card
+    img(class='pet-card__image' src=options.image alt=options.alt)
+    .pet-card__content-wrapper
+      p.pet-card__caption= options.caption 
+      .pet-card__buttons-wrapper
+        +button({href: options.href,value:'watch online',type:'text',icon:'play',modifier:'gradient'})
+        +button({href: options.href,type:'text',value:'donate',icon:"cash"})

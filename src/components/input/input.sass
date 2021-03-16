@@ -1,0 +1,68 @@
+.input__element-wrapper
+  position: relative
+
+.input__label 
+  user-select: none;
+  display: block;
+  position: absolute;
+  top: -16px
+  color: var(--input-text-color)
+  transition: 0.2s;
+  
+.input__element
+  outline: none
+  width: 100%
+  height: 26px
+  padding-bottom: 10px
+  font-weight: 500;
+  font-size: 14px
+  line-height: 16px
+  color: var(--input-text-color)
+  background: transparent
+  border: none
+  border-bottom: 1px solid var(--input-border-color)
+
+  &::placeholder 
+    color: transparent;
+  &:placeholder-shown ~ .input__label
+    top: 0;
+
+.input__element:focus 
+  border-width: 2px;
+  border-image: linear-gradient(to right, var(--color-primary-gradient-in),var(--color-primary-gradient-out));
+  border-image-slice: 1;
+  &~ .input__label 
+    position: absolute;
+    top: -16px;
+    display: block;
+    transition: 0.2s;
+    background: -webkit-linear-gradient( 106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;    
+
+.input__element
+  &:required,
+  &:invalid 
+   box-shadow: none; 
+
+.text-area-wrapper
+  padding: 0
+  border-radius: 3px
+.input-textarea
+  border: none
+  font-size: 12px
+  padding-left: 5px
+  height: 115px
+   
+.text-area__legend
+  color: #BDBDBD
+  margin-left: 5px
+  padding: 0 3px
+  font-size: 12px
+
+.input-textarea:focus ~ .text-area__legend
+  font-weight: bold
+  background: -webkit-linear-gradient( 106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;

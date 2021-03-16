@@ -8,3 +8,4 @@ mixin socials(items = [],options = {})
     each item in items
       li.socials__item
         +button({value: item.value, href: item.href, addClass: 'socials__link', type: item.type, icon: item.icon, modifier: item.modifier})
+  

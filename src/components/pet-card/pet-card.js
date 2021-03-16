@@ -1,0 +1,1 @@
+import './pet-card.sass'

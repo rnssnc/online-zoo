@@ -4,19 +4,66 @@
 .footer
   display: flex
   flex-wrap: wrap
-  padding-top: 90px
+  padding-top: 105px
   color: var(--footer-text-color-primary)
 
-.footer__column-left,
-.footer__column-right  
-  display: flex
-  flex-basis: calc(100% / 2)
+.footer__column-wrapper
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 74px
+  padding-bottom: 60px
+  width: 100%;
+
+.footer__column
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
   flex: 1;
 
+.footer__column-row
+  width: 100%
+  display: flex
+  justify-content: space-between
+
+.footer-nav-wrapper
+  display: flex
+  gap: 160px
+
+.footer__contact-us-form
+  display: flex
+  flex-direction: column
+  gap: 20px
+  max-width: 383px
+
+.footer__contact-us-form-caption
+  color: var(--footer-header-color)
+
+.footer .navigation__link 
+  color: var(--footer-text-color-primary) 
+  transition: background 0.3s ease;
+ 
+.footer-nav__donate-button
+  width: 275px
+
+
+.footer__contact
+  font-style: normal
+
+.footer__contact-wrapper
+  display: flex
+  flex-direction: column
+  padding-top: 35px
+  gap: 20px
+
+.footer__contacts 
+  list-style-type: none
+  
 .footer__copyright 
+  color: #BDBDBD
   display: flex
   flex-direction: column
   flex-basis: calc(100%)
+  gap: 5px
   border-top: 1px solid #fefefe
   padding-top: 28px
   padding-bottom: 75px

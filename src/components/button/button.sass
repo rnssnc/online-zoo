@@ -1,9 +1,13 @@
 .button 
   position: relative
   display: flex
+  justify-content: center
+  vertical-align: center
+  align-items: center
   text-decoration: none
+  font-weight: 500
   color: var(--color-text-primary)
-  font-size: 16px
+  font-size: 14px
   &--current
     font-weight: bold
     &::after
@@ -14,14 +18,28 @@
       background-color: var(--color-text-primary)
       left: 0
       bottom: -1px
+  &--gradient
+    background: -webkit-linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    & > .button__icon
+      background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
   &:viseted
     text-decoration: none
+  &-text
+    color: var(--card-color-text)
+    flex-direction: row-reverse
+    gap: 3px
+    font-size: 12px
+    text-transform: uppercase
+    & > .button__icon
+      height: 24px
+      width: 24px
+  &-nav
+    font-size: 16px
   &-filled
     flex-direction: row-reverse
     gap: 5px
-    justify-content: center
-    vertical-align: center
-    align-items: center
     width: 245px
     height: 55px
     border-radius: 3px
@@ -31,11 +49,21 @@
     text-transform: uppercase
     line-height: 21px
     background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+    & > .button__icon
+      width: 32px
+      height: 32px
   &__icon
     display: inline-block
     width: 20px
     height: 20px
     &.play-icon
-      width: 32px
-      height: 32px
-      background-image: url(../../assets/images/icons/play.svg)
+      background-color: white
+      -webkit-mask: url(../../assets/images/icons/play.svg) no-repeat
+      -webkit-mask-size: contain
+      background-size: contain
+    &.cash-icon
+      background-color: white
+      -webkit-mask: url(../../assets/images/icons/cash.svg) no-repeat
+      -webkit-mask-size: contain
+      background-size: contain
+

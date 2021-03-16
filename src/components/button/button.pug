@@ -7,8 +7,9 @@
   options.form - фарма
 mixin button(options = {})
   -
-    var classes = options.addClass ? options.addClass : ''
-    classes += ' button'
+    var classes = 'button'
+    if (options.addClass)
+      classes += ` ${options.addClass}`
     classes += options.type ? ' button-' + options.type : ''
     classes += options.modifier ? ' button--' + options.modifier : ''
 

@@ -1,0 +1,42 @@
+mixin input(options = {})
+  -
+    let inputBaseClass = 'input__element'
+
+    if (options.modifier) 
+      inputBaseClass += ' input--' + options.modifier;
+    
+  if(options.type == 'textarea')
+    fieldset.text-area-wrapper
+      textarea(name=options.name id=options.id class=inputBaseClass+' input-textarea' cols=options.cols rows=options.rows placeholder=options.placeholder)
+      legend.text-area__legend Please enter your message
+  else
+    .input__element-wrapper
+      input.input(
+        class = inputBaseClass
+        type = options.type
+        name = options.name
+        id = options.id 
+        placeholder = options.placeholder
+        pattern = options.pattern
+        tabindex = options.tabindex
+        required = options.required
+        value = options.value
+        autocomplete = options.autocomplete
+      )
+      if(options.label)
+        label(class= 'input__label' for=options.id)=options.label
+  //- <div class="form__group field">
+  //-   <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+  //-   <label for="name" class="form__label">Name</label>
+  //- </div>
+
+  //- input.input(
+  //-   class = inputBaseClass
+  //-   type = options.type
+  //-   name = options.name
+  //-   placeholder = options.placeholder
+  //-   pattern = options.pattern
+  //-   tabindex = options.tabindex
+  //-   required = options.required
+  //-   value = options.value
+  //- )
