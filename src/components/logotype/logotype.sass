@@ -1,21 +1,25 @@
 .logotype
   padding-left: 1px
-  width: 70px
   height: 42px
   display: flex
+  justify-content: center
   flex-direction: column
   font-weight: bold
   text-decoration: none
-  fill: var(--color-secondary)
-  &--theme-light
-    fill: var(--color-logotype-light)
+  color: var(--logotype-color-dark)
+  &__text-top,
+  &__text-bottom
+    transition: all 0.3s ease
+  &__text-top
+    font-size: 36px
+    line-height: 28px
+  &__text-bottom
+    font-size: 18px
+    letter-spacing: 0.08em;
 
-.logotype:hover .logotype__icon-top,
-.logotype:hover .logotype__icon-bottom
-  transition: transform 0.3s ease
 
-.logotype:hover .logotype__icon-top
+.logotype:hover .logotype__text-top
   transform: translateY(-2px)
 
-.logotype:hover .logotype__icon-bottom
+.logotype:hover .logotype__text-bottom
   transform: translateY(2px)
