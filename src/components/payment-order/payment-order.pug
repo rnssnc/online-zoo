@@ -1,0 +1,10 @@
+include ../icon/icon.pug
+
+mixin payment-order(items = [], options = {})
+  .payment-order__wrapper
+    each item, index in items
+      .payment-order__item
+        +icon( {icon: item.icon} )
+        h3.typography__cta.payment-order__caption= item.text
+      if index < items.length-1
+        +icon( {icon: options.separator })

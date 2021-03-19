@@ -1,0 +1,34 @@
+.payment-order__wrapper
+  padding-top: 92px
+  display: flex
+  align-items: center
+  gap: 63px
+  
+.payment-order__item 
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  gap: 18px
+  position: relative
+  height: 245px
+  width: 245px
+
+  &::before
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%; 
+    padding: 3px; 
+    background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out; 
+    mask-composite: exclude;
+
+.payment-order__caption
+  max-width: 130px
+  width: 100%
+  text-align: center

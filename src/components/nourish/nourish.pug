@@ -1,0 +1,10 @@
+include ../payment-order/payment-order.pug
+
+mixin nourish()
+  .section-wrapper.nourish-section-wrapper
+    section.section.nourish-section
+      .section__content-wrapper
+        .nourish-section__describe-wrapper
+          h2.typography__section-title.nourish-section__title Pay and feed
+          p.nourish-section__description The opportunity to easily and naturally (but as often as possible) donate to the needs of animals that you like.
+        +payment-order([{icon:'card',text:'You pay with a VISA card'},{icon:'zoo',text:'Payment goes to the Zoo'},{icon:'panda',text:'Panda gets the bamboo'}],{separator:'arrow'})

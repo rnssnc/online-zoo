@@ -1,1 +1,1 @@
-import './pet-card.sass'
+import './pet-card.sass';
