@@ -21,11 +21,11 @@ const cssLoaders = (extra) => {
     },
   ];
 
-  if (extra)
+  if (extra) {
     extra.forEach((element) => {
       basicLoader.push(element);
     });
-
+  }
   return basicLoader;
 };
 
@@ -108,7 +108,7 @@ module.exports = {
           chunks: fileName,
           inject: 'body',
           minify: false,
-        })
+        }),
     ),
   ],
   module: {
@@ -120,6 +120,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-proposal-class-properties'],
           },
         },
       },

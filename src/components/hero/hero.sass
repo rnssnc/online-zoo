@@ -26,25 +26,45 @@
   align-items: flex-start
   justify-content: flex-end
   flex-direction: column
+
+.hero-section__pets-slider-wrapper
+  display: flex
+  flex-direction: column
+  gap: 10px
+  justify-content: center
+  align-items: center
+  position: absolute
+  bottom: 110px
+  right: 0px
+
+.hero-section__pets-slider-wrapper .slider-scrollbar__current-index,
+.hero-section__pets-slider-wrapper .slider-scrollbar__separator,
+  color: #fefefe
+
+.hero-section__pets-slider-wrapper .slider-scrollbar__input::-webkit-slider-thumb,
+  background-color: #fefefe
+
+.hero-section__pets-slider-wrapper .slider-scrollbar__input::-moz-range-thumb 
+  background-color: #fefefe
+
 .hero-section__pets-slider
   display: flex
   align-items: center
-  position: absolute
-  max-width: 1200px
-  bottom: 180px
-  right: 0
+  max-width: 1255px
 
-.slick-slide
+.hero-section__pets-slider .slick-slide
+  padding-top: 25px
   margin: auto 23px
 
-.slick-track 
+.hero-section__pets-slider .slick-current
+  padding-top: 0
+
+.hero-section__pets-slider .slick-track 
   display: flex;
   height: 360px
 
-.slick-track .slick-slide 
+.hero-section__pets-slider .slick-track .slick-slide 
   display: flex;
   height: auto;
   align-items: center;
   justify-content: center;
-
-.slick-track .slick-current

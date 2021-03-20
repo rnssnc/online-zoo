@@ -1,22 +1,15 @@
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
-import './hero.sass';
-
-import '../socials/socials';
-import '../pet-card/pet-card';
-import '../input/input';
+import './explanation.sass';
 
 import Scrollbar from '../slider-scrollbar/Scrollbar';
 
 require('slick-carousel');
 
-const sliderClass = '.hero-section__pets-slider';
+const sliderClass = '.explanation-section__animal-slider';
 
 $(sliderClass).on('init', (event, slick) => {
   slick.$slides[slick.currentSlide].classList.add('slick-current-delayed');
 
-  const sliderWrapper = document.querySelector('.hero-section__pets-slider-wrapper');
+  const sliderWrapper = document.querySelector('.explanation-section__animal-slider-wrapper');
 
   const scrollbar = new Scrollbar(sliderWrapper, slick, sliderClass, '/', 245, true);
 });
@@ -34,11 +27,7 @@ $(sliderClass).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
 
 const slider = document.querySelector(sliderClass);
 $(slider).slick({
-  slidesToShow: 5,
+  slidesToShow: 1,
   infinite: false,
   arrows: false,
-  variableWidth: true,
-  adaptiveHeight: true,
-  centerMode: true,
-  initialSlide: 1,
 });

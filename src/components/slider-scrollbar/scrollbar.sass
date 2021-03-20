@@ -1,0 +1,50 @@
+.slider-scrollbar__container
+  display: flex
+  flex-direction: column
+  gap: 10px
+  align-items: center
+  justify-content: center
+.slider-scrollbar__current-index,
+.slider-scrollbar__separator,
+  color: var(--scrollbar-primary-color)
+  font-size: 24px
+  font-weight: bold
+
+.slider-scrollbar__items-count
+  color: var(--scrollbar-secondary-color)
+  opacity: 0.57
+  font-size: 14px
+  font-weight: bold
+
+.slider-scrollbar__input 
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 100%; 
+  height: 5px; 
+  background: var(--scrollbar-secondary-color) 
+  opacity: 0.57
+  outline: none; 
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+
+
+/* Mouse-over effects */
+.slider-scrollbar__input:hover 
+  opacity: 1; 
+
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider-scrollbar__input::-webkit-slider-thumb 
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 30px; 
+  height: 10px;
+  background: var(--scrollbar-primary-color) 
+  cursor: pointer; 
+
+.slider-scrollbar__input::-moz-range-thumb 
+  width: 30px;
+  height: 10px;
+  background: var(--scrollbar-primary-color) 
+  cursor: pointer; 

@@ -12,8 +12,8 @@ mixin footer()
           +button({href:'#',type:'filled',addClass:'footer-nav__donate-button',value:'donate for volunteers'})
       .footer__column-wrapper
         .footer__column 
+          h3.footer__contact-us-form-caption.typography__cta Contact us
           form.footer__contact-us-form
-            h3.footer__contact-us-form-caption.typography__cta Contact us
             +input({type:'text', name:'name', placeholder:'Name', required: true,label:'Name',id:'footer__contact-us-form__name',autocomplete: 'off'})
             +input({type:'email', name:'email', placeholder:'Email', required: true,label:'Email',id:'footer__contact-us-form__email',autocomplete: 'off'})
             +input({type:'textarea', name:'textarea', placeholder:'', required: true,label:'Please enter your message',id:'footer__contact-us-form__textarea',autocomplete: 'off'})

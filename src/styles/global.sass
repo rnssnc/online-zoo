@@ -15,11 +15,18 @@ body
 .header,
 .footer,
 .section
-  max-width: 1640px
-  padding-left: 10px
-  padding-right: 10px
+  max-width: 1620px
+  // padding-left: 10px
+  // padding-right: 10px
   margin: 0 auto
 
+.section
+  padding-bottom: 100px
+  padding-top: 100px
+
+.section__description
+  max-width: 790px
+  width: 100%
 // .section
 //   max-width: 1220px
 //   padding-left: 10px
@@ -27,10 +34,21 @@ body
 //   margin: 0 auto
 
 .section__content-wrapper
-  max-width: 1240px
+  max-width: 1220px
   width: 100%
   padding-left: 10px
   padding-right: 10px
+  margin: 0 auto
+
+
+.section__describe-wrapper
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  gap: 30px
+  max-width: 790px
+  width: 100%
   margin: 0 auto
 
 .typography__page-title
@@ -46,9 +64,10 @@ body
   line-height: 23px
 
 .typography__section-title
+  width: 100%
+  text-align: center;
   color: var(--section-color-title)
   font-size: 48px;
   font-weight: bold
   line-height: 56px;
-  text-align: center;
 

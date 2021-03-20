@@ -1,0 +1,10 @@
+mixin FAQ(items = [])
+  .section-wrapper.FAQ-section-wrapper
+    section.section.FAQ-section
+      .section__content-wrapper
+        .FAQ-section__qa-wrapper
+          each item in items 
+            .FAQ-section__qa-item
+              +icon({icon: item.icon})
+              h3.typography__cta.FAQ-section__caption= item.caption
+              p.FAQ-section__description= item.description
