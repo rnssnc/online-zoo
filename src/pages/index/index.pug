@@ -5,6 +5,9 @@ include ../../components/hero/hero.pug
 include ../../components/explanation/explanation.pug
 include ../../components/nourish/nourish.pug
 include ../../components/FAQ/FAQ.pug
+include ../../components/pets/pets.pug
+include ../../components/testimonials/testimonials.pug
+include ../../components/map/map.pug
 
 block variables
   -
@@ -12,7 +15,7 @@ block variables
 
 block header 
   +header({
-    navigationItems: [{href: '#',value:'About',type:'nav',modifier:'current'},{href: '#',type:'nav',value:'Map'},{href: '#',type:'nav',value:'Contact Us'},{href:'#',type:'nav',value:'Design'}]
+    navigationItems: [{href: '#',value:'About',type:'nav',modifier:'current'},{href: '#',type:'nav',value:'Zoos'},{href: '#',type:'nav',value:'Map'},{href: '#',type:'nav',value:'Contact Us'},{href:'#',type:'nav',value:'Design'}]
   })
 block main 
   +hero()
@@ -21,4 +24,7 @@ block main
     {icon:'inspire', caption:'What inspiring us?', description:'As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat, and we are determined to assist in all aspects.'},
     {icon:'flag', caption:'Our mission', description:'Zoo Online saves wildlife and inspires everyone to make conservation a priority in their lives.'},
     {icon:'love', caption:'What we believe in?', description:'Animals have the right to a pain-free and happy life. They have equal claim to the resources of this planet, and deserve a life of dignity and compassion.'}])
+  +pets()
   +nourish()
+  +testimonials()
+  +map()

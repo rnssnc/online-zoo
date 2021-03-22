@@ -1,0 +1,23 @@
+include ../review/review.pug
+
+mixin testimonials()
+  .section-wrapper.testimonials-section-wrapper
+    section.testimonials-section.section 
+      .section__content-wrapper.testimonials-section__content-wrapper
+        .section__describe-wrapper.testimonials-section__describe-wrapper
+          h2.typography__section-title.testimonials-section__title Testimonials
+        .testimonials-section__testimonials-slider-wrapper
+          .testimonials-slider-wrapper
+            button.testimonials-slider__button.testimonials-slider__button-prev
+            .testimonials-section__testimonials-slider
+              +review({src:require('../../assets/images/review/no-avatar.svg').default,name:'Nastya Sidorova',review:'As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.'})
+              +review({src:require('../../assets/images/review/vlad.png').default,name:'Vlad Kim',review:'As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.'})
+              +review({src:require('../../assets/images/review/no-avatar.svg').default,name:'Nastya Sidorova',review:'As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.'})
+              +review({src:require('../../assets/images/review/vlad.png').default,name:'Vlad Kim',review:'As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.'})
+              +review({src:require('../../assets/images/review/no-avatar.svg').default,name:'Nastya Sidorova',review:'As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.'})
+              +review({src:require('../../assets/images/review/vlad.png').default,name:'Vlad Kim',review:'As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.'})
+              +review({src:require('../../assets/images/review/no-avatar.svg').default,name:'Nastya Sidorova',review:'As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.'})
+              +review({src:require('../../assets/images/review/vlad.png').default,name:'Vlad Kim',review:'As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.'})
+            button.testimonials-slider__button.testimonials-slider__button-next
+        .testimonials-section__choose-button-wrapper
+          +button({href:'#',type:'filled',value:'leave feedback',addClass:'testimonials-section__feedback-button'})

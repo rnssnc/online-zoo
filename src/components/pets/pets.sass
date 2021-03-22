@@ -1,0 +1,63 @@
+.pets-section__pets-slider-wrapper
+  display: flex
+  flex-direction: column
+  gap: 30px
+  max-width: 1200px;
+  width: 100%;
+
+.pets-slider-wrapper
+  position: relative
+
+.pets-slider__button
+  position: absolute
+  width: 18px
+  height: 30px
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all .5s ease;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: var(--color-secondary);
+
+.pets-slider__button-next
+  -webkit-mask-image: url('../../assets/images/icons/slider/arrow-next.svg');
+  mask-image: url('../../assets/images/icons/slider/arrow-next.svg');
+  right: -42px
+
+
+.pets-slider__button-prev
+  -webkit-mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
+  mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
+  left: -42px
+
+.pets-slider__button-next.slick-disabled,
+.pets-slider__button-prev.slick-disabled,
+  background-color: #828282 
+
+.pets-section__pets-slider
+  margin-right: -30px
+
+.pets-section__pets-slider-wrapper
+  padding-top: 35px
+
+.pets-section__pets-slider .slick-track
+  display: flex;
+  gap: 30px;
+.pets-section__pets-slider .pet-card
+  width: 278px
+  height: 399px
+
+.pets-section__pets-slider .pet-card__image
+  width: 278px
+  height: 399px
+
+// .pets-section__pets-slider .slick-current .pet-card__content-wrapper
+//   display: flex
+
+.pets-section__pets-slider .pet-card__wrapper:hover .pet-card__content-wrapper
+  display: flex
+.pets-section__choose-button-wrapper
+  padding-top: 25px
+  display: flex
+  justify-content: center

@@ -36,14 +36,19 @@ export default class ScrollBar extends Control {
 
   setupListeners() {
     $(this.sliderClass).on('beforeChange', (event, slider, currentSlide, nextSlide) => {
-      this.valueDisplay.setValue(nextSlide + 1, '/', this.slider.$slides.length);
+      this.valueDisplay.setValue(nextSlide + 1, this.separator, this.slider.$slides.length);
       this.range.value = nextSlide;
     });
 
     this.range.addEventListener('input', this.handleRangeChange);
+    this.range.addEventListener('change', this.handleRangeChange);
   }
 
   handleRangeChange = () => {
-    this.slider.slickGoTo(this.range.value, this.useAnimation);
+    this.slider.$slides.map((elem) => this.slider.$slides[elem].classList.remove('slick-current')),
+      this.slider.$slides[this.range.value].classList.add('slick-current');
+
+    this.valueDisplay.setValue(+this.range.value + 1, this.separator, this.slider.$slides.length);
+    this.slider.slickGoTo(+this.range.value, this.useAnimation);
   };
 }

@@ -50,17 +50,17 @@
 .hero-section__pets-slider
   display: flex
   align-items: center
-  max-width: 1255px
+  max-width: 1000px
 
-.hero-section__pets-slider .slick-slide
-  padding-top: 25px
-  margin: auto 23px
+// .hero-section__pets-slider .slick-slide
+//   padding-top: 25px
 
-.hero-section__pets-slider .slick-current
-  padding-top: 0
+// .hero-section__pets-slider .slick-current
+//   padding-top: 0
 
 .hero-section__pets-slider .slick-track 
   display: flex;
+  gap: 46px;
   height: 360px
 
 .hero-section__pets-slider .slick-track .slick-slide 
@@ -68,3 +68,11 @@
   height: auto;
   align-items: center;
   justify-content: center;
+
+.hero-section__pets-slider .slick-current-delayed .pet-card__image
+  transition: all 0.3s ease
+  width: 245px
+  height: 352px
+  
+.hero-section__pets-slider .slick-current-delayed .pet-card__content-wrapper
+  display: flex

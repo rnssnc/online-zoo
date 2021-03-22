@@ -21,6 +21,7 @@ $(sliderClass).on('init', (event, slick) => {
   const scrollbar = new Scrollbar(sliderWrapper, slick, sliderClass, '/', 245, true);
 });
 $(sliderClass).on('afterChange', (event, slick, currentSlide) => {
+  slick.slickGoTo(0);
   slick.$slides[currentSlide].classList.add('slick-current-delayed');
 });
 
@@ -37,8 +38,8 @@ $(slider).slick({
   slidesToShow: 5,
   infinite: false,
   arrows: false,
-  variableWidth: true,
   adaptiveHeight: true,
+  variableWidth: true,
   centerMode: true,
   initialSlide: 1,
 });
