@@ -42,4 +42,13 @@ $(slider).slick({
   variableWidth: true,
   centerMode: true,
   initialSlide: 1,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 });
