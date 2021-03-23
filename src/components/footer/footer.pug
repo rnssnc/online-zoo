@@ -6,10 +6,12 @@ mixin footer()
   .section-wrapper.footer-section-wrapper
     footer.footer
       .footer__column-row
-        +logotype({href: '#'})
-        .footer-nav-wrapper
-          +navigation([{href: '#', type:'nav', value:'About'},{href: '#', type:'nav', value:'Map'},{href: '#', type:'nav', value:'Zoos'}],{class: 'navigation-footer-main'})
-          +button({href:'#',type:'filled',addClass:'footer-nav__donate-button',value:'donate for volunteers'})
+        .footer__column 
+          +logotype({href: '#'})
+        .footer__column 
+          .footer-nav-wrapper
+            +navigation([{href: '#', type:'nav', value:'About'},{href: '#', type:'nav', value:'Map'},{href: '#', type:'nav', value:'Zoos'}],{class: 'navigation-footer-main'})
+            +button({href:'#',type:'filled',addClass:'footer-nav__donate-button',value:'donate for volunteers'})
       .footer__column-wrapper
         .footer__column 
           h3.footer__contact-us-form-caption.typography__cta Contact us

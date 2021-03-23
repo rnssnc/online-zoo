@@ -25,9 +25,9 @@ $(slider).slick({
   slidesToShow: 4,
   slidesToScroll: 1,
   infinite: false,
-  arrows: true,
-  prevArrow: '.pets-slider__button-prev',
-  nextArrow: '.pets-slider__button-next',
+  arrows: false,
+  // prevArrow: '.pets-slider__button-prev',
+  // nextArrow: '.pets-slider__button-next',
   variableWidth: true,
   draggable: true,
 });

@@ -54,9 +54,16 @@
 
 // .pets-section__pets-slider .slick-current .pet-card__content-wrapper
 //   display: flex
+.pets-section__pets-slider .pet-card__wrapper .pet-card__content-wrapper
+  transition: all 0.3s ease
+  bottom: -100px
+  display: flex
 
 .pets-section__pets-slider .pet-card__wrapper:hover .pet-card__content-wrapper
-  display: flex
+  bottom: 33px;
+
+.pets-section__pets-slider .pet-card__wrapper:hover .pet-card__image
+  filter: brightness(50%)
 .pets-section__choose-button-wrapper
   padding-top: 25px
   display: flex

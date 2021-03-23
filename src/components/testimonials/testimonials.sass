@@ -9,3 +9,35 @@
 
 .testimonials-section__choose-button-wrapper
   padding-top: 30px
+
+.testimonials-section__testimonials-slider .slick-active .review-content-wrapper
+    box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
+
+.testimonials-section__testimonials-slider
+  padding-top: 60px
+  
+.testimonials-slider-wrapper
+  position: relative
+
+.testimonials-slider__button
+  position: absolute
+  width: 18px
+  height: 30px
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all .5s ease;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: var(--color-secondary);
+
+.testimonials-slider__button-next
+  -webkit-mask-image: url('../../assets/images/icons/slider/arrow-next.svg');
+  mask-image: url('../../assets/images/icons/slider/arrow-next.svg');
+  right: -42px
+
+
+.testimonials-slider__button-prev
+  -webkit-mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
+  mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
+  left: -42px

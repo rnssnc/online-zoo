@@ -15,9 +15,9 @@ body
 .header,
 .footer,
 .section
-  max-width: 1620px
-  // padding-left: 10px
-  // padding-right: 10px
+  max-width: 1920px
+  padding-left: 150px
+  padding-right: 150px
   margin: 0 auto
 
 
@@ -64,9 +64,10 @@ body
 
 .typography__cta
   font-weight: bold
+  color: var(--section-color-title)
   font-size: 20px
   line-height: 23px
-
+  
 .typography__section-title
   width: 100%
   text-align: center;
@@ -75,3 +76,13 @@ body
   font-weight: bold
   line-height: 56px;
 
+.visuallyhidden 
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+  clip-path: inset(0px 0px 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;

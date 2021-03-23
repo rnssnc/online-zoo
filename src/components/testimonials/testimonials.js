@@ -8,7 +8,9 @@ require('slick-carousel');
 const sliderClass = '.testimonials-section__testimonials-slider';
 
 $(sliderClass).on('init', (event, slick) => {
-  const sliderWrapper = document.querySelector('.testimonials-slider-wrapper');
+  const sliderWrapper = document.querySelector(
+    '.testimonials-section__testimonials-slider-wrapper',
+  );
 
   const scrollbar = new Scrollbar(sliderWrapper, slick, sliderClass, '/', 245, true);
 });

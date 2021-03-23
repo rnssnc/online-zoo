@@ -1,7 +1,89 @@
-.map__element
+.map-section-wrapper
+  background-color: var(--section-color-background-two)
+.map-wrapper
+  position: relative
   padding-top: 60px
-  max-width: 1200px
-  width: 100%
-  height: 498px
+
+.map__element
+  // max-width: 1200px
+  // width: 100%
+  // height: 498px
+  display: block; 
+  height: 1%;
 .map-area
-  fill: #333333
+  fill: var(--map-area-color)
+
+.map-area__active
+  fill: var(--map-area-active-color)
+
+.marker__image
+  height: 43px
+  width: 43px
+  background-size: cover;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12px;
+  border-radius: 50%;
+.map__marker
+  cursor: pointer 
+  position: absolute
+  width: 68px
+  height: 94px
+  background-image: url('../../assets/images/icons/marker.svg')
+  &.marker-Eagle
+    top: 18%;
+    left: 10%;
+    & .marker__image
+      background-image: url('../../assets/images/pet-cards/eagle2.jpg')
+  &.marker-Alligator
+    top: 22%;
+    left: 19.3%;
+    & .marker__image
+      background-image: url('../../assets/images/pet-cards/alligator2.jpg')
+  &.marker-Gorilla
+    top: 34%;
+    left: 43.5%;
+    & .marker__image
+      background-image: url('../../assets/images/pet-cards/gorilla2.jpg')
+  &.marker-Panda
+    top: 20%;
+    left: 67.5%;
+    & .marker__image
+      background-image: url('../../assets/images/pet-cards/panda2.jpg')
+  & .marker__animal-info
+    display: none
+    top: -100px;
+    position: absolute;
+    width: 375px
+    height: 100px
+    background-color: var(--section-color-background-one)
+    z-index: 2
+    & .animal-info__image
+      width: 65px
+      height: 65px
+      background-size: cover
+      background-repeat: no-repeat
+      border-radius: 50% 
+    & .animal-info__content-wrapper
+      display: flex
+      flex-direction: column
+      gap: 5px
+      color: var(--color-text-primary)
+      & .animal-info__name
+        color: var(--color-text-section-header)
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: bold
+      & .accented
+        color: var(--color-text-section-header)
+        font-weight: 500
+        padding-right: 5px
+  &:hover .marker__animal-info
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: row
+    gap: 20px
+  // &:hover .marker__image
+  //   display: none
