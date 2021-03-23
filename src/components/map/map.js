@@ -59,7 +59,6 @@ class Marker extends Control {
     this.animalInfoWrapper = new Control(this.node, 'div', 'marker__animal-info');
 
     this.animalInfoImage = new Control(this.animalInfoWrapper.node, 'div', 'animal-info__image');
-    this.animalInfoImage.node.style.backgroundImage = `url(../../${this.src})`;
 
     this.animalInfoContentWrapper = new Control(
       this.animalInfoWrapper.node,
