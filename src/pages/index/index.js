@@ -4,6 +4,7 @@ import '../base/base';
 import './index.sass';
 
 import '../../components/footer/footer';
+import '../../components/header/header';
 import '../../components/hero/hero';
 import '../../components/nourish/nourish';
 import '../../components/explanation/explanation';
