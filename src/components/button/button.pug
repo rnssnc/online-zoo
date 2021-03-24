@@ -13,11 +13,13 @@ mixin button(options = {})
     classes += options.type ? ' button-' + options.type : ''
     classes += options.modifier ? ' button--' + options.modifier : ''
 
-  if (options.isInput)
+  if (options.isButton)
     if(options.isSub)
-      input(class=classes.trim() type='submit', form=options.form, value=options.value)
+      button(class=classes.trim() type='submit', form=options.form)= options.value
+        if(options.icon)
+          span(class='button__icon '+options.icon+'-icon')
     else
-      input(class=classes.trim() type='submit', form=options.form, value=options.value)
+      button(class=classes.trim())= options.value
   else
     a(class=classes.trim(), href=options.href)= options.value
       if(options.icon)

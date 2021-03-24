@@ -66,3 +66,27 @@
   background: -webkit-linear-gradient( 106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+.input__label.checkbox-container
+  display: flex
+  flex-direction: row-reverse
+  justify-content: flex-end
+  gap: 6px
+  position: static
+  &:hover
+    background: -webkit-linear-gradient( 106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  & .input__element
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  & .checkbox-checkmark
+    width: 13px
+    height: 13px
+    border: 1px solid var(--input-border-color);
+  & .input__element:checked ~ .checkbox-checkmark
+    background: linear-gradient( 106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+  

@@ -18,7 +18,9 @@ mixin footer()
           form.footer__contact-us-form
             +input({type:'text', name:'name', placeholder:'Name', required: true,label:'Name',id:'footer__contact-us-form__name',autocomplete: 'off'})
             +input({type:'email', name:'email', placeholder:'Email', required: true,label:'Email',id:'footer__contact-us-form__email',autocomplete: 'off'})
-            +input({type:'textarea', name:'textarea', placeholder:'', required: true,label:'Please enter your message',id:'footer__contact-us-form__textarea',autocomplete: 'off'})
+            +input({type:'textarea', name:'textarea', maxlength:'280', placeholder:'', required: true,label:'Please enter your message',id:'footer__contact-us-form__textarea',autocomplete: 'off'})
+            +input({type:'checkbox', name:'checkbox', placeholder:'', required: true,label:'I agree to the processing of Personal Data',id:'footer__contact-us-form__agreement-checkbox'})
+            +button({isButton: true, isSub: true, type: 'submit', value:'send', type:'icon', icon: "arrow"})
         .footer__column
           address.footer__contact
             p.footer__contact-caption ZOO ONLINE CENTER
@@ -27,8 +29,11 @@ mixin footer()
                 p.footer__contact-address__address 132, Address District, Street  
                 p.footer__contact-address__mode Open Daily 10:00 am - 5:00 pm
               ul.footer__contacts 
-                li.footer__contact-item T(702) 163-3433
-                li.footer__contact-item zoo.online@gmail.com
+                li.footer__contact-item 
+                  span T
+                  tel (702) 163-3433
+                li.footer__contact-item 
+                  mailto zoo.online@gmail.com
               +socials([{href: "#",value:'',icon: 'instagram'},{href: "#",value:'',icon: 'twitter'},{href: "#",value:'',icon: 'youtube'},{href: "#",value:'',icon: 'vk'}])
       .footer__copyright
         span.footer__copyright__designer ©Noora Sagnayeva

@@ -71,3 +71,26 @@
       -webkit-mask-size: contain
       background-size: contain
 
+button.button
+  cursor: pointer
+  width: 130px
+  margin-left: auto
+  gap: 25px
+  padding-right: 10px
+  background: none
+  border: none
+  text-transform: uppercase
+  color: var(--input-text-color);
+  &  .arrow-icon
+    width: 48px
+    height: 8px
+    background-position: right
+    background-color: white
+    -webkit-mask: url(../../assets/images/icons/arrow.svg) no-repeat
+    -webkit-mask-size: contain
+  &:hover
+    transform: scale(1.1);
+  &:hover .arrow-icon
+    background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+    -webkit-mask: url(../../assets/images/icons/arrow.svg) no-repeat
+    -webkit-mask-size: contain

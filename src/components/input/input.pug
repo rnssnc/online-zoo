@@ -7,8 +7,23 @@ mixin input(options = {})
     
   if(options.type == 'textarea')
     fieldset.text-area-wrapper
-      textarea(name=options.name id=options.id class=inputBaseClass+' input-textarea' cols=options.cols rows=options.rows placeholder=options.placeholder)
+      textarea(name=options.name id=options.id required= options.required maxlength= options.maxlength class=inputBaseClass+' input-textarea' cols=options.cols rows=options.rows placeholder=options.placeholder)
       legend.text-area__legend Please enter your message
+  else if (options.type == 'checkbox')
+    label(class= 'input__label checkbox-container' for=options.id)=options.label
+      input.input(
+        class = inputBaseClass
+        type = options.type
+        name = options.name
+        id = options.id 
+        placeholder = options.placeholder
+        pattern = options.pattern
+        tabindex = options.tabindex
+        required = options.required
+        value = options.value
+        autocomplete = options.autocomplete
+      ) 
+      span.checkbox-checkmark
   else
     .input__element-wrapper
       input.input(
