@@ -71,11 +71,19 @@
   align-items: center;
   justify-content: center;
 
+.hero-section__pets-slider .slick-slide:hover 
+  padding-top: 0
+  
+.hero-section__pets-slider .slick-slide:hover .pet-card__image,
 .hero-section__pets-slider .slick-current-delayed .pet-card__image
   transition: all 0.3s ease
   width: 245px
   height: 352px
+
+.hero-section__pets-slider .slick-slide:hover .pet-card__image,
+  filter: brightness(50%)
   
+.hero-section__pets-slider .slick-slide:hover .pet-card__content-wrapper,
 .hero-section__pets-slider .slick-current-delayed .pet-card__content-wrapper
   display: flex
 
