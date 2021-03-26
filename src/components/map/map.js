@@ -61,7 +61,8 @@ class Marker extends Control {
       'button button-ghost animal-info__watch-button',
       '<span class="button__icon play-icon"></span>Watch online',
     );
-    this.animalInfoWatchButton = this.href;
+    this.animalInfoWatchButton.node.href = this.href;
+
     this.fillCountry();
   }
 
