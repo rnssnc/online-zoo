@@ -56,6 +56,35 @@
     & > .button__icon
       width: 32px
       height: 32px
+  &-ghost
+    width: 115px;
+    height: 29px;
+    font-size: 13px
+    line-height: 15px
+    gap: 4px
+    background: -webkit-linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    &:hover
+      transform: scale(1.04)
+    & .button__icon
+      height: 16px
+      width: 16px
+      background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+
+    &::before
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 3px;
+      padding: 1px;
+      background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
   &__icon
     display: inline-block
     width: 20px

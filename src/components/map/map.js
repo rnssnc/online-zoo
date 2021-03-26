@@ -8,18 +8,19 @@ const map = document.querySelector('.map__element');
 const mapWrapper = document.querySelector('.map-wrapper');
 
 class Marker extends Control {
-  constructor(map, mapWapper, marker = {}) {
-    super(mapWrapper, 'a', `map__marker marker-${marker.animal}`);
+  constructor(map, mapWapper, animal, marker = {}) {
+    super(mapWrapper, 'a', `map__marker marker-${animal.name}`);
 
     this.map = map;
     this.mapWapper = mapWapper;
+    this.animal = animal;
 
-    this.animal = marker.animal;
     this.name = marker.name;
     this.region = marker.region;
     this.population = marker.population;
     this.src = marker.src;
     this.country = marker.country;
+    this.href = marker.href;
 
     this.markerImage = new Control(this.node, 'div', 'marker__image');
 
@@ -54,14 +55,21 @@ class Marker extends Control {
       `<span class="accented">Population:</span>${this.region}`,
     );
 
+    this.animalInfoWatchButton = new Control(
+      this.animalInfoContentWrapper.node,
+      'a',
+      'button button-ghost animal-info__watch-button',
+      '<span class="button__icon play-icon"></span>Watch online',
+    );
+    this.animalInfoWatchButton = this.href;
     this.fillCountry();
   }
 
   fillCountry() {
-    this.map.querySelectorAll(`.${this.country}`).forEach((element) => {
-      if (element.classList.contains(this.country)) element.classList.add('map-area__active');
+    this.map.querySelectorAll(`.${this.animal.country}`).forEach((element) => {
+      if (element.classList.contains(this.animal.country)) element.classList.add('map-area__active');
     });
   }
 }
 
-animals.map((marker) => new Marker(map, mapWrapper, marker));
+animals.map((animal) => new Marker(map, mapWrapper, animal, animal.marker));
