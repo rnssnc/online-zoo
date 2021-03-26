@@ -1,0 +1,20 @@
+extends ../base/base.pug
+
+include ../../components/header/header.pug
+include ../../components/hero/hero.pug
+include ../../components/explanation/explanation.pug
+include ../../components/nourish/nourish.pug
+include ../../components/FAQ/FAQ.pug
+include ../../components/pets/pets.pug
+include ../../components/testimonials/testimonials.pug
+include ../../components/map/map.pug
+
+block variables
+  -
+    pageTitle = 'Online zoo'
+
+block header 
+  +header({
+    navigationItems: [{href: '#',value:'About',type:'nav'},{href: '#',type:'nav',value:'Zoos',modifier:'current'},{href: '#',type:'nav',value:'Map'},{href: '#contact-us-form',type:'nav',value:'Contact Us'},{href:'#',type:'nav',value:'Design'}]
+  })
+block main 

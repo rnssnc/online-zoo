@@ -49,6 +49,7 @@ export default class ScrollBar extends Control {
       this.slider.$slides[this.range.value].classList.add('slick-current');
 
     this.valueDisplay.setValue(+this.range.value + 1, this.separator, this.slider.$slides.length);
-    this.slider.slickGoTo(+this.range.value, this.useAnimation);
+    this.slider.slickGoTo(this.range.value, this.useAnimation);
+    console.log(this.range.value);
   };
 }
