@@ -12,20 +12,17 @@ export default class ScrollBar extends Control {
     this.scrollbarWidth = scrollbarWidth;
     this.useAnimation = useAnimation;
 
+    let a = this.slider.currentSlideIndex;
     this.valueDisplay = new ValueDisplay(this.node);
-    this.valueDisplay.setValue(
-      this.slider.currentSlide + 1,
-      this.separator,
-      this.slider.$slides.length,
-    );
+    this.valueDisplay.setValue(this.slider.currentSlideIndex + 1, this.separator, this.slider.slides.length);
 
     // Setup range
     this.rangeWrapper = new Control(this.node, 'div', 'slider-scrollbar__input-wrapper').node;
     this.range = new Control(this.rangeWrapper, 'input', 'slider-scrollbar__input').node;
     this.range.type = 'range';
     this.range.min = '0';
-    this.range.max = this.slider.$slides.length - 1;
-    this.range.value = this.slider.currentSlide;
+    this.range.max = this.slider.slides.length - 1;
+    this.range.value = this.slider.currentSlideIndex;
 
     this.setupStyles(this.rangeWrapper, this.scrollbarWidth);
     this.setupListeners();
@@ -35,21 +32,13 @@ export default class ScrollBar extends Control {
   }
 
   setupListeners() {
-    $(this.sliderClass).on('beforeChange', (event, slider, currentSlide, nextSlide) => {
-      this.valueDisplay.setValue(nextSlide + 1, this.separator, this.slider.$slides.length);
-      this.range.value = nextSlide;
-    });
-
     this.range.addEventListener('input', this.handleRangeChange);
-    this.range.addEventListener('change', this.handleRangeChange);
+    // this.range.addEventListener('change', this.handleRangeChange);
   }
 
   handleRangeChange = () => {
-    this.slider.$slides.map((elem) => this.slider.$slides[elem].classList.remove('slick-current')),
-      this.slider.$slides[this.range.value].classList.add('slick-current');
-
-    this.valueDisplay.setValue(+this.range.value + 1, this.separator, this.slider.$slides.length);
-    this.slider.slickGoTo(this.range.value, this.useAnimation);
-    console.log(this.range.value);
+    this.valueDisplay.setValue(+this.range.value + 1, this.separator, this.slider.slides.length);
+    this.slider.goTo(this.range.value, this.useAnimation);
+    // console.log(this.range.value);
   };
 }

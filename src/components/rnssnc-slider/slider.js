@@ -71,7 +71,8 @@ export default class Slider {
       this.index = this.slidesToShow;
       this.edgeLimit = this.slidesToShow;
     }
-
+    // For navigate current slide on infinite: false
+    this.prevIndex = 0;
     //Different listeners for infinite
     this.handleInfinite();
 
@@ -286,10 +287,20 @@ export default class Slider {
     });
   }
 
-  goto(slideIndex) {
-    console.log(this.currentSlideIndex);
+  goTo(slideIndex) {
+    const countToSlide = slideIndex - this.currentSlideIndex;
+    // console.log(countToSlide);
     console.log(slideIndex);
-    this.shiftSlide(slideIndex - this.currentSlideIndex);
+    if (this.centerMode || this.slides.length - this.slidesToShow >= slideIndex) {
+      this.shiftSlide(countToSlide);
+    } else if ((slideIndex) => this.slidesToShow) {
+      this.removeActiveState(this.slides[this.prevIndex]);
+      this.prevIndex = slideIndex;
+
+      console.log(this.prevIndex);
+      this.shiftSlide(this.slides.length - this.slidesToShow - this.currentSlideIndex);
+      this.addActiveState(this.slides[slideIndex]);
+    }
   }
 
   shiftSlide(count) {

@@ -1,19 +1,35 @@
 import '../review/review';
 import './testimonials.sass';
 
+import '../rnssnc-slider/slider.css';
 import Scrollbar from '../slider-scrollbar/Scrollbar';
+import Slider from '../rnssnc-slider/slider';
 
-require('slick-carousel');
+const slider = new Slider({
+  slider: '.testimonials-section__testimonials-slider',
+  track: '.testimonials-section__testimonials-slider-track',
+  slidesToShow: 2,
+  slidesToScroll: 1,
 
-const sliderClass = '.testimonials-section__testimonials-slider';
-
-$(sliderClass).on('init', (event, slick) => {
-  const sliderWrapper = document.querySelector(
-    '.testimonials-section__testimonials-slider-wrapper',
-  );
-
-  const scrollbar = new Scrollbar(sliderWrapper, slick, sliderClass, '/', 245, true);
+  infinite: false,
 });
+
+const sliderWrapper = document.querySelector('.testimonials-slider-wrapper');
+
+const scrollbar = new Scrollbar(sliderWrapper, slider, '123', '/', 245, true);
+
+// Slick
+// import Scrollbar from '../slider-scrollbar/Scrollbar';
+
+// require('slick-carousel');
+
+// const sliderClass = '.testimonials-section__testimonials-slider';
+
+// $(sliderClass).on('init', (event, slick) => {
+//   const sliderWrapper = document.querySelector('.testimonials-section__testimonials-slider-wrapper');
+
+//   // const scrollbar = new Scrollbar(sliderWrapper, slick, sliderClass, '/', 245, true);
+// });
 
 // $(sliderClass).on('edge', (event, slick, direction) => {
 //   if (direction === 'left') {
@@ -22,13 +38,13 @@ $(sliderClass).on('init', (event, slick) => {
 //     scrollbar.handleRangeChange();
 //   }
 // });
-const slider = document.querySelector(sliderClass);
-$(slider).slick({
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  infinite: false,
-  arrows: true,
-  prevArrow: '.pets-slider__button-prev',
-  nextArrow: '.pets-slider__button-next',
-  draggable: true,
-});
+// const slider = document.querySelector(sliderClass);
+// $(slider).slick({
+//   slidesToShow: 2,
+//   slidesToScroll: 1,
+//   infinite: false,
+//   arrows: true,
+//   prevArrow: '.pets-slider__button-prev',
+//   nextArrow: '.pets-slider__button-next',
+//   draggable: true,
+// });
