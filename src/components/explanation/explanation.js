@@ -16,6 +16,11 @@ const sliderWrapper = document.querySelector('.explanation-section__animal-slide
 
 const scrollbar = new Scrollbar(sliderWrapper, slider, '123', '/', 245, true);
 
+slider.slider.addEventListener('beforeChange', () => {
+  scrollbar.range.value = slider.currentSlideIndex + 1;
+  scrollbar.updateValue();
+});
+
 // Slick
 
 // require('slick-carousel');

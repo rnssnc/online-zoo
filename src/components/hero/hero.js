@@ -45,8 +45,8 @@ const sliderWrapper = document.querySelector('.hero-section__pets-slider-wrapper
 
 const scrollbar = new Scrollbar(sliderWrapper, slider, '123', '/', 245, true);
 
-slider.slider.addEventListener('beforeChange', (e, test) => {
-  scrollbar.range.value = slider.currentSlideIndex;
+slider.slider.addEventListener('beforeChange', () => {
+  scrollbar.range.value = slider.currentSlideIndex + 1;
   scrollbar.updateValue();
 });
 

@@ -302,7 +302,7 @@ export default class Slider {
 
   shiftSlide(count) {
     const beforeChange = new Event('beforeChange');
-    this.slider.dispatchEvent(beforeChange, 'asd');
+    this.slider.dispatchEvent(beforeChange);
 
     if (this.variableWidth) this.slideWidth = this.slideWidths[this.currentSlideIndex + count];
 
