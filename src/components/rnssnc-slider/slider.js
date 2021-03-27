@@ -138,8 +138,8 @@ export default class Slider {
 
   addActiveState(currentSlide) {
     currentSlide.classList.add('slide-active');
-    const newActiveState = new Event('newActiveState');
-    this.slider.dispatchEvent(newActiveState);
+    const afterChange = new Event('afterChange');
+    this.slider.dispatchEvent(afterChange);
   }
 
   removeActiveState(currentSlide) {
@@ -289,21 +289,21 @@ export default class Slider {
 
   goTo(slideIndex) {
     const countToSlide = slideIndex - this.currentSlideIndex;
-    // console.log(countToSlide);
-    console.log(slideIndex);
     if (this.centerMode || this.slides.length - this.slidesToShow >= slideIndex) {
       this.shiftSlide(countToSlide);
     } else if ((slideIndex) => this.slidesToShow) {
       this.removeActiveState(this.slides[this.prevIndex]);
       this.prevIndex = slideIndex;
 
-      console.log(this.prevIndex);
       this.shiftSlide(this.slides.length - this.slidesToShow - this.currentSlideIndex);
       this.addActiveState(this.slides[slideIndex]);
     }
   }
 
   shiftSlide(count) {
+    const beforeChange = new Event('beforeChange');
+    this.slider.dispatchEvent(beforeChange, 'asd');
+
     if (this.variableWidth) this.slideWidth = this.slideWidths[this.currentSlideIndex + count];
 
     this.transformValue += -count * this.slideWidth;

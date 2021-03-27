@@ -45,9 +45,10 @@ const sliderWrapper = document.querySelector('.hero-section__pets-slider-wrapper
 
 const scrollbar = new Scrollbar(sliderWrapper, slider, '123', '/', 245, true);
 
-// slider.slider.addEventListener('newActiveState', () => {
-//   console.log('wow ' + slider.currentSlideIndex);
-// });
+slider.slider.addEventListener('beforeChange', (e, test) => {
+  scrollbar.range.value = slider.currentSlideIndex;
+  scrollbar.updateValue();
+});
 
 // range.addEventListener('input', () => {
 //   console.log('a');

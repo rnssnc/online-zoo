@@ -33,11 +33,15 @@ export default class ScrollBar extends Control {
 
   setupListeners() {
     this.range.addEventListener('input', this.handleRangeChange);
-    // this.range.addEventListener('change', this.handleRangeChange);
+  }
+
+  updateValue() {
+    // console.log('s');
+    this.valueDisplay.setValue(+this.range.value + 1, this.separator, this.slider.slides.length);
   }
 
   handleRangeChange = () => {
-    this.valueDisplay.setValue(+this.range.value + 1, this.separator, this.slider.slides.length);
+    this.updateValue();
     this.slider.goTo(this.range.value, this.useAnimation);
     // console.log(this.range.value);
   };

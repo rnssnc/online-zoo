@@ -1,4 +1,3 @@
-import 'normalize.css';
 import '../base/base';
 
 import './zoos.sass';
@@ -11,8 +10,7 @@ import Heading from '../../js/components/Heading/Heading';
 // class VideoPlayer {}
 
 const main = document.querySelector('.main');
-const pageWrapper = new Control(main, 'div', 'section-wrapper animals-player-section__wrapper')
-  .node;
+const pageWrapper = new Control(main, 'div', 'section-wrapper animals-player-section__wrapper').node;
 
 class MainContent extends Control {
   constructor() {
@@ -20,7 +18,7 @@ class MainContent extends Control {
 
     this.contentWrapper = new Control(this.node, 'div', 'section__content-wrapper');
 
-    this.heading = new Heading(
+    this.pageheading = new Heading(
       this.contentWrapper.node,
       'h1',
       'animals-player-section__header typography__section-title',
