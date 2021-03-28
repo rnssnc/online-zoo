@@ -18,8 +18,8 @@ const sliderWrapper = document.querySelector('.testimonials-slider-wrapper');
 
 const scrollbar = new Scrollbar(sliderWrapper, slider, '123', '/', 245, true);
 
-slider.slider.addEventListener('beforeChange', () => {
-  scrollbar.range.value = slider.currentSlideIndex + 1;
+slider.slider.addEventListener('activeSlideChange', (e) => {
+  scrollbar.range.value = e.detail;
   scrollbar.updateValue();
 });
 
@@ -31,7 +31,7 @@ slider.slider.addEventListener('beforeChange', () => {
 // const sliderClass = '.testimonials-section__testimonials-slider';
 
 // $(sliderClass).on('init', (event, slick) => {
-//   const sliderWrapper = document.querySelector('.testimonials-section__testimonials-slider-wrapper');
+// const sliderWrr = document.querySelector('.testimonials-section__testimonials-slider-wrapper');
 
 //   // const scrollbar = new Scrollbar(sliderWrapper, slick, sliderClass, '/', 245, true);
 // });

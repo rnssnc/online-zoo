@@ -63,6 +63,7 @@ export default class Slider {
     this.defaultTranslate = 0;
     this.transformValue = 0;
     this.widthWithoutClones = this.defaultLength * this.slideWidth;
+    this.ignoreTransitionEnd = false;
 
     if (this.centerMode) {
       this.index = this.startSlide + 1;
@@ -78,7 +79,7 @@ export default class Slider {
 
     this.track.style.transform = `translateX(${this.defaultTranslate}px)`;
     this.currentSlide = this.slides[this.currentSlideIndex];
-    this.addActiveState(this.currentSlide);
+    this.addActiveState(this.currentSlideIndex);
 
     this.setTrackWidth(this.track);
     this.track.addEventListener('transitionend', this.handleTransitionEnd);
@@ -136,10 +137,11 @@ export default class Slider {
     });
   };
 
-  addActiveState(currentSlide) {
-    currentSlide.classList.add('slide-active');
-    const afterChange = new Event('afterChange');
-    this.slider.dispatchEvent(afterChange);
+  addActiveState(slideIndex) {
+    const activeSlideChange = new CustomEvent('activeSlideChange', { detail: slideIndex });
+    this.slider.dispatchEvent(activeSlideChange);
+
+    this.slides[slideIndex].classList.add('slide-active');
   }
 
   removeActiveState(currentSlide) {
@@ -169,7 +171,7 @@ export default class Slider {
             this.currentSlideIndex++;
             this.removeActiveState(this.currentSlide);
             this.currentSlide = this.slides[this.currentSlideIndex];
-            this.addActiveState(this.currentSlide);
+            this.addActiveState(this.currentSlideIndex);
           }
         }
       };
@@ -181,7 +183,7 @@ export default class Slider {
             this.currentSlideIndex--;
             this.removeActiveState(this.currentSlide);
             this.currentSlide = this.slides[this.currentSlideIndex];
-            this.addActiveState(this.currentSlide);
+            this.addActiveState(this.currentSlideIndex);
           }
         }
       };
@@ -206,20 +208,8 @@ export default class Slider {
   };
 
   handlePointerMove = (e) => {
-    // this.newLeft = e.clientX - this.shiftX - this.track.getBoundingClientRect().left;
     this.posX2 = e.clientX - this.posX1;
-    // this.posX1 = e.clientX;
 
-    // если указатель находится за пределами слайдера => отрегулировать "left", чтобы оставаться в пределах границ
-    // if (this.newLeft < 0) {
-    //   this.newLeft = 0;
-    // }
-    // let rightEdge = this.slider.offsetWidth - this.track.offsetWidth;
-    // if (this.newLeft > this.rightEdge) {
-    //   this.newLeft = this.rightEdge;
-    // }
-
-    // fix translateX while on first/last elem
     if (
       (this.index <= this.slidesToShow && this.posX2 - this.slideWidth * this.slidesToScroll >= 0) ||
       (this.index == this.defaultLength && -this.posX2 >= this.slideWidth * this.slidesToShow)
@@ -249,8 +239,13 @@ export default class Slider {
 
         this.currentSlideIndex = this.slides.length - this.slidesToShow - 2;
       }
-      this.currentSlide = this.slides[this.currentSlideIndex];
-      this.addActiveState(this.currentSlide);
+      console.log(`cS ${this.currentSlideIndex}`);
+      console.log(`ind ${this.index}`);
+      console.log(this.prevIndex);
+      if (!this.ignoreTransitionEnd) {
+        this.currentSlide = this.slides[this.currentSlideIndex];
+        this.addActiveState(this.currentSlideIndex);
+      }
     }
   };
 
@@ -291,19 +286,26 @@ export default class Slider {
     const countToSlide = slideIndex - this.currentSlideIndex;
     if (this.centerMode || this.slides.length - this.slidesToShow >= slideIndex) {
       this.shiftSlide(countToSlide);
+      if (countToSlide === 0) {
+        console.log(this.prevIndex);
+        this.removeActiveState(this.slides[this.prevIndex]);
+        this.prevIndex = slideIndex;
+        this.addActiveState(slideIndex);
+      }
     } else if ((slideIndex) => this.slidesToShow) {
       this.removeActiveState(this.slides[this.prevIndex]);
       this.prevIndex = slideIndex;
 
       this.shiftSlide(this.slides.length - this.slidesToShow - this.currentSlideIndex);
-      this.addActiveState(this.slides[slideIndex]);
+
+      this.ignoreTransitionEnd = true;
+
+      this.addActiveState(slideIndex);
     }
   }
 
   shiftSlide(count) {
-    const beforeChange = new Event('beforeChange');
-    this.slider.dispatchEvent(beforeChange);
-
+    this.ignoreTransitionEnd = false;
     if (this.variableWidth) this.slideWidth = this.slideWidths[this.currentSlideIndex + count];
 
     this.transformValue += -count * this.slideWidth;
@@ -313,6 +315,7 @@ export default class Slider {
     this.index += count;
 
     this.currentSlideIndex = +this.currentSlideIndex + +count;
+
     this.removeActiveState(this.currentSlide);
   }
 }
