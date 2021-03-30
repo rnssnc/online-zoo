@@ -12,7 +12,6 @@ export default class ScrollBar extends Control {
     this.scrollbarWidth = scrollbarWidth;
     this.useAnimation = useAnimation;
 
-    let a = this.slider.currentSlideIndex;
     this.valueDisplay = new ValueDisplay(this.node);
     this.valueDisplay.setValue(this.slider.currentSlideIndex + 1, this.separator, this.slider.slides.length);
 

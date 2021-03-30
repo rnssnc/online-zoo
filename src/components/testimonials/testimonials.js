@@ -14,7 +14,7 @@ const slider = new Slider({
   infinite: false,
 });
 
-const sliderWrapper = document.querySelector('.testimonials-slider-wrapper');
+const sliderWrapper = document.querySelector('.testimonials-section__testimonials-slider-wrapper');
 
 const scrollbar = new Scrollbar(sliderWrapper, slider, '123', '/', 245, true);
 

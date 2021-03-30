@@ -4,23 +4,23 @@ import Control from '../../js/contol';
 
 import animals from '../../js/animals';
 
-const map = document.querySelector('.map__element');
+const mapElem = document.querySelector('.map__element');
 const mapWrapper = document.querySelector('.map-wrapper');
 
 class Marker extends Control {
-  constructor(map, mapWapper, animal, marker = {}) {
-    super(mapWrapper, 'a', `map__marker marker-${animal.name}`);
+  constructor(map, mapWapper, animal) {
+    super(mapWrapper, 'a', `map__marker marker-${animal.id}`);
 
     this.map = map;
     this.mapWapper = mapWapper;
     this.animal = animal;
 
-    this.name = marker.name;
-    this.region = marker.region;
-    this.population = marker.population;
-    this.src = marker.src;
-    this.country = marker.country;
-    this.href = marker.href;
+    this.title = animal.title;
+    this.region = animal.region;
+    this.population = animal.population;
+    this.src = animal.src;
+    this.country = animal.country;
+    this.href = animal.href;
 
     this.markerImage = new Control(this.node, 'div', 'marker__image');
 
@@ -38,7 +38,7 @@ class Marker extends Control {
       this.animalInfoContentWrapper.node,
       'p',
       'animal-info__name',
-      `${this.name}`,
+      `${this.title}`,
     );
 
     this.animalInfoContentRegion = new Control(
@@ -73,4 +73,4 @@ class Marker extends Control {
   }
 }
 
-animals.map((animal) => new Marker(map, mapWrapper, animal, animal.marker));
+animals.map((animal) => new Marker(mapElem, mapWrapper, animal));
