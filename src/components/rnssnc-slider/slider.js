@@ -252,7 +252,7 @@ export default class Slider {
 
         this.currentSlideIndex = this.slides.length - this.slidesToShow - 2;
       }
-      if (this.currentSlideIndex <= this.slides.length - this.slidesToShow) {
+      if (this.centerMode || this.currentSlideIndex <= this.slides.length - this.slidesToShow) {
         this.currentSlide = this.slides[this.currentSlideIndex];
         this.addActiveState(this.currentSlideIndex);
       }
@@ -293,14 +293,7 @@ export default class Slider {
   }
 
   goTo(slideIndex) {
-    const countToSlide = slideIndex - this.currentSlideIndex;
-
-    if (this.centerMode || this.slides.length - this.slidesToShow > slideIndex) {
-      // console.log(this.currentSlideIndex);
-      this.shiftSlide(countToSlide);
-      // console.log(` ${this.currentSlideIndex}`);
-      // console.log(`last ${this.rightVisibleSlideIndex}`);
-    } else if ((slideIndex) => this.slidesToShow) {
+    if (!this.centerMode && slideIndex >= this.slides.length - this.slidesToShow) {
       this.removeActiveState(this.slides[this.currentSlideIndex]);
 
       this.shiftSlide(this.slides.length - this.rightVisibleSlideIndex);
@@ -309,6 +302,16 @@ export default class Slider {
       this.currentSlide = this.slides[this.currentSlideIndex];
 
       this.addActiveState(slideIndex);
+    } else if (!this.centerMode && this.currentSlideIndex > this.slides.length - this.slidesToShow) {
+      this.removeActiveState(this.slides[this.currentSlideIndex]);
+
+      this.shiftSlide(-this.rightVisibleSlideIndex + this.slidesToShow);
+
+      this.currentSlideIndex = slideIndex;
+      this.currentSlide = this.slides[this.currentSlideIndex];
+    } else if (this.centerMode || this.slides.length - this.slidesToShow > slideIndex) {
+      const countToSlide = slideIndex - this.currentSlideIndex;
+      this.shiftSlide(countToSlide);
     }
   }
 
