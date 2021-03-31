@@ -12,7 +12,7 @@ export default class Aside extends Control {
     this.sliderButtonPrev = new Control(
       this.sliderWrapper.node,
       'button',
-      'player-pet-switch-slider__buttonPrev',
+      'player-pet-switch-slider__button-prev',
     );
 
     this.sliderElement = new Control(this.sliderWrapper.node, 'div', 'player-pet-switch-slider');
@@ -22,7 +22,7 @@ export default class Aside extends Control {
     this.sliderButtonNext = new Control(
       this.sliderWrapper.node,
       'button',
-      'player-pet-switch-slider__buttonNext',
+      'player-pet-switch-slider__button-next',
     );
   }
 
@@ -30,7 +30,7 @@ export default class Aside extends Control {
     slides.map((slide) => {
       const slideWrapper = new Control(this.sliderTrack.node, 'div', 'player-pet-switch__pet-card-wrapper');
       const sliderCard = new Control(slideWrapper.node, 'div', 'player-pet-switch__pet-card');
-      const sliderCardTooltip = new Control(sliderCard.node, 'span', 'pet-card__tooltip');
+      const sliderCardTooltip = new Control(slideWrapper.node, 'span', 'pet-card__tooltip');
       // For build
       sliderCard.node.style.backgroundImage = `url('images/${slide.src.slice(
         slide.src.lastIndexOf('/') + 1,
@@ -52,9 +52,9 @@ export default class Aside extends Control {
       type: 'vertical',
       variableWidth: true,
       startSlide: initialSlideIndex,
-      // arrows: true,
-      // buttonPrev: '.pets-slider__button-prev',
-      // buttonNext: '.pets-slider__button-next',
+      arrows: true,
+      buttonPrev: '.player-pet-switch-slider__button-next',
+      buttonNext: '.player-pet-switch-slider__button-prev',
       infinite: false,
     });
   }
