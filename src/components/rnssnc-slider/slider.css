@@ -11,9 +11,14 @@
   position: relative;
   top: 0;
   left: 0;
-  display: block;
   display: flex;
   align-items: center;
+}
+
+.rnssnc-slider.slider-vertical .rnssnc-slides {
+  width: 100%;
+  height: 10000px;
+  flex-direction: column;
 }
 
 .rnssnc-slide {
