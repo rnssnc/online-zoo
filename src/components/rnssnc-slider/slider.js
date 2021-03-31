@@ -20,9 +20,11 @@ export default class Slider {
     if (this.type == 'horizontal') {
       this.translateFunction = 'translateX';
       this.metric = 'width';
+      this.vector = 'clientX';
     } else {
       this.translateFunction = 'translateY';
       this.metric = 'height';
+      this.vector = 'clientY';
     }
 
     this.startSlide = options.startSlide || 0;
@@ -56,7 +58,7 @@ export default class Slider {
 
         // this.shiftX = e.clientX - this.track.getBoundingClientRect().left;
         this.shiftX = 0;
-        this.posX1 = e.clientX;
+        this.posX1 = e[this.vector];
         this.track.setPointerCapture(e.pointerId);
 
         this.track.addEventListener('pointermove', this.handlePointerMove);
@@ -232,7 +234,7 @@ export default class Slider {
   };
 
   handlePointerMove = (e) => {
-    this.posX2 = e.clientX - this.posX1;
+    this.posX2 = e[this.vector] - this.posX1;
 
     if (
       (this.rightVisibleSlideIndex <= this.slidesToShow &&
