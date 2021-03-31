@@ -10,15 +10,17 @@ import animals from '../../js/animals';
 import Control from '../../js/contol';
 import Heading from '../../js/components/Heading/Heading';
 import VideoPlayer from '../../js/components/VideoPlayer/VideoPlayer';
+import Aside from '../../js/components/Aside/Aside';
 
 const main = document.querySelector('.main');
 const pageWrapper = new Control(main, 'div', 'section-wrapper animals-player-section__wrapper').node;
 
 class MainContent extends Control {
-  constructor(descriptions) {
+  constructor(animals) {
     super(pageWrapper, 'section', 'animals-player-section section');
 
-    const aside = new Control(this.node, 'aside', 'animals-player-section__aside-slider');
+    this.aside = new Aside(this.node, 'animals-player-section__aside-slider');
+    this.renderSlider(animals);
 
     this.contentWrapper = new Control(this.node, 'div', 'section__content-wrapper');
 
@@ -103,26 +105,38 @@ class MainContent extends Control {
       });
     }
   }
+
+  renderSlider(animals) {
+    this.aside.renderSlides(animals);
+
+    this.aside.installSlider();
+
+    this.aside.slider.slider.addEventListener('activeSlideChange', (e) => {
+      window.location.hash = animals[e.detail].id;
+    });
+  }
 }
 
-const descriptions = ['population', 'habitat', 'diet'];
-
-const mainContent = new MainContent(descriptions);
-
-if (!window.location.hash) mainContent.renderContent(animals[3]);
-else {
-  findAndRender();
-}
+const mainContent = new MainContent(animals);
 
 function findAndRender() {
-  const animal = animals.find(
-    (animal) => animal.id.toLowerCase() == document.location.hash.slice(1).toLowerCase(),
-  );
+  let index;
+  const animal = animals.find((animal, i) => {
+    if (animal.id.toLowerCase() == document.location.hash.slice(1).toLowerCase()) {
+      index = i;
+      return true;
+    }
+  });
+
   mainContent.renderContent(animal);
+  if (mainContent.aside.slider.currentSlideIndex !== index) mainContent.aside.slider.goTo(index);
 }
 
 window.addEventListener('hashchange', () => {
   findAndRender();
 });
 
-console.log(window.location.hash);
+if (!window.location.hash) mainContent.renderContent(animals[3]);
+else {
+  findAndRender();
+}

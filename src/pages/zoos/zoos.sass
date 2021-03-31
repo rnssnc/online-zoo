@@ -1,5 +1,7 @@
 .animals-player-section
   padding-top: 60px
+  display: flex;
+  justify-content: space-between
 
 .animals-player-section__header 
   text-align: left
@@ -59,3 +61,55 @@
 .animal-description__feed-button
   width: 194px
   height: 55px
+
+
+
+.animals-player-section__aside-slider
+  max-width: 157px
+  width: 157px
+
+.player-pet-switch__pet-card-wrapper
+  padding-bottom: 5px
+  padding-top: 5px
+  position: relative
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin: 0 auto
+  width: 108px
+  height: 118px
+  transition: all 0.3s ease
+  & .player-pet-switch__pet-card
+    position: relative
+    max-width: 108px
+    width: 100%
+    max-height: 108px
+    height: 100%
+    background-size: cover
+    background-repeat: no-repeat
+    border-radius: 50%
+
+.player-pet-switch-slider .slide-active .player-pet-switch__pet-card-wrapper
+  width: 157px
+  height: 157px
+  &::before
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;      
+  & .player-pet-switch__pet-card
+    max-width: 137px
+    max-height: 137px
+
+ 
+.player-pet-switch-slider
+  height: 510px
