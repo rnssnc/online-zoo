@@ -155,6 +155,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           publicPath: './',
+          name: 'images/[name].[ext]',
         },
       },
       {
