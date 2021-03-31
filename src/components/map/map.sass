@@ -26,6 +26,7 @@
   top: 12px;
   border-radius: 50%;
 .map__marker
+  display: none
   cursor: pointer 
   position: absolute
   width: 68px
@@ -35,6 +36,7 @@
   &:hover 
     background-image: url('../../assets/images/icons/marker-active.svg')
   &.marker-Eagle
+    display: block
     top: 18%;
     left: 10%;
     & .marker__image
@@ -42,6 +44,7 @@
     & .animal-info__image
       background-image: url('../../assets/images/map/map-eagle.png')
   &.marker-Alligator
+    display: block
     top: 22%;
     left: 19.3%;
     & .marker__image
@@ -49,6 +52,7 @@
     & .animal-info__image
       background-image: url('../../assets/images/pet-cards/alligator.png')
   &.marker-Gorilla
+    display: block
     top: 34%;
     left: 43.5%;
     & .marker__image
@@ -56,6 +60,7 @@
     & .animal-info__image
       background-image: url('../../assets/images/pet-cards/gorilla.png')
   &.marker-Panda
+    display: block
     top: 20%;
     left: 67.5%;
     & .marker__image
