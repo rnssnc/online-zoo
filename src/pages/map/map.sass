@@ -1,0 +1,109 @@
+.map-section
+  padding-top: 60px
+
+.map-section-watch-online-button-wrapper
+  display: flex;
+  justify-content: center;
+
+.map-wrapper
+  padding-top: 80px;
+
+.pet-slider__wrapper
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center;
+
+.pet-slider__wrapper .slider-scrollbar__container
+  padding-top: 30px
+
+.pet-slider__container
+  padding-top: 55px
+  width: 100%
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+
+.pet-slider
+  max-width: 1070px
+  width: 100% 
+  height: 157px
+
+.pet-slider__track
+  display: flex
+  justify-content: space-between
+
+.player-pet-switch__pet-card
+  position: relative
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin: 0 auto
+  width: 108px
+  height: 108px
+  transition: all 0.3s ease
+  & .pet-card__image
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    position: relative
+    max-width: 108px
+    width: 100%
+    max-height: 108px
+    height: 100%
+    background-size: cover
+    background-repeat: no-repeat
+    border-radius: 50%
+    transition: all 0.3s ease
+  & .pet-card__tooltip
+    position: absolute
+    bottom: 15px
+    display: none
+    font-size: 16px
+    color: var(--card-color-text);
+
+.pet-slider .slide-active .player-pet-switch__pet-card
+  width: 157px
+  height: 157px
+  &::before
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(106.89deg, #07EEE0 -14.32%, #DF496D 100.68%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;      
+  & .pet-card__image
+    filter: brightness(60%)
+    max-width: 137px
+    max-height: 137px
+
+.player-pet-switch__pet-card:hover .pet-card__tooltip,
+.pet-slider .slide-active .pet-card__tooltip,
+  display: block
+
+.player-pet-switch__pet-card:hover .pet-card__image
+  filter: brightness(60%)
+
+.pet-slider__button-prev,
+.pet-slider__button-next
+  width: 30px;
+  height: 30px;
+  transition: all .5s ease;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: var(--color-secondary);
+  -webkit-mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
+  mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
+  -webkit-mask-repeat: no-repeat
+
+
+.pet-slider__button-prev
+  transform: rotate(180deg)

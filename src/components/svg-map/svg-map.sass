@@ -1,0 +1,96 @@
+.map-wrapper
+  position: relative
+  padding-top: 60px
+
+.map__element
+  // max-width: 1200px
+  // width: 100%
+  // height: 498px
+  display: block; 
+  height: 1%;
+.map-area
+  fill: var(--map-area-color)
+
+.map-area__active
+  fill: var(--map-area-active-color)
+
+.marker__image
+  height: 43px
+  width: 43px
+  background-size: cover;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12px;
+  border-radius: 50%;
+
+.map__marker
+  display: none
+  cursor: pointer 
+  position: absolute
+  width: 68px
+  height: 94px
+  background-image: url('../../assets/images/icons/marker.svg')
+  transition: all 0.3s ease
+  &:hover 
+    background-image: url('../../assets/images/icons/marker-active.svg')
+  &.marker-Eagle
+    display: block
+    top: 18%;
+    left: 10%;
+  &.marker-Alligator
+    display: block
+    top: 22%;
+    left: 19.3%;
+  &.marker-Gorilla
+    display: block
+    top: 34%;
+    left: 43.5%;
+  &.marker-Panda
+    display: block
+    top: 20%;
+    left: 67.5%;
+  & .marker__animal-info
+    cursor: default
+    display: none
+    transform: translateY(94px)
+    position: absolute;
+    border-radius: 8px
+    width: 436px
+    height: 149px
+    background-color: var(--section-color-background-one)
+    z-index: 2
+    transition: all 0.3s ease
+    &:hover
+      height: 192px
+    & .animal-info__image
+      width: 65px
+      height: 65px
+      background-size: cover
+      background-repeat: no-repeat
+      border-radius: 50% 
+    & .animal-info__content-wrapper
+      display: flex
+      flex-direction: column
+      gap: 5px
+      color: var(--color-text-primary)
+      & .animal-info__name
+        color: var(--section-color-title)
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: bold
+      & .accented
+        color: var(--section-color-title)
+        font-weight: 500
+        padding-right: 5px
+      & .animal-info__watch-button
+        display: none
+        margin-top: 15px
+    &:hover .animal-info__watch-button
+      display: flex
+  &:hover .marker__animal-info
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: row
+    gap: 20px

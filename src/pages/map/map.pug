@@ -1,0 +1,31 @@
+extends ../base/base.pug
+
+include ../../components/header/header.pug
+include ../../components/button/button.pug
+include ../../components/svg-map/svg-map.pug
+
+block variables
+  -
+    pageTitle = 'Online zoo'
+
+block header 
+  +header({
+    navigationItems: [{href: './',value:'About',type:'nav'},{href: './zoos.html#panda',type:'nav',value:'Zoos',modifier:'current'},{href: '#',type:'nav',value:'Map'},{href: '#contact-us-form',type:'nav',value:'Contact Us'},{href:'#',type:'nav',value:'Design'}]
+  })
+block main 
+  h1.visuallyhidden Online Zoo
+  .section-wrapper.map-section-wrapper
+      section.map-section.section 
+        .section__content-wrapper.map-section__content-wrapper
+          .section__describe-wrapper.map-section__describe-wrapper
+            h2.typography__section-title.map-section__title Choose your favorite
+            p.scrtion__description.map-section__description As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat, and we are determined to assist in all aspects, including providing veterinary support and raising much-needed emergency funds. Zoo Online saves wildlife and inspires everyone to make conservation a priority in their lives. Animals have the right to a pain-free and happy life. They have equal claim to the resources of this planet, and deserve a life of dignity and compassion.As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.
+          .pet-slider__wrapper 
+            .pet-slider__container
+              button.pet-slider__button-next
+              .pet-slider 
+                .pet-slider__track
+              button.pet-slider__button-prev
+          +svg-map()
+        .map-section-watch-online-button-wrapper
+          +button({href:'./zoos#panda',type:'filled',value:'watch online',icon:'play',addClass:''})

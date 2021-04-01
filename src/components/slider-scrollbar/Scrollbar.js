@@ -1,5 +1,3 @@
-import './scrollbar.sass';
-
 import Control from '../../js/contol';
 import ValueDisplay from './ValueDisplay';
 
