@@ -120,14 +120,16 @@ class MainContent extends Control {
 const mainContent = new MainContent(animals);
 
 function findAndRender() {
-  let index;
+  let index = 0;
   const animal = animals.find((animal, i) => {
     if (animal.id.toLowerCase() == document.location.hash.slice(1).toLowerCase()) {
       index = i;
       return true;
     }
   });
-
+  if (!animal) {
+    window.location.hash = animals[3].id.toLowerCase();
+  }
   mainContent.renderContent(animal);
   if (mainContent.aside.slider.currentSlideIndex !== index) mainContent.aside.slider.goTo(index);
 }
@@ -136,7 +138,7 @@ window.addEventListener('hashchange', () => {
   findAndRender();
 });
 
-if (!window.location.hash) mainContent.renderContent(animals[3]);
+if (!window.location.hash) window.location.hash = animals[3].id.toLowerCase();
 else {
   findAndRender();
 }
