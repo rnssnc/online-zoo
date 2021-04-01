@@ -59,11 +59,7 @@ export default class Aside extends Control {
     });
 
     this.slides.map((slide, index) => {
-      console.log(slide);
-      slide.addEventListener('pointerdown', (e) => {
-        console.log(index);
-        this.slider.goTo(index);
-      });
+      slide.addEventListener('pointerdown', () => this.slider.goTo(index));
     });
   }
 }

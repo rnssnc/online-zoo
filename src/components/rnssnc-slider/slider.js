@@ -321,8 +321,6 @@ export default class Slider {
   };
 
   goTo(slideIndex) {
-    console.log(slideIndex);
-    console.log(this.currentSlideIndex);
     if (slideIndex !== this.currentSlideIndex) {
       const countToSlide = slideIndex - this.currentSlideIndex;
 
