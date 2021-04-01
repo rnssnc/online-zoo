@@ -1,6 +1,7 @@
 import '../logotype/logotype';
 
-import './footer.sass';
-
+import '../button/button';
 import '../input/input';
 import '../socials/socials';
+
+import './footer.sass';
