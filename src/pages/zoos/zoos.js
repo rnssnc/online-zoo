@@ -26,9 +26,11 @@ class MainContent extends Control {
 
     this.pageheading = new Heading(
       this.contentWrapper.node,
-      'h1',
+      'h2',
       'animals-player-section__header typography__section-title',
     );
+
+    this.h1Hidden = new Heading(pageWrapper, 'h1', 'visuallyhidden', 'Online Zoo');
 
     this.contentWrapper.playerAndDescWrapper = new Control(
       this.contentWrapper.node,
