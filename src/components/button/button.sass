@@ -9,16 +9,6 @@
   color: var(--color-text-primary)
   font-size: 14px
   transition: all 0.3s ease
-  &--current
-    font-weight: bold
-    &::after
-      position: absolute
-      content: ''
-      width: 49px
-      height: 1px
-      background-color: var(--color-text-primary)
-      left: 0
-      bottom: -1px
   &--gradient
     background: -webkit-linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
     -webkit-background-clip: text;
@@ -39,8 +29,22 @@
   &-nav
     color: var(--header-nav-text-color)
     font-size: 16px
+    &::after
+      position: absolute
+      content: ''
+      width: 0
+      height: 1px
+      background-color: var(--color-text-primary)
+      left: 0
+      bottom: -1px 
+      transition: width 0.3s ease
+    &.button--current
+      font-weight: bold
+      &::after
+        width: 100%
     &:hover
-      color: #5ed
+      &::after
+        width: 100%
   &-filled
     flex-direction: row-reverse
     gap: 5px
