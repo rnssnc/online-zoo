@@ -28,8 +28,8 @@ export default class Aside extends Control {
 
   renderSlides(slides) {
     slides.map((slide) => {
-      const slideWrapper = new Control(this.sliderTrack.node, 'div', 'player-pet-switch__pet-card-wrapper');
-      const sliderCard = new Control(slideWrapper.node, 'div', 'player-pet-switch__pet-card');
+      const slideWrapper = new Control(this.sliderTrack.node, 'div', 'player-pet-switch__pet-card');
+      const sliderCard = new Control(slideWrapper.node, 'div', 'pet-card__image');
       const sliderCardTooltip = new Control(slideWrapper.node, 'span', 'pet-card__tooltip');
       // For build
       sliderCard.node.style.backgroundImage = `url('images/${slide.src.slice(
@@ -39,7 +39,7 @@ export default class Aside extends Control {
       // sliderCard.node.style.backgroundImage = `url('${slide.src}')`;
       sliderCardTooltip.node.textContent = slide.name;
 
-      this.slides.push(sliderCard.node);
+      this.slides.push(slideWrapper.node);
     });
   }
 
@@ -53,9 +53,17 @@ export default class Aside extends Control {
       variableWidth: true,
       startSlide: initialSlideIndex,
       arrows: true,
-      buttonPrev: '.player-pet-switch-slider__button-next',
-      buttonNext: '.player-pet-switch-slider__button-prev',
+      buttonNext: '.player-pet-switch-slider__button-next',
+      buttonPrev: '.player-pet-switch-slider__button-prev',
       infinite: false,
+    });
+
+    this.slides.map((slide, index) => {
+      console.log(slide);
+      slide.addEventListener('pointerdown', (e) => {
+        console.log(index);
+        this.slider.goTo(index);
+      });
     });
   }
 }

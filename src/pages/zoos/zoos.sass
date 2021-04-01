@@ -77,7 +77,7 @@
   max-width: 157px
   width: 157px
 
-.player-pet-switch__pet-card-wrapper
+.player-pet-switch__pet-card
   padding-bottom: 5px
   padding-top: 5px
   position: relative
@@ -89,7 +89,7 @@
   width: 108px
   height: 118px
   transition: all 0.3s ease
-  & .player-pet-switch__pet-card
+  & .pet-card__image
     display: flex
     justify-content: center
     align-items: flex-end
@@ -109,7 +109,7 @@
     font-size: 16px
     color: var(--card-color-text);
 
-.player-pet-switch-slider .slide-active .player-pet-switch__pet-card-wrapper
+.player-pet-switch-slider .slide-active .player-pet-switch__pet-card
   width: 157px
   height: 157px
   &::before
@@ -125,18 +125,18 @@
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;      
-  & .player-pet-switch__pet-card
+  & .pet-card__image
     filter: brightness(60%)
     max-width: 137px
     max-height: 137px
 
-    
+.player-pet-switch__pet-card:hover .pet-card__tooltip,
 .player-pet-switch-slider .slide-active .pet-card__tooltip,
-.player-pet-switch__pet-card:hover
+  display: block
+
+.player-pet-switch__pet-card:hover .pet-card__image
   filter: brightness(60%)
-  & ~ .pet-card__tooltip
-    display: block
-  
+
 .player-pet-switch-slider__button-prev,
 .player-pet-switch-slider__button-next
   width: 18px;

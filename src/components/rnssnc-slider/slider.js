@@ -187,9 +187,10 @@ export default class Slider {
       };
     } else {
       this.nextSlide = (e) => {
-        if (this.rightVisibleSlideIndex <= this.slides.length - this.slidesToScroll)
+        if (this.rightVisibleSlideIndex <= this.slides.length - this.slidesToScroll) {
+          this.unlockTransitionEnd = true;
           this.shiftSlide(this.slidesToScroll) || e.preventDefault();
-        else {
+        } else {
           if (this.currentSlideIndex < this.defaultLength - 1) {
             this.currentSlideIndex++;
             this.removeActiveState(this.currentSlide);
@@ -320,32 +321,37 @@ export default class Slider {
   };
 
   goTo(slideIndex) {
-    const countToSlide = slideIndex - this.currentSlideIndex;
+    console.log(slideIndex);
+    console.log(this.currentSlideIndex);
+    if (slideIndex !== this.currentSlideIndex) {
+      const countToSlide = slideIndex - this.currentSlideIndex;
 
-    if (!this.centerMode && slideIndex >= this.defaultLength - this.slidesToShow && countToSlide > 0) {
-      this.removeActiveState(this.slides[this.currentSlideIndex]);
+      if (!this.centerMode && slideIndex >= this.defaultLength - this.slidesToShow && countToSlide > 0) {
+        this.removeActiveState(this.slides[this.currentSlideIndex]);
 
-      this.shiftSlide(this.defaultLength - this.rightVisibleSlideIndex);
+        this.shiftSlide(this.defaultLength - this.rightVisibleSlideIndex);
 
-      this.currentSlideIndex = slideIndex;
-      this.currentSlide = this.slides[this.currentSlideIndex];
+        this.currentSlideIndex = slideIndex;
+        this.currentSlide = this.slides[this.currentSlideIndex];
 
-      this.addActiveState(slideIndex);
-    } else if (!this.centerMode && slideIndex < this.slidesToShow && countToSlide < 0) {
-      this.removeActiveState(this.slides[this.currentSlideIndex]);
+        this.addActiveState(slideIndex);
+      } else if (!this.centerMode && slideIndex < this.slidesToShow && countToSlide < 0) {
+        this.removeActiveState(this.slides[this.currentSlideIndex]);
 
-      if (countToSlide == -1 && this.rightVisibleSlideIndex > this.slidesToShow) this.shiftSlide(-1);
-      else this.shiftSlide(-this.rightVisibleSlideIndex + this.slidesToShow);
+        if (countToSlide == -1 && this.rightVisibleSlideIndex > this.slidesToShow) this.shiftSlide(-1);
+        else this.shiftSlide(-this.rightVisibleSlideIndex + this.slidesToShow);
 
-      this.currentSlideIndex = slideIndex;
-      this.currentSlide = this.slides[this.currentSlideIndex];
+        this.currentSlideIndex = slideIndex;
+        this.currentSlide = this.slides[this.currentSlideIndex];
 
-      this.addActiveState(slideIndex);
-    } else {
-      this.shiftSlide(countToSlide);
+        this.addActiveState(slideIndex);
+      } else {
+        this.unlockTransitionEnd = true;
+        this.shiftSlide(countToSlide);
 
-      this.currentSlideIndex = slideIndex;
-      this.currentSlide = this.slides[this.currentSlideIndex];
+        this.currentSlideIndex = slideIndex;
+        this.currentSlide = this.slides[this.currentSlideIndex];
+      }
     }
   }
 
