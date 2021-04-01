@@ -2,6 +2,7 @@ import '../review/review';
 import './testimonials.sass';
 
 import '../rnssnc-slider/slider.css';
+import '../slider-scrollbar/scrollbar.sass';
 import Scrollbar from '../slider-scrollbar/Scrollbar';
 import Slider from '../rnssnc-slider/slider';
 
@@ -10,7 +11,9 @@ const slider = new Slider({
   track: '.testimonials-section__testimonials-slider-track',
   slidesToShow: 2,
   slidesToScroll: 1,
-
+  arrows: true,
+  buttonPrev: '.testimonials-slider__button-prev',
+  buttonNext: '.testimonials-slider__button-next',
   infinite: false,
 });
 

@@ -1,6 +1,7 @@
 import './pets.sass';
 
 import '../rnssnc-slider/slider.css';
+import '../slider-scrollbar/scrollbar.sass';
 import Scrollbar from '../slider-scrollbar/Scrollbar';
 import Slider from '../rnssnc-slider/slider';
 
@@ -9,7 +10,9 @@ const slider = new Slider({
   track: '.pets-section__pets-slider-track',
   slidesToShow: 4,
   slidesToScroll: 1,
-
+  arrows: true,
+  buttonPrev: '.pets-slider__button-prev',
+  buttonNext: '.pets-slider__button-next',
   infinite: false,
 });
 

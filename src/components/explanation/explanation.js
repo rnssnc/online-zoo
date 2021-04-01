@@ -1,6 +1,7 @@
 import './explanation.sass';
 
 import '../rnssnc-slider/slider.css';
+import '../slider-scrollbar/scrollbar.sass';
 import Scrollbar from '../slider-scrollbar/Scrollbar';
 import Slider from '../rnssnc-slider/slider';
 
