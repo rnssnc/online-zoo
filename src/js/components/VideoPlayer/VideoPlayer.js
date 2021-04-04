@@ -31,7 +31,7 @@ export default class VideoPlayer extends Control {
   loadVideos(videos) {
     this.videos = videos;
 
-    this.createRadio(videos.length);
+    if (!this.radioButtons) this.createRadio(3);
     this.setVideo(videos[0]);
     this.radioButtons.setActiveState(0);
 
