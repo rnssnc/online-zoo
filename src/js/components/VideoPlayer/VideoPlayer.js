@@ -1,5 +1,5 @@
 import Control from '../../contol';
-
+import RadioButtons from '../RadioButtons/RadioButtons';
 export default class VideoPlayer extends Control {
   constructor(parentNode, className, options = {}) {
     super(parentNode, 'div', `${className}-wrapper`);
@@ -31,7 +31,9 @@ export default class VideoPlayer extends Control {
   loadVideos(videos) {
     this.videos = videos;
 
+    this.createRadio(videos.length);
     this.setVideo(videos[0]);
+    this.radioButtons.setActiveState(0);
 
     if (videos.length > 1) {
       this.videoPreviewsWrapper.node.innerHTML = '';
@@ -60,5 +62,10 @@ export default class VideoPlayer extends Control {
 
       this.videoPreviews.push(previewWrapper);
     });
+  }
+
+  createRadio(count) {
+    this.radioButtons = new RadioButtons(this.node, 'video-player__radio-button');
+    this.radioButtons.createRadioButtons(count);
   }
 }
