@@ -19,7 +19,9 @@ import Control from '../../js/contol';
 const sliderWrapper = document.querySelector('.pet-slider__wrapper');
 const sliderElement = document.querySelector('.pet-slider');
 const sliderTrack = sliderElement.querySelector('.pet-slider__track');
-let slides = [];
+const markers = document.querySelector('.map__markers-wrapper').childNodes;
+
+let slidesArr = [];
 
 function renderSlides(slides) {
   slides.map((slide) => {
@@ -34,12 +36,18 @@ function renderSlides(slides) {
     // sliderCard.node.style.backgroundImage = `url('${slide.src}')`;
     sliderCardTooltip.node.textContent = slide.name;
 
-    slides.push(slideWrapper.node);
+    slidesArr.push(slideWrapper.node);
+  });
+}
+
+function setActiveMarker(index) {
+  [...markers].map((marker, mIndex) => {
+    mIndex == index ? marker.classList.add('marker-active') : marker.classList.remove('marker-active');
   });
 }
 
 function installSlider(initialSlideIndex = 0) {
-  return new Slider({
+  const slider = new Slider({
     slider: '.pet-slider',
     track: '.pet-slider__track',
     slidesToShow: 8,
@@ -52,9 +60,13 @@ function installSlider(initialSlideIndex = 0) {
     infinite: false,
   });
 
-  slides.map((slide, index) => {
-    slide.addEventListener('pointerdown', () => this.slider.goTo(index));
+  setActiveMarker(initialSlideIndex);
+
+  slidesArr.map((slide, index) => {
+    slide.addEventListener('pointerdown', () => slider.goTo(index));
   });
+
+  return slider;
 }
 
 renderSlides(animals);
@@ -63,6 +75,7 @@ const slider = installSlider(1);
 const scrollbar = new Scrollbar(sliderWrapper, slider, '123', '/', 245, true);
 
 slider.slider.addEventListener('activeSlideChange', (e) => {
+  setActiveMarker(e.detail);
   scrollbar.range.value = e.detail;
   scrollbar.updateValue();
 });

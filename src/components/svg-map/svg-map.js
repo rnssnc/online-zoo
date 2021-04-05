@@ -6,10 +6,13 @@ import animals from '../../js/animals';
 
 const mapElem = document.querySelector('.map__element');
 const mapWrapper = document.querySelector('.map-wrapper');
+const markerWrapper = document.createElement('div');
+markerWrapper.className = 'map__markers-wrapper';
+mapWrapper.append(markerWrapper);
 
 class Marker extends Control {
   constructor(map, mapWapper, animal) {
-    super(mapWrapper, 'a', `map__marker marker-${animal.id}`);
+    super(markerWrapper, 'a', `map__marker marker-${animal.id}`);
 
     this.map = map;
     this.mapWapper = mapWapper;
