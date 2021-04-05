@@ -59,7 +59,6 @@ export default class Slider {
         // this.shiftX = e.clientX - this.track.getBoundingClientRect().left;
         this.shiftX = 0;
         this.posX1 = e[this.vector];
-        this.track.setPointerCapture(e.pointerId);
 
         this.track.addEventListener('pointermove', this.handlePointerMove);
         document.addEventListener('pointerup', this.handlePointerUp);
@@ -187,32 +186,13 @@ export default class Slider {
       };
     } else {
       this.nextSlide = (e) => {
-        if (this.rightVisibleSlideIndex <= this.slides.length - this.slidesToScroll) {
-          this.unlockTransitionEnd = true;
-          this.shiftSlide(this.slidesToScroll) || e.preventDefault();
-        } else {
-          if (this.currentSlideIndex < this.defaultLength - 1) {
-            this.currentSlideIndex++;
-            this.removeActiveState(this.currentSlide);
-            this.currentSlide = this.slides[this.currentSlideIndex];
-
-            this.addActiveState(this.currentSlideIndex);
-          }
-        }
+        if (this.currentSlideIndex < this.slides.length - 1)
+          this.goTo(this.currentSlideIndex + this.slidesToScroll) || e.preventDefault();
       };
 
       this.prevSlide = (e) => {
-        if (this.rightVisibleSlideIndex > this.edgeLimit) {
-          this.unlockTransitionEnd = true;
-          this.shiftSlide(-this.slidesToScroll) || e.preventDefault();
-        } else {
-          if (this.currentSlideIndex > 0) {
-            this.currentSlideIndex--;
-            this.removeActiveState(this.currentSlide);
-            this.currentSlide = this.slides[this.currentSlideIndex];
-            this.addActiveState(this.currentSlideIndex);
-          }
-        }
+        if (this.currentSlideIndex > 0)
+          this.goTo(this.currentSlideIndex - this.slidesToScroll) || e.preventDefault();
       };
     }
   };
@@ -230,7 +210,6 @@ export default class Slider {
     this.posX1 = 0;
     this.posX2 = 0;
 
-    this.track.releasePointerCapture(e.pointerId);
     document.removeEventListener('pointerup', this.handlePointerUp);
   };
 
@@ -322,34 +301,22 @@ export default class Slider {
 
   goTo(slideIndex) {
     if (slideIndex !== this.currentSlideIndex) {
+      this.removeActiveState(this.currentSlide);
+
       const countToSlide = slideIndex - this.currentSlideIndex;
 
       if (!this.centerMode && slideIndex >= this.defaultLength - this.slidesToShow && countToSlide > 0) {
-        this.removeActiveState(this.slides[this.currentSlideIndex]);
-
         this.shiftSlide(this.defaultLength - this.rightVisibleSlideIndex);
-
-        this.currentSlideIndex = slideIndex;
-        this.currentSlide = this.slides[this.currentSlideIndex];
-
-        this.addActiveState(slideIndex);
       } else if (!this.centerMode && slideIndex < this.slidesToShow && countToSlide < 0) {
-        this.removeActiveState(this.slides[this.currentSlideIndex]);
-
         if (countToSlide == -1 && this.rightVisibleSlideIndex > this.slidesToShow) this.shiftSlide(-1);
         else this.shiftSlide(-this.rightVisibleSlideIndex + this.slidesToShow);
-
-        this.currentSlideIndex = slideIndex;
-        this.currentSlide = this.slides[this.currentSlideIndex];
-
-        this.addActiveState(slideIndex);
       } else {
         this.unlockTransitionEnd = true;
         this.shiftSlide(countToSlide);
-
-        this.currentSlideIndex = slideIndex;
-        this.currentSlide = this.slides[this.currentSlideIndex];
       }
+      this.currentSlideIndex = slideIndex;
+      this.currentSlide = this.slides[this.currentSlideIndex];
+      this.addActiveState(slideIndex);
     }
   }
 
@@ -361,8 +328,5 @@ export default class Slider {
     this.track.style.transition = `transform ${this.transitionTime}s`;
     this.track.style.transform = `${this.translateFunction}(${this.transformValue}px)`;
     this.rightVisibleSlideIndex += count;
-
-    this.currentSlideIndex = +this.currentSlideIndex + +count;
-    this.removeActiveState(this.currentSlide);
   }
 }
