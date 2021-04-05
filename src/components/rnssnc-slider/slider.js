@@ -324,8 +324,7 @@ export default class Slider {
     if (this.variableWidth) this.slideWidth = this.slideWidths[+this.currentSlideIndex + +count];
 
     this.transformValue += -count * this.slideWidth;
-
-    this.track.style.transition = `transform ${this.transitionTime}s`;
+    if (this.unlockTransitionEnd) this.track.style.transition = `transform ${this.transitionTime}s`;
     this.track.style.transform = `${this.translateFunction}(${this.transformValue}px)`;
     this.rightVisibleSlideIndex += count;
   }
