@@ -5,6 +5,6 @@ include ../toggle/toggle.pug
 mixin header(options = {})
   .section-wrapper.header-section-wrapper
     header.header
-      +logotype({href: '#'})
+      +logotype({href: './'})
       +navigation(options.navigationItems,{class: 'navigation-header-main'})
       +toggle()
