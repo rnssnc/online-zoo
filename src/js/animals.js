@@ -77,12 +77,16 @@ const animals = [
     descriptions: ['Population', 'habitat', 'diet'],
   },
   {
-    id: 'Eagle2',
-    name: 'Eagle2',
-    title: 'West End Bald Eagle',
+    id: 'Fox',
+    name: 'Fox',
+    title: 'Flexing fox',
     region: 'on an island near Los Angeles',
     population: 'more than 270 pairs in 2013',
-    src: 'assets/images/pet-cards/eagle.png',
+    habitat:
+      'Gorillas primarily inhabit tropical forest habitats.Tropical forests are characterized as having little variance in temperature (around 23°C) and length of daylight (around 12 hours).',
+    diet:
+      'Gorillas stick to a mainly vegetarian diet, feeding on stems, bamboo shoots and fruits. Western lowland gorillas, however, also have an appetite for termites and ants, and break open termite nests to eat the larvae.',
+    src: 'assets/images/pet-cards/fox.png',
     href: '#',
     country: 'US',
     videos: [
@@ -93,12 +97,16 @@ const animals = [
     descriptions: ['Population', 'habitat', 'diet'],
   },
   {
-    id: 'Alligator2',
-    name: 'Alligator2',
-    title: 'Alligator and Spoonbill Swamp',
+    id: 'Koala',
+    name: 'Koala',
+    title: 'Lazy koala',
     region: 'on an island near Los Angeles',
     population: 'more than 270 pairs in 2013',
-    src: 'assets/images/pet-cards/alligator.png',
+    habitat:
+      'Gorillas primarily inhabit tropical forest habitats.Tropical forests are characterized as having little variance in temperature (around 23°C) and length of daylight (around 12 hours).',
+    diet:
+      'Gorillas stick to a mainly vegetarian diet, feeding on stems, bamboo shoots and fruits. Western lowland gorillas, however, also have an appetite for termites and ants, and break open termite nests to eat the larvae.',
+    src: 'assets/images/pet-cards/koala.png',
     href: '#',
     country: 'US',
     videos: [
@@ -109,12 +117,16 @@ const animals = [
     descriptions: ['Population', 'habitat', 'diet'],
   },
   {
-    id: 'Gorilla2',
-    name: 'Gorilla2',
-    title: 'Grace Gorilla Forest Corridor',
+    id: 'Elephant',
+    name: 'Elephant',
+    title: 'Really big Elephant',
     region: 'on an island near Los Angeles',
     population: 'more than 270 pairs in 2013',
-    src: 'assets/images/pet-cards/gorilla.png',
+    habitat:
+      'Gorillas primarily inhabit tropical forest habitats.Tropical forests are characterized as having little variance in temperature (around 23°C) and length of daylight (around 12 hours).',
+    diet:
+      'Gorillas stick to a mainly vegetarian diet, feeding on stems, bamboo shoots and fruits. Western lowland gorillas, however, also have an appetite for termites and ants, and break open termite nests to eat the larvae.',
+    src: 'assets/images/pet-cards/elephant.png',
     href: '#',
     country: 'CM',
     videos: [
@@ -125,15 +137,15 @@ const animals = [
     descriptions: ['Population', 'habitat', 'diet'],
   },
   {
-    id: 'Panda2',
-    name: 'Panda2',
-    title: 'Flexing panda',
+    id: 'Tiger',
+    name: 'Tiger',
+    title: 'Angry tiger',
     region: 'on an island near Los Angeles',
     population: 'About 1,590 individuals',
     habitat: 'Temperate forests high in the mountains of southwest China',
     diet:
       "A panda's daily diet consists almost entirely of the leaves, stems and shoots of various bamboo species. Bamboo contains very little nutritional value so pandas must eat 12-38kg every day to meet their energy needs.",
-    src: 'assets/images/pet-cards/panda.png',
+    src: 'assets/images/pet-cards/tiger.png',
     href: '#',
     country: 'CN',
     videos: [
