@@ -11,7 +11,7 @@ mixin footer()
           +logotype({href: './'})
         .footer__column 
           .footer-nav-wrapper
-            +navigation([{href: './', type:'nav', value:'About'},{href: './map.html', type:'nav', value:'Map'},{href: './zoos.html#panda', type:'nav', value:'Zoos'}],{class: 'navigation-footer-main'})
+            +navigation([{href: './', type:'nav', value:'About'},{href: './map.html', type:'nav', value:'Map'},{href: './zoos.html#panda', type:'nav', value:'Zoos'},{href:'https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp?node-id=155%3A205',type:'nav',value:'Design'}],{class: 'navigation-footer-main'})
             +button({href:'#',type:'filled',addClass:'footer-nav__donate-button',value:'donate for volunteers'})
       .footer__column-wrapper
         .footer__column 
@@ -26,15 +26,15 @@ mixin footer()
           address.footer__contact
             p.footer__contact-caption ZOO ONLINE CENTER
             .footer__contact-wrapper
-              .footer__contact-address-wrapper
+              address.footer__contact-address-wrapper
                 p.footer__contact-address__address 132, Address District, Street  
                 p.footer__contact-address__mode Open Daily 10:00 am - 5:00 pm
-              ul.footer__contacts 
-                li.footer__contact-item 
-                  span T
-                  tel (702) 163-3433
-                li.footer__contact-item 
-                  mailto zoo.online@gmail.com
+                ul.footer__contacts 
+                  li.footer__contact-item 
+                    span T
+                    tel (702) 163-3433
+                  li.footer__contact-item 
+                    mailto zoo.online@gmail.com
               +socials([{href: "#",value:'',icon: 'instagram'},{href: "#",value:'',icon: 'twitter'},{href: "#",value:'',icon: 'youtube'},{href: "#",value:'',icon: 'vk'}])
       .footer__copyright
         span.footer__copyright__designer ©Noora Sagnayeva

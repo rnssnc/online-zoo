@@ -42,9 +42,12 @@
 .footer__contact-us-form-caption
   color: var(--footer-header-color)
 
-.footer .navigation__link 
-  color: var(--footer-text-color-primary) 
- 
+.footer .navigation__link,
+  color: var(--footer-text-color-primary)
+   
+.footer .navigation__link::after
+  background-color: var(--footer-text-color-primary) 
+
 .footer-nav__donate-button
   width: 275px
 
@@ -57,7 +60,16 @@
   padding-top: 35px
   gap: 20px
 
+.footer__contact-address-wrapper
+  display: flex
+  flex-direction: column
+  gap: 5px
+  font-style: normal
 .footer__contacts 
+  display: flex
+  flex-direction: column
+  gap: 5px
+  padding-top: 15px
   list-style-type: none
   
 .footer__copyright 
