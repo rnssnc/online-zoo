@@ -53,7 +53,7 @@ export default class Slider {
     this.posX1 = 0;
     this.posX2 = 0;
     this.track.addEventListener('pointerdown', (e) => {
-      if (this.track.style.transition == '') {
+      if (this.track.style.transition == '' || !this.unlockTransitionEnd) {
         e.preventDefault(); // prevent selection start (browser action)
 
         // this.shiftX = e.clientX - this.track.getBoundingClientRect().left;
@@ -272,6 +272,7 @@ export default class Slider {
 
   handleTransitionEnd = (e) => {
     if (e.propertyName == 'transform') {
+      console.log(e);
       this.track.style.transition = null;
       if (this.infinite && this.rightVisibleSlideIndex == this.slides.length - this.slidesToShow) {
         this.transformValue = this.defaultTranslate;
@@ -324,7 +325,7 @@ export default class Slider {
     if (this.variableWidth) this.slideWidth = this.slideWidths[+this.currentSlideIndex + +count];
 
     this.transformValue += -count * this.slideWidth;
-    if (this.unlockTransitionEnd) this.track.style.transition = `transform ${this.transitionTime}s`;
+    this.track.style.transition = `transform ${this.transitionTime}s`;
     this.track.style.transform = `${this.translateFunction}(${this.transformValue}px)`;
     this.rightVisibleSlideIndex += count;
   }
