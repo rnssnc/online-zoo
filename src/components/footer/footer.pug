@@ -31,10 +31,9 @@ mixin footer()
                 p.footer__contact-address__mode Open Daily 10:00 am - 5:00 pm
                 ul.footer__contacts 
                   li.footer__contact-item 
-                    span T
-                    tel (702) 163-3433
+                    a(href="tel:+77021633633" class="button button-contact") T(702) 163-3433
                   li.footer__contact-item 
-                    mailto zoo.online@gmail.com
+                    a(href="mailto:zoo.online@gmail.com" class="button button-contact") zoo.online@gmail.com
               +socials([{href: "#",value:'',icon: 'instagram'},{href: "#",value:'',icon: 'twitter'},{href: "#",value:'',icon: 'youtube'},{href: "#",value:'',icon: 'vk'}])
       .footer__copyright
         span.footer__copyright__designer ©Noora Sagnayeva
