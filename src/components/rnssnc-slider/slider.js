@@ -187,12 +187,12 @@ export default class Slider {
     } else {
       this.nextSlide = (e) => {
         if (this.currentSlideIndex < this.slides.length - 1)
-          this.goTo(this.currentSlideIndex + this.slidesToScroll) || e.preventDefault();
+          this.goTo(+this.currentSlideIndex + +this.slidesToScroll) || e.preventDefault();
       };
 
       this.prevSlide = (e) => {
         if (this.currentSlideIndex > 0)
-          this.goTo(this.currentSlideIndex - this.slidesToScroll) || e.preventDefault();
+          this.goTo(+this.currentSlideIndex - +this.slidesToScroll) || e.preventDefault();
       };
     }
   };
@@ -272,7 +272,6 @@ export default class Slider {
 
   handleTransitionEnd = (e) => {
     if (e.propertyName == 'transform') {
-      console.log(e);
       this.track.style.transition = null;
       if (this.infinite && this.rightVisibleSlideIndex == this.slides.length - this.slidesToShow) {
         this.transformValue = this.defaultTranslate;
