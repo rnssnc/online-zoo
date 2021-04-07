@@ -13,6 +13,7 @@ mapWrapper.append(markerWrapper);
 class Marker extends Control {
   constructor(map, mapWapper, animal) {
     super(markerWrapper, 'a', `map__marker marker-${animal.id}`);
+    this.node.title = animal.name;
 
     this.map = map;
     this.mapWapper = mapWapper;
