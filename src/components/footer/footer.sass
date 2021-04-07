@@ -4,9 +4,9 @@
 .footer
   display: flex
   flex-wrap: wrap
-  padding-top: 105px
   color: var(--footer-text-color-primary)
-
+  padding-bottom: 75px
+  
 .footer__column-wrapper
   display: flex;
   flex-wrap: wrap;
@@ -18,7 +18,10 @@
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
-  flex: 1;
+  flex: 50%;
+
+.footer__column-right
+  padding-left: 15px
 
 .footer__column-row
   width: 100%
@@ -31,6 +34,9 @@
 .footer-nav-wrapper
   display: flex
   justify-content: space-between
+
+.footer-nav-wrapper .navigation__list
+  gap: 73px
 
 .footer__contact-us-form
   padding-top: 33px
@@ -69,6 +75,7 @@
   flex-direction: column
   gap: 5px
   font-style: normal
+
 .footer__contacts 
   display: flex
   flex-direction: column
@@ -84,5 +91,4 @@
   gap: 5px
   border-top: 1px solid #fefefe
   padding-top: 28px
-  padding-bottom: 75px
   font-size: 12px

@@ -5,16 +5,16 @@ include ../socials/socials.pug
 
 mixin footer()
   .section-wrapper.footer-section-wrapper
-    footer.footer
+    footer.footer.section
       .footer__column-row
-        .footer__column 
+        .footer__column.footer__column-left 
           +logotype({href: './'})
-        .footer__column 
+        .footer__column.footer__column-right
           .footer-nav-wrapper
-            +navigation([{href: './', type:'nav', value:'About'},{href: './map.html', type:'nav', value:'Map'},{href: './zoos.html#panda', type:'nav', value:'Zoos'},{href:'https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp?node-id=155%3A205',type:'nav',value:'Design'}],{class: 'navigation-footer-main'})
+            +navigation([{href: './', type:'nav', value:'About'},{href: './zoos.html#panda', type:'nav', value:'Zoos'},{href: './map.html', type:'nav', value:'Map'},{href:'https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp?node-id=155%3A205',type:'nav',value:'Design'}],{class: 'navigation-footer-main'})
             +button({href:'#',type:'filled',addClass:'footer-nav__donate-button',value:'donate for volunteers'})
       .footer__column-wrapper
-        .footer__column 
+        .footer__column.footer__column-left 
           h3.footer__contact-us-form-caption.typography__cta Contact us
           form(class='footer__contact-us-form' id="contact-us-form")
             +input({type:'text', name:'name', placeholder:'Name', required: true,label:'Name',id:'footer__contact-us-form__name',autocomplete: 'off'})
@@ -22,7 +22,7 @@ mixin footer()
             +input({type:'textarea', name:'textarea', maxlength:'280', placeholder:'', required: true,label:'Please enter your message',id:'footer__contact-us-form__textarea',autocomplete: 'off'})
             +input({type:'checkbox', name:'checkbox', placeholder:'', required: true,label:'I agree to the processing of Personal Data',id:'footer__contact-us-form__agreement-checkbox'})
             +button({isButton: true, isSub: true, type: 'submit', value:'send', type:'icon', icon: "arrow"})
-        .footer__column
+        .footer__column.footer__column-right
           address.footer__contact
             p.footer__contact-caption ZOO ONLINE CENTER
             .footer__contact-wrapper
