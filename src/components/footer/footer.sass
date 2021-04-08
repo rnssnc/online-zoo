@@ -9,7 +9,7 @@
 
 .footer .button
   color: var(--footer-text-color-primary)
-  
+
 .footer__column-wrapper
   display: flex;
   flex-wrap: wrap;
@@ -32,9 +32,11 @@
   justify-content: space-between
 
 .footer .logotype
+  align-self: flex-start
   color: var(--footer-logotype-color)
 
 .footer-nav-wrapper
+  position: relative
   display: flex
   justify-content: space-between
 
@@ -95,3 +97,8 @@
   border-top: 1px solid #fefefe
   padding-top: 28px
   font-size: 12px
+
+@media screen and ( max-width: 1200px )
+  .footer-nav__donate-button
+    position: absolute
+    bottom: -350px
