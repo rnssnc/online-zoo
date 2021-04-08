@@ -15,6 +15,22 @@ const slider = new Slider({
   buttonPrev: '.testimonials-slider__button-prev',
   buttonNext: '.testimonials-slider__button-next',
   infinite: false,
+  responsive: {
+    1920: {
+      from: 901,
+      slidesToShow: 2,
+      startSlide: 1,
+    },
+    // 1200: {
+    //   from: 801,
+    //   slidesToShow: 2,
+    // },
+    900: {
+      from: 0,
+      slidesToShow: 1,
+      startSlide: 0,
+    },
+  },
 });
 
 const sliderWrapper = document.querySelector('.testimonials-section__testimonials-slider-wrapper');

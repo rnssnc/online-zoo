@@ -45,8 +45,19 @@
   left: -42px
 
 @media screen and ( max-width: 1200px )
+  .review-block-wrapper
+    padding-left: 10px
+    padding-right: 10px
   .review-content-wrapper
-    max-width: 440px
-    height: 310px
     padding-left: 56px
     padding-right: 58px
+  .testimonials-slider__button-prev
+    left: -20px
+  .testimonials-slider__button-next
+    right: -20px
+
+@media screen and ( max-width: 900px )
+  .testimonials-slider__button-next,
+  .testimonials-slider__button-prev
+    display: none
+  
