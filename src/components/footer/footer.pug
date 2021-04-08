@@ -13,7 +13,7 @@ mixin footer()
           .footer-nav-wrapper
             +navigation([{href: './', type:'nav', value:'About'},{href: './zoos.html#panda', type:'nav', value:'Zoos'},{href: './map.html', type:'nav', value:'Map'},{href:'https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp?node-id=155%3A205',type:'nav',value:'Design'}],{class: 'navigation-footer-main'})
             +button({href:'#',type:'filled',addClass:'footer-nav__donate-button',value:'donate for volunteers'})
-      .footer__column-row
+      .footer__column-row.contact-row
         .footer__column.footer__column-left 
           h3.footer__contact-us-form-caption.typography__cta Contact us
           form(class='footer__contact-us-form' id="contact-us-form")
