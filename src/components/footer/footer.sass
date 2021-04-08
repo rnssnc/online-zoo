@@ -5,7 +5,7 @@
   display: flex
   flex-wrap: wrap
   color: var(--footer-text-color-primary)
-  padding-bottom: 75px
+  padding-bottom: 72px
 
 .footer .button
   color: var(--footer-text-color-primary)
@@ -99,6 +99,28 @@
   font-size: 12px
 
 @media screen and ( max-width: 1200px )
+  .footer
+    padding-bottom: 52px
   .footer-nav__donate-button
     position: absolute
     bottom: -350px
+@media screen and ( max-width: 640px )
+  .footer
+    padding-bottom: 47px
+  .footer__column-row
+    flex-direction: column
+  .footer .navigation__list
+    padding-top: 30px
+    align-items: flex-start
+    flex-direction: column
+    gap: 5px
+  .footer__column.footer__column-right
+    padding-left: 0
+  .footer__contact-us-form-caption
+    padding-top: 30px
+  .footer-nav__donate-button
+    bottom: 100px
+    right: 0
+  .address-section
+    padding-top: 75px
+    padding-bottom: 75px
