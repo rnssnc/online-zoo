@@ -7,4 +7,9 @@ mixin header(options = {})
     header.header
       +logotype({href: './'})
       +navigation(options.navigationItems,{class: 'navigation-header-main'})
-      +toggle()
+      .header-right-items__wrapper
+        +toggle()
+        .mobile-nav
+          .mobile-nav__line.mobile-nav__line-1
+          .mobile-nav__line.mobile-nav__line-2
+          .mobile-nav__line.mobile-nav__line-3
