@@ -60,6 +60,7 @@
     width: 436px
     height: 149px
     background-color: var(--section-color-background-one)
+    box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
     z-index: 2
     transition: all 0.3s ease
     &:hover
@@ -95,3 +96,11 @@
     align-items: center
     flex-direction: row
     gap: 20px
+
+@media screen and ( max-width: 1200px )
+  .map__marker .marker__animal-info
+    transform: translate(-50%, 94px)
+
+@media screen and ( max-width: 800px )
+  .map__marker .marker__animal-info
+    transform: translate(-60%, 94px)
