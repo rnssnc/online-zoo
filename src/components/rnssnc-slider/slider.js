@@ -7,7 +7,7 @@ export default class Slider {
     this.slidesToShow = options.slidesToShow;
     this.slidesToScroll = options.slidesToScroll;
     this.infinite = options.infinite;
-    this.variableWidth = options.variableWidth;
+    this.variableWidth = options.variableWidth || false;
     this.slides = this.track.children;
     this.transitionTime = 0.3;
     this.slideWidthBeforeCurrent;
@@ -41,12 +41,12 @@ export default class Slider {
       this.buttonPrev.addEventListener('click', this.prevSlide);
     }
 
-    this.setupSlider();
-
     if (options.responsive) {
       this.responsive = options.responsive;
       this.handleResposive(this.responsive);
     }
+
+    this.setupSlider();
 
     // this.shiftX = 0;
     // this.newLeft = 0;
@@ -111,7 +111,6 @@ export default class Slider {
       );
       const handleTabletChange = (e) => {
         // Check if the media query is true
-        // console.log(e);
         if (e.matches) {
           const obj = this.responsive[key];
           for (const key in obj) this[key] = obj[key];
@@ -316,6 +315,7 @@ export default class Slider {
       const countToSlide = slideIndex - this.currentSlideIndex;
 
       if (!this.centerMode && slideIndex >= this.defaultLength - this.slidesToShow && countToSlide > 0) {
+        console.log(this.rightVisibleSlideIndex);
         this.shiftSlide(this.defaultLength - this.rightVisibleSlideIndex);
       } else if (!this.centerMode && slideIndex < this.slidesToShow && countToSlide < 0) {
         if (countToSlide == -1 && this.rightVisibleSlideIndex > this.slidesToShow) this.shiftSlide(-1);
