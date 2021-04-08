@@ -33,19 +33,19 @@ export default class Slider {
     this.isClonesAdded = false;
     this.defaultLength = this.slides.length;
 
-    this.setupSlider();
-
-    if (options.responsive) {
-      this.responsive = options.responsive;
-      this.handleResposive(this.responsive);
-    }
-
     if (this.arrows) {
       this.buttonNext = document.querySelector(options.buttonNext);
       this.buttonPrev = document.querySelector(options.buttonPrev);
 
       this.buttonNext.addEventListener('click', this.nextSlide);
       this.buttonPrev.addEventListener('click', this.prevSlide);
+    }
+
+    this.setupSlider();
+
+    if (options.responsive) {
+      this.responsive = options.responsive;
+      this.handleResposive(this.responsive);
     }
 
     // this.shiftX = 0;
@@ -74,6 +74,7 @@ export default class Slider {
     this.unlockTransitionEnd = false;
 
     this.currentSlideIndex = this.startSlide;
+    if (this.arrows) this.handleSliderEdge(this.startSlide);
     if (this.currentSlide) this.removeActiveState(this.currentSlide);
 
     this.defaultTranslate = 0;
@@ -299,8 +300,17 @@ export default class Slider {
     }
   };
 
+  handleSliderEdge(slideIndex) {
+    if (slideIndex == 0) this.buttonPrev.classList.add('button-disabled');
+    else this.buttonPrev.classList.remove('button-disabled');
+    if (slideIndex == this.slides.length - 1) this.buttonNext.classList.add('button-disabled');
+    else this.buttonNext.classList.remove('button-disabled');
+  }
+
   goTo(slideIndex) {
     if (slideIndex !== this.currentSlideIndex) {
+      this.handleSliderEdge(slideIndex);
+
       this.removeActiveState(this.currentSlide);
 
       const countToSlide = slideIndex - this.currentSlideIndex;
