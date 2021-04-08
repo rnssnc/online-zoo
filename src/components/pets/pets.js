@@ -14,6 +14,24 @@ const slider = new Slider({
   buttonPrev: '.pets-slider__button-prev',
   buttonNext: '.pets-slider__button-next',
   infinite: false,
+  responsive: {
+    1920: {
+      from: 901,
+      slidesToShow: 4,
+      startSlide: 0,
+      arrows: true,
+      variableWidth: false,
+      centerMode: false,
+    },
+    900: {
+      from: 0,
+      slidesToShow: 3,
+      startSlide: 0,
+      arrows: false,
+      variableWidth: true,
+      centerMode: true,
+    },
+  },
 });
 
 const sliderWrapper = document.querySelector('.pets-section__pets-slider-wrapper');
