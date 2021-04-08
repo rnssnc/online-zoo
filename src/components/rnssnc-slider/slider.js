@@ -309,7 +309,7 @@ export default class Slider {
 
   goTo(slideIndex) {
     if (slideIndex !== this.currentSlideIndex) {
-      this.handleSliderEdge(slideIndex);
+      if (this.arrows) this.handleSliderEdge(slideIndex);
 
       this.removeActiveState(this.currentSlide);
 
