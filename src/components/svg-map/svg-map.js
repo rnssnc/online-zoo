@@ -14,6 +14,8 @@ class Marker extends Control {
   constructor(map, mapWapper, animal) {
     super(markerWrapper, 'a', `map__marker marker-${animal.id}`);
     this.node.title = animal.name;
+    this.node.style.left = `${animal.pinX}%`;
+    this.node.style.top = `${animal.pinY}%`;
 
     this.map = map;
     this.mapWapper = mapWapper;
@@ -31,7 +33,13 @@ class Marker extends Control {
       this.animal.src.lastIndexOf('/') + 1,
     )}')`;
 
-    this.animalInfoWrapper = new Control(this.node, 'div', 'marker__animal-info');
+    this.animalInfoWrapper = new Control(
+      markerWrapper,
+      'div',
+      `marker__animal-info marker-info-${animal.id}`,
+    );
+    this.animalInfoWrapper.node.style.left = `calc(${animal.pinX}%)`;
+    this.animalInfoWrapper.node.style.top = `calc(${animal.pinY}%)`;
 
     this.animalInfoImage = new Control(this.animalInfoWrapper.node, 'div', 'animal-info__image');
     this.animalInfoImage.node.style.backgroundImage = `url('images/${this.animal.src.slice(
