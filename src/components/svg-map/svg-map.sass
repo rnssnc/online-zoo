@@ -1,6 +1,5 @@
 .map-wrapper
   position: relative
-  padding-top: 60px
 
 .map__element
   // max-width: 1200px
@@ -10,9 +9,12 @@
   height: 1%;
 .map-area
   fill: var(--map-area-color)
+  stroke: 1px solid var(--map-area-color)
 
 .map-area__active
+  box-sizing: border-box
   fill: var(--map-area-active-color)
+  stroke: 1px solid var(--map-area-color)
 
 .marker__image
   height: 43px
@@ -28,9 +30,10 @@
   display: none
   cursor: pointer 
   position: absolute
-  width: 68px
-  height: 94px
+  width: var(--marker-width)
+  height: var(--marker-height)
   background-image: url('../../assets/images/icons/marker.svg')
+  background-size: contain;
   transition: all 0.3s ease
   &.marker-active,
   &:hover 
@@ -95,11 +98,45 @@
 @media screen and ( max-width: 1200px )
   .map__marker .marker__animal-info
     transform: translate(-50%, 94px)
+  .map-section-watch-online-button-wrapper 
+    padding-top: 75px;
 
 @media screen and ( max-width: 1000px )
   .marker__animal-info
     position: absolute
     left: 50% !important
-    transform: translateX(-50%) !important
-    top: 50% !important
-    transform: translateY(-50%) 
+    transform: translate(-50%, var(--marker-height) ) !important
+
+  
+@media screen and ( max-width: 640px )
+  .map-section-watch-online-button-wrapper 
+    padding-top: 50px;
+
+@media screen and ( max-width: 500px )
+  .marker__image
+    top: 6px
+    width: 21px
+    height: 21px
+  .marker__animal-info
+    padding-top: 16px
+    align-items: flex-start
+    justify-content: center
+    gap: 8px
+    max-width: 238px
+    height: 113px
+  .marker__animal-info:hover
+    height: 156px
+  .marker__animal-info .animal-info__content-wrapper
+    max-width: 151px
+  .marker__animal-info .animal-info__image
+    height: 40px
+    width: 40px
+  .animal-info__region,
+  .animal-info__population
+    font-size: 11px
+    line-height: 13px
+  .marker__animal-info .animal-info__content-wrapper .animal-info__name
+    font-size: 14px
+    line-height: 16px
+  .map-section-watch-online-button-wrapper 
+    padding-top: 44px;

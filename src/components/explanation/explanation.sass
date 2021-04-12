@@ -1,10 +1,15 @@
 .section-wrapper.explanation-section-wrapper
   background: var(--section-color-background-one)
 
+.explanation-section .section__content-wrapper
+  max-width: 790px
+  margin: 0 auto
+
 .explanation-section__title
   text-align: left
 
 .explanation-section__animal-slider-wrapper
+  padding-top: 30px
   display: flex
   flex-direction: column
   gap: 30px
@@ -31,3 +36,33 @@
   padding-top: 25px
   display: flex
   justify-content: center
+
+@media screen and ( max-width: 1200px )
+  .explanation-section .section__content-wrapper
+    max-width: 746px
+  .explanation-section__animal-slider-wrapper
+    padding-top: 14px
+  .explanation-section__animal-slider-wrapper .slider-scrollbar__input::-webkit-slider-thumb 
+    width: 80px;
+  .explanation-section__animal-slider-wrapper .slider-scrollbar__input::-moz-range-thumb 
+    width: 80px;
+
+@media screen and ( max-width: 640px )
+  .explanation-section
+    padding-bottom: 68px
+  .explanation-section__animal-slider-wrapper
+    padding-top: 30px
+
+@media screen and ( max-width: 320px )
+  .explanation-section
+    padding-bottom: 50px
+  .explanation-section__describe-wrapper
+    gap: 25px
+  .explanation-section__animal-slider-wrapper
+    padding-top: 25px
+  .explanation-section-watch-online-button-wrapper
+    padding-top: 19px;
+  .explanation-section__animal-slider-wrapper
+    gap: 19px
+  .slider-scrollbar__container
+    gap: 7px

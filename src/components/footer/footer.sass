@@ -47,6 +47,9 @@
   gap: 20px
   max-width: 383px
 
+.contact-us-form__button-submit
+  padding-right: 10px
+
 .footer__contact-us-form-caption
   color: var(--footer-header-color)
 
@@ -100,7 +103,18 @@
     padding-bottom: 52px
   .footer-nav__donate-button
     position: absolute
-    bottom: -350px
+    bottom: -336px
+  .footer__nav-column
+    justify-content: flex-end
+  .footer__column.footer__column-right
+    padding-left: 10px
+  .footer__contact-us-form-caption 
+    color: var(--footer-header-color)
+    padding-top: 12px
+  .contact-row
+    padding-bottom: 64px
+  .footer__copyright
+    padding-top: 34px
 @media screen and ( max-width: 640px )
   .footer
     padding-bottom: 47px
@@ -111,13 +125,31 @@
     align-items: flex-start
     flex-direction: column
     gap: 5px
+  .footer .contact-row
+    padding-top: 0
   .footer__column.footer__column-right
     padding-left: 0
   .footer__contact-us-form-caption
+    padding-top: 25px
+  .footer__copyright
     padding-top: 30px
   .footer-nav__donate-button
-    bottom: 100px
+    bottom: 110px
     right: 0
   .address-section
     padding-top: 75px
-    padding-bottom: 75px
+  .contact-row
+    padding-bottom: 70px
+@media screen and ( max-width: 500px )
+  .footer .navigation__list
+    padding-top: 45px
+  .contact-us-form__button-submit
+    padding-right: 0
+    justify-content: flex-end
+  .address-section
+    padding-top: 53px
+  .footer-nav__donate-button 
+    bottom: -708px;
+    right: 12px;
+  .contact-row
+    padding-bottom: 180px

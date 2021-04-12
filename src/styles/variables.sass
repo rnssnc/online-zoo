@@ -1,3 +1,7 @@
+html 
+  --marker-width: 68px
+  --marker-height: 94px
+
 [data-color-mode=light]
   --color-primary: #FEFEFE
   --color-secondary: #333333
@@ -84,3 +88,8 @@
   --toggle-color-thumb: #1b1b1b 
 
 $font-size-body: 14px
+
+@media screen and ( max-width: 500px )
+  html
+    --marker-width: 33px
+    --marker-height: 46px

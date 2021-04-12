@@ -6,20 +6,27 @@ import '../slider-scrollbar/scrollbar.sass';
 import Scrollbar from '../slider-scrollbar/Scrollbar';
 import Slider from '../rnssnc-slider/slider';
 
+const buttonPrev = document.querySelector('.testimonials-slider__button-prev');
+const buttonNext = document.querySelector('.testimonials-slider__button-next');
+
 const slider = new Slider({
   slider: '.testimonials-section__testimonials-slider',
   track: '.testimonials-section__testimonials-slider-track',
   slidesToShow: 2,
   slidesToScroll: 1,
+  startSlide: 1,
   arrows: true,
-  buttonPrev: '.testimonials-slider__button-prev',
-  buttonNext: '.testimonials-slider__button-next',
+  buttonPrev,
+  buttonNext,
   infinite: false,
   responsive: {
     1920: {
       from: 901,
       slidesToShow: 2,
       startSlide: 1,
+      arrows: true,
+      buttonPrev,
+      buttonNext,
     },
     // 1200: {
     //   from: 801,
@@ -29,6 +36,7 @@ const slider = new Slider({
       from: 0,
       slidesToShow: 1,
       startSlide: 0,
+      arrows: false,
     },
   },
 });
@@ -72,3 +80,7 @@ slider.slider.addEventListener('activeSlideChange', (e) => {
 //   nextArrow: '.pets-slider__button-next',
 //   draggable: true,
 // });
+
+function test() {
+  const obj = [];
+}

@@ -8,13 +8,12 @@
 .hero-section
   position: relative;
   display: flex
+  flex-direction: column
+  justify-content: space-between
   max-height: 940px
   height: 100%
   padding-top: 206px
   padding-bottom: 110px
-
-.hero-section .section__content-wrapper
-  max-width: 1220px
 
 .hero-section__title
   max-width: 793px
@@ -23,7 +22,7 @@
 .hero-section__button-watch-wrapper
   padding-top: 37px
 
-.section__content-left
+.section__socials-wrapper
   display: flex
 
 .hero-section .socials
@@ -32,9 +31,11 @@
   flex-direction: column
 
 .hero-section__pets-slider-wrapper
+  max-width: 1080px
+  width: 100%
   display: flex
   flex-direction: column
-  gap: 10px
+  gap: 18px
   justify-content: center
   align-items: center
   position: absolute
@@ -42,8 +43,19 @@
   right: 0px
   overflow: hidden
 
+.hero-section__pets-slider-container
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 10px;
+  background: url('../../assets/images/icons/line.svg') no-repeat
+  background-position-y: 53%
+
 .hero-section__pets-slider-wrapper .slider-scrollbar__container
-  padding-right: 304px;
+  align-self: center;
+  padding-right: 193px;
 
 .hero-section__pets-slider-wrapper .slider-scrollbar__current-index,
 .hero-section__pets-slider-wrapper .slider-scrollbar__separator,
@@ -60,31 +72,17 @@
   align-items: center
   max-width: 968px
   height: 352px
-  background: url('../../assets/images/icons/line.svg') no-repeat
-  background-position-y: 50%
-
-
-.hero-section__pets-slider .slick-track 
-  display: flex;
-  gap: 46px;
-  height: 360px
-
-.hero-section__pets-slider .slick-track .slick-slide 
-  display: flex;
-  height: auto;
-  align-items: center;
-  justify-content: center;
-
-.pets-slider__track
-  height: 351px
 
 .hero-section__pets-slider .rnssnc-slide
-  padding: 0 23px
+  padding-top: 28px
+  padding-left: 23px
+  padding-right: 23px
+
+.hero-section__pets-slider .rnssnc-slide.slide-active
+  padding-top: 0
 
 .hero-section__pets-slider .rnssnc-slide.slide-active .pet-card__image,
 .hero-section__pets-slider .rnssnc-slide:hover .pet-card__image,
-.hero-section__pets-slider .slick-slide:hover .pet-card__image,
-.hero-section__pets-slider .slick-current-delayed .pet-card__image
   transition: all 0.3s ease
   width: 245px
   height: 352px
@@ -95,27 +93,91 @@
   
 .rnssnc-slide:hover .pet-card__content-wrapper,
 .rnssnc-slide.slide-active .pet-card__content-wrapper,
-.hero-section__pets-slider .slick-slide:hover .pet-card__content-wrapper,
-.hero-section__pets-slider .slick-current-delayed .pet-card__content-wrapper
   display: flex
 
 @media only screen and (max-width: 1200px) 
+  .hero-section-wrapper
+    max-height: 926px
   .hero-section
     padding-top: 128px
     padding-bottom: 70px
+  .hero-section__pets-slider-wrapper
+    max-width: 720px
   .hero-section__pets-slider
     max-width: 600px
+  .hero-section__pets-slider .rnssnc-slide
+    padding-top: 0
+    padding-left: 15px
+    padding-right: 15px
+  .hero-section__pets-slider .pet-card__image
+    width: 180px
+    height: 261px
   .hero-section__pets-slider-wrapper
-    bottom: 70px
+    bottom: 65px
+    gap: 24px
   .hero-section__pets-slider-wrapper .slider-scrollbar__container
     padding-right: 0;
-    padding-left: 68px;
+    padding-left: 226px;
   
 @media only screen and (max-width: 640px) 
+  .hero-section-wrapper
+    max-height: 935px
+  .hero-section
+    padding-top: 123px
+    padding-bottom: 100px
   .hero-section__pets-slider
-    max-width: 510px
+    max-width: 530px
   .hero-section__title
     font-size: 64px
     line-height: 75px
   .hero-section__pets-slider-wrapper .slider-scrollbar__container
-    padding-left: 156px;
+    padding-left: 230px;
+  .hero-section__button-watch-wrapper 
+    padding-top: 30px
+  .hero-section__pets-slider-wrapper 
+    bottom: 99px
+    max-width: 588px
+
+@media only screen and (max-width: 550px) 
+  .hero-section-wrapper
+    max-height: 669px
+  .hero-section
+    padding-top: 92px
+    padding-bottom: 50px
+  .hero-section__title
+    font-size: 48px
+    line-height: 56px
+  .hero-section__pets-slider .pet-card__image
+    width: 113px
+    height: 164px
+  .hero-section__pets-slider .rnssnc-slide.slide-active .pet-card__image,
+  .hero-section__pets-slider .rnssnc-slide:hover .pet-card__image 
+    width: 140px;
+    height: 202px;
+  .hero-section__pets-slider
+    max-width: 300px
+    height: 205px
+  .hero-section__pets-slider-wrapper
+    gap: 10px
+  .hero-section__pets-slider-wrapper
+    bottom: 50px
+  .hero-section__pets-slider .rnssnc-slide
+    padding-left: 5px;
+    padding-right: 5px;
+  .hero-section__pets-slider-container
+    background-position-y: 50%
+  .section__socials-wrapper
+    display: none
+  .hero-section__pets-slider-wrapper
+    max-width: 310px
+  .hero-section__button-watch-wrapper
+    padding-top: 14px
+  .hero-section__pets-slider-wrapper .slider-scrollbar__container
+    padding-left: 102px
+    gap: 0
+  .hero-section__pets-slider-wrapper .slider-scrollbar__input-wrapper
+    width: 140px !important 
+  .hero-section__pets-slider-wrapper .slider-scrollbar__input::-webkit-slider-thumb,
+    width: 17px 
+  .hero-section__pets-slider-wrapper .slider-scrollbar__input::-moz-range-thumb 
+    width: 17px 

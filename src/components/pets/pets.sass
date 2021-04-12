@@ -1,21 +1,31 @@
+.pets-section
+  padding-left: 106px
+  padding-right: 106px
+
 .pets-section__content-wrapper
-  max-width: 1220px
+  max-width: 1280px
 
 .pets-section__pets-slider-wrapper
   display: flex
   flex-direction: column
   gap: 30px
   width: 100%;
+  padding-top: 35px
 
 .pets-slider-wrapper
+  display: flex
+  justify-content: space-between
+  align-items: center
   position: relative
 
+.pets-section__pets-slider.rnssnc-slider
+  max-width: 1220px
+  width: 100%
+  margin: 0 auto
+
 .pets-slider__button
-  position: absolute
   width: 18px
   height: 30px
-  top: 50%;
-  transform: translateY(-50%);
   transition: all .5s ease;
   cursor: pointer;
   outline: none;
@@ -25,13 +35,10 @@
 .pets-slider__button-next
   -webkit-mask-image: url('../../assets/images/icons/slider/arrow-next.svg');
   mask-image: url('../../assets/images/icons/slider/arrow-next.svg');
-  right: -35px
-
 
 .pets-slider__button-prev
   -webkit-mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
   mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
-  left: -35px
 
 .pets-slider__button-next.slick-disabled,
 .pets-slider__button-prev.slick-disabled,
@@ -39,9 +46,6 @@
 
 // .pets-section__pets-slider
 //   margin-right: -30px
-
-.pets-section__pets-slider-wrapper
-  padding-top: 35px
 
 .pets-section__pets-slider .slick-track
   display: flex;
@@ -72,22 +76,22 @@
 
 .pets-section__pets-slider .pet-card__wrapper:hover .pet-card__image
   filter: brightness(50%)
+
 .pets-section__choose-button-wrapper
   padding-top: 25px
   display: flex
   justify-content: center
 
-@media only screen and (max-width: 1200px) 
+@media only screen and (max-width: 1350px) 
   .pets-section__pets-slider-track .pet-card__wrapper
     max-height: 301px 
-  .pets-section__pets-slider-track
-    gap: 20px;
+  .pets-section__pets-slider.rnssnc-slider
+    max-width: 920px
   .pets-section__pets-slider .pet-card
     width: 210px
     height: 301px
   .pets-section__pets-slider
-   margin-right: 0
-   padding-left: 8px;
+    margin-right: 0
   .pets-slider__button-prev
     left: -20px
 
@@ -95,3 +99,34 @@
   .pets-slider__button-prev,
   .pets-slider__button-next
     display: none
+  .pets-section__pets-slider-track
+    gap: 20px
+  .pets-section__pets-slider-wrapper
+    gap: 35px
+  .pets-section__choose-button-wrapper
+    padding-top: 32px
+
+@media screen and ( max-width: 1050px )
+  .pets-section
+    padding-left: 20px
+    padding-right: 20px
+  
+@media screen and ( max-width: 400px )
+  .pets-section
+    padding-top: 100px
+    padding-left: 10px
+    padding-right: 10px
+  .pets-section__pets-slider-wrapper
+    padding-top: 30px
+  .pets-section__pets-slider-track
+    gap: 0
+
+  .pets-section__pets-slider-track .rnssnc-slide
+    padding-left: 8px
+    padding-right: 8px
+  .pets-section__choose-button-wrapper
+    padding-top: 20px
+  .pets-section__pets-slider-wrapper .slider-scrollbar__input::-webkit-slider-thumb,
+    width: 30px 
+  .pets-section__pets-slider-wrapper .slider-scrollbar__input::-moz-range-thumb 
+    width: 30px 

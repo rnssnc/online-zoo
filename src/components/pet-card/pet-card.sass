@@ -22,14 +22,18 @@
     position: absolute
     left: 0
     right: 0
-    width: 200px
+    max-width: 200px
+    width: 100%
     margin: 0 auto
+    padding-left: 7px
+    padding-right: 4px
     text-align: center
     bottom: 33px
 
 
   &__caption
-    width: 185px
+    max-width: 185px
+    width: 100%
     font-size: 14px
     text-align: left
     color: var(--card-color-text)
@@ -45,3 +49,13 @@
 // .slick-current .pet-card__content-wrapper
 //   display: flex
 
+@media screen and ( max-width: 320px )
+  .pet-card__caption
+    font-size: 12px
+  .pet-card__buttons-wrapper
+    flex-direction: column
+    align-items: flex-start
+    gap: 5px
+  .pet-card__content-wrapper
+    bottom: 11px
+    gap: 7px

@@ -5,14 +5,17 @@ import '../slider-scrollbar/scrollbar.sass';
 import Scrollbar from '../slider-scrollbar/Scrollbar';
 import Slider from '../rnssnc-slider/slider';
 
+const buttonPrev = document.querySelector('.pets-slider__button-prev');
+const buttonNext = document.querySelector('.pets-slider__button-next');
+
 const slider = new Slider({
   slider: '.pets-section__pets-slider',
   track: '.pets-section__pets-slider-track',
   slidesToShow: 4,
   slidesToScroll: 1,
   arrows: true,
-  buttonPrev: '.pets-slider__button-prev',
-  buttonNext: '.pets-slider__button-next',
+  buttonPrev,
+  buttonNext,
   infinite: false,
   responsive: {
     1920: {
@@ -20,6 +23,8 @@ const slider = new Slider({
       slidesToShow: 4,
       startSlide: 0,
       arrows: true,
+      buttonPrev,
+      buttonNext,
       variableWidth: false,
       centerMode: false,
     },

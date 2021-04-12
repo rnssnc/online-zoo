@@ -1,10 +1,25 @@
+.testimonials-section
+  padding-left: 106px
+  padding-right: 106px
+
+.testimonials-section__content-wrapper
+  max-width: 1280px
+  
 .testimonials-section__choose-button-wrapper
   display: flex
   justify-content: center
 
+.testimonials-section__testimonials-slider.rnssnc-slider
+  max-width: 1220px
+  width: 100%
+
 .testimonials-section__testimonials-slider .slick-track
   display: flex
   gap: 30px
+
+.testimonials-section__testimonials-slider .rnssnc-slide
+  padding-left: 5px
+  padding-right: 5px
 
 .testimonials-section__choose-button-wrapper
   padding-top: 30px
@@ -19,14 +34,14 @@
   padding-top: 30px
 
 .testimonials-slider-wrapper
+  display: flex
+  align-items: center
+  justify-content: space-between
   position: relative
 
 .testimonials-slider__button
-  position: absolute
   width: 18px
   height: 30px
-  top: 50%;
-  transform: translateY(-50%);
   transition: all .5s ease;
   cursor: pointer;
   outline: none;
@@ -36,28 +51,62 @@
 .testimonials-slider__button-next
   -webkit-mask-image: url('../../assets/images/icons/slider/arrow-next.svg');
   mask-image: url('../../assets/images/icons/slider/arrow-next.svg');
-  right: -42px
 
 
 .testimonials-slider__button-prev
   -webkit-mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
   mask-image: url('../../assets/images/icons/slider/arrow-prev.svg');
-  left: -42px
 
 @media screen and ( max-width: 1200px )
+  .testimonials-section__testimonials-slider.rnssnc-slider
+    max-width: 920px
   .review-block-wrapper
+    height: 320px
+  .testimonials-section__testimonials-slider .rnssnc-slide
     padding-left: 10px
     padding-right: 10px
   .review-content-wrapper
     padding-left: 56px
     padding-right: 58px
-  .testimonials-slider__button-prev
-    left: -20px
-  .testimonials-slider__button-next
-    right: -20px
+  .testimonials-section__testimonials-slider-wrapper .slider-scrollbar__container
+    padding-top: 40px
+
+@media screen and ( max-width: 1050px )
+  .testimonials-section
+    padding-left: 20px
+    padding-right: 20px
 
 @media screen and ( max-width: 900px )
   .testimonials-slider__button-next,
   .testimonials-slider__button-prev
     display: none
-  
+  .testimonials-section__title
+    padding-bottom: 41px
+
+@media screen and ( max-width: 400px )
+  .testimonials-section__title
+    padding-bottom: 36px
+  .review-block-wrapper
+    height: 366px
+  .testimonials-section
+    padding-left: 10px
+    padding-right: 10px
+  .testimonials-section__testimonials-slider .rnssnc-slide
+    padding-left: 0
+    padding-right: 0
+  .testimonials-section__testimonials-slider .review-content-wrapper
+    gap: 19px
+    padding-top: 50px
+    padding-left: 14px
+    padding-right: 14px 
+    height: 363px
+  .testimonials-section__testimonials-slider .review__name
+    font-size: 16px
+    line-height: 19px
+    padding-top: 28px
+  .testimonials-section__testimonials-slider-wrapper .slider-scrollbar__input::-webkit-slider-thumb,
+    width: 30px 
+  .testimonials-section__testimonials-slider-wrapper .slider-scrollbar__input::-moz-range-thumb 
+    width: 30px 
+  .testimonials-section__choose-button-wrapper
+    padding-top: 16px

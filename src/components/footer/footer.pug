@@ -9,7 +9,7 @@ mixin footer()
       .footer__column-row
         .footer__column.footer__column-left 
           +logotype({href: './'})
-        .footer__column.footer__column-right
+        .footer__column.footer__column-right.footer__nav-column
           .footer-nav-wrapper
             +navigation([{href: './', type:'nav', value:'About'},{href: './zoos.html#panda', type:'nav', value:'Zoos'},{href: './map.html', type:'nav', value:'Map'},{href:'https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp?node-id=155%3A205',type:'nav',value:'Design'}],{class: 'navigation-footer-main'})
             +button({href:'#',type:'filled',addClass:'footer-nav__donate-button',value:'donate for volunteers'})
@@ -21,7 +21,7 @@ mixin footer()
             +input({type:'email', name:'email', placeholder:'Email', required: true,label:'Email',id:'footer__contact-us-form__email',autocomplete: 'off'})
             +input({type:'textarea', name:'textarea', maxlength:'280', placeholder:'', required: true,label:'Please enter your message',id:'footer__contact-us-form__textarea',autocomplete: 'off'})
             +input({type:'checkbox', name:'checkbox', placeholder:'', required: true,label:'I agree to the processing of Personal Data',id:'footer__contact-us-form__agreement-checkbox'})
-            +button({isButton: true, isSub: true, type: 'submit', value:'send', type:'icon', icon: "arrow"})
+            +button({isButton: true, isSub: true, addClass: "contact-us-form__button-submit", type: 'submit', value:'send', type:'icon', icon: "arrow"})
         .footer__column.footer__column-right.address-section
           address.footer__contact
             p.footer__contact-caption ZOO ONLINE CENTRE
