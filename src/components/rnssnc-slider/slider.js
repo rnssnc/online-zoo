@@ -30,20 +30,17 @@ export default class Slider {
     this.startSlide = options.startSlide || 0;
     this.setupStyles();
 
-    this.isClonesAdded = false;
-    this.defaultLength = this.slides.length;
-
-    if (this.arrows) {
-      this.buttonNext = document.querySelector(options.buttonNext);
-      this.buttonPrev = document.querySelector(options.buttonPrev);
-
-      this.buttonNext.addEventListener('click', this.nextSlide);
-      this.buttonPrev.addEventListener('click', this.prevSlide);
-    }
-
     if (options.responsive) {
       this.responsive = options.responsive;
       this.handleResposive(this.responsive);
+    }
+
+    if (this.arrows) {
+      this.buttonNext = options.buttonNext;
+      this.buttonPrev = options.buttonPrev;
+
+      this.buttonNext.addEventListener('click', this.nextSlide);
+      this.buttonPrev.addEventListener('click', this.prevSlide);
     }
 
     this.setupSlider();
@@ -74,7 +71,15 @@ export default class Slider {
     this.unlockTransitionEnd = false;
 
     this.currentSlideIndex = this.startSlide;
-    if (this.arrows) this.handleSliderEdge(this.startSlide);
+
+    this.handleInfinite();
+
+    if (this.arrows) {
+      console.log(this.slider);
+
+      this.handleSliderEdge(this.startSlide);
+    }
+
     if (this.currentSlide) this.removeActiveState(this.currentSlide);
 
     this.defaultTranslate = 0;
@@ -89,8 +94,10 @@ export default class Slider {
       this.edgeLimit = this.slidesToShow;
     }
 
+    this.isClonesAdded = false;
+    this.defaultLength = this.slides.length;
+
     //Different listeners for infinite
-    this.handleInfinite();
 
     this.track.style.transform = `${this.translateFunction}(${this.defaultTranslate}px)`;
     this.currentSlide = this.slides[this.currentSlideIndex];
@@ -186,6 +193,7 @@ export default class Slider {
       };
     } else {
       this.nextSlide = (e) => {
+        console.log(e);
         if (this.currentSlideIndex < this.slides.length - 1)
           this.goTo(+this.currentSlideIndex + +this.slidesToScroll) || e.preventDefault();
       };
@@ -307,6 +315,7 @@ export default class Slider {
   }
 
   goTo(slideIndex) {
+    console.log(slideIndex);
     if (slideIndex !== this.currentSlideIndex) {
       if (this.arrows) this.handleSliderEdge(slideIndex);
 
