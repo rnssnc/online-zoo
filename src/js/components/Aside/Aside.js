@@ -44,6 +44,9 @@ export default class Aside extends Control {
   }
 
   installSlider(initialSlideIndex = 0) {
+    const buttonNext = document.querySelector('.player-pet-switch-slider__button-next');
+    const buttonPrev = document.querySelector('.player-pet-switch-slider__button-prev');
+
     this.slider = new Slider({
       slider: '.player-pet-switch-slider',
       track: '.player-pet-switch-slider__track',
@@ -53,8 +56,8 @@ export default class Aside extends Control {
       variableWidth: true,
       startSlide: initialSlideIndex,
       arrows: true,
-      buttonNext: '.player-pet-switch-slider__button-next',
-      buttonPrev: '.player-pet-switch-slider__button-prev',
+      buttonNext,
+      buttonPrev,
       infinite: false,
     });
 

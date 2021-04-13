@@ -46,6 +46,9 @@ function setActiveMarker(index) {
   });
 }
 
+const buttonNext = document.querySelector('.pet-slider__button-prev');
+const buttonPrev = document.querySelector('.pet-slider__button-next');
+
 function installSlider(initialSlideIndex = 0) {
   const slider = new Slider({
     slider: '.pet-slider',
@@ -55,8 +58,8 @@ function installSlider(initialSlideIndex = 0) {
     variableWidth: true,
     startSlide: initialSlideIndex,
     arrows: true,
-    buttonNext: '.pet-slider__button-prev',
-    buttonPrev: '.pet-slider__button-next',
+    buttonNext,
+    buttonPrev,
     infinite: false,
   });
 
