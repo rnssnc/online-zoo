@@ -1,6 +1,6 @@
 mixin review(item = {})
   .review-block-wrapper
     .review-content-wrapper 
-      img(class='review__avatar', src=item.src)
+      img(class='review__avatar', src=item.src, alt=item.alt)
       span.typography__cta.review__name= item.name
       p.review__text= item.review
