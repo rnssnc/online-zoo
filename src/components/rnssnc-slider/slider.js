@@ -35,12 +35,15 @@ export default class Slider {
       this.handleResposive(this.responsive);
     }
 
+    this.handleInfinite();
+
     if (this.arrows) {
       this.buttonNext = options.buttonNext;
       this.buttonPrev = options.buttonPrev;
 
       this.buttonNext.addEventListener('click', this.nextSlide);
       this.buttonPrev.addEventListener('click', this.prevSlide);
+      console.log(this.buttonNext);
     }
 
     this.setupSlider();
@@ -74,11 +77,7 @@ export default class Slider {
 
     this.handleInfinite();
 
-    if (this.arrows) {
-      console.log(this.slider);
-
-      this.handleSliderEdge(this.startSlide);
-    }
+    if (this.arrows) this.handleSliderEdge(this.startSlide);
 
     if (this.currentSlide) this.removeActiveState(this.currentSlide);
 
@@ -193,7 +192,6 @@ export default class Slider {
       };
     } else {
       this.nextSlide = (e) => {
-        console.log(e);
         if (this.currentSlideIndex < this.slides.length - 1)
           this.goTo(+this.currentSlideIndex + +this.slidesToScroll) || e.preventDefault();
       };
@@ -315,7 +313,6 @@ export default class Slider {
   }
 
   goTo(slideIndex) {
-    console.log(slideIndex);
     if (slideIndex !== this.currentSlideIndex) {
       if (this.arrows) this.handleSliderEdge(slideIndex);
 
@@ -324,7 +321,6 @@ export default class Slider {
       const countToSlide = slideIndex - this.currentSlideIndex;
 
       if (!this.centerMode && slideIndex >= this.defaultLength - this.slidesToShow && countToSlide > 0) {
-        console.log(this.rightVisibleSlideIndex);
         this.shiftSlide(this.defaultLength - this.rightVisibleSlideIndex);
       } else if (!this.centerMode && slideIndex < this.slidesToShow && countToSlide < 0) {
         if (countToSlide == -1 && this.rightVisibleSlideIndex > this.slidesToShow) this.shiftSlide(-1);
