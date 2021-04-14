@@ -43,7 +43,6 @@ export default class Slider {
 
       this.buttonNext.addEventListener('click', this.nextSlide);
       this.buttonPrev.addEventListener('click', this.prevSlide);
-      console.log(this.buttonNext);
     }
 
     this.setupSlider();
@@ -142,7 +141,6 @@ export default class Slider {
     // document.head.append(this.styles);
 
     // this.styles.addEventListener('load', () => {
-    this.slideWidths = [...this.slides].map((slide) => slide.getBoundingClientRect()[this.metric]);
     // });
 
     this.slider.classList.add('rnssnc-slider');
@@ -336,7 +334,8 @@ export default class Slider {
   }
 
   shiftSlide(count) {
-    if (this.variableWidth) this.slideWidth = this.slideWidths[+this.currentSlideIndex + +count];
+    if (this.variableWidth)
+      this.slideWidth = this.slides[+this.currentSlideIndex + +count].getBoundingClientRect()[this.metric];
 
     this.transformValue += -count * this.slideWidth;
     this.track.style.transition = `transform ${this.transitionTime}s`;
