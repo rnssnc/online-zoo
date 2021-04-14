@@ -24,22 +24,6 @@ const slider = new Slider({
   // arrows: true,
   // buttonPrev: '.control.prev',
   // buttonNext: '.control.next',
-  // responsive: {
-  //   1920: {
-  //     from: 1201,
-  //     slidesToShow: 4,
-  //     startSlide: 1,
-  //   },
-  //   1200: {
-  //     from: 801,
-  //     slidesToShow: 2,
-  //   },
-  //   800: {
-  //     from: 0,
-  //     slidesToShow: 1,
-  //     startSlide: 0,
-  //   },
-  // },
 });
 
 const sliderWrapper = document.querySelector('.hero-section__pets-slider-wrapper');

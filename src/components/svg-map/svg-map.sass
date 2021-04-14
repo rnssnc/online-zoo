@@ -6,7 +6,10 @@
   // width: 100%
   // height: 498px
   display: block; 
-  height: 1%;
+  width: 100%
+  max-height: 498px;
+  height: 100%;
+
 .map-area
   fill: var(--map-area-color)
   stroke: 1px solid var(--map-area-color)
@@ -38,13 +41,10 @@
   &.marker-active,
   &:hover 
     background-image: url('../../assets/images/icons/marker-active.svg')
-  &.marker-Eagle
-    display: block
-  &.marker-Alligator
-    display: block
+  &.marker-Eagle,
+  &.marker-Panda,
+  &.marker-Alligator,
   &.marker-Gorilla
-    display: block
-  &.marker-Panda
     display: block
   &:hover + .marker__animal-info
     display: flex
@@ -56,20 +56,21 @@
   align-items: center
   flex-direction: row
   gap: 20px
-  transform: translateY(94px)
+  transform: translateY(var(--marker-height))
   position: absolute;
   top: 0
   border-radius: 8px
   max-width: 436px
   width: 100%
-  height: 149px
+  min-height: 149px
+  padding: 5px
   background-color: var(--section-color-background-one)
   box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
   z-index: 2
   transition: all 0.3s ease
   &:hover
     display: flex
-    height: 192px
+    min-height: 192px
   & .animal-info__image
     width: 65px
     height: 65px
@@ -93,26 +94,32 @@
     & .animal-info__watch-button
       display: none
       margin-top: 15px
+      transition: height 3s ease
   &:hover .animal-info__watch-button
     display: flex
-@media screen and ( max-width: 1200px )
-  .map__marker .marker__animal-info
-    transform: translate(-50%, 94px)
-  .map-section-watch-online-button-wrapper 
-    padding-top: 75px;
 
-@media screen and ( max-width: 1000px )
+@media screen and ( max-width: 1400px )
+  .marker__animal-info
+    transform: translate(-50%, 94px)
+
+@media screen and ( max-width: 1200px )
+  .map__element
+    height: 436px
+
+@media screen and ( max-width: 1150px )
+  .map__element
+    height: 100%
   .marker__animal-info
     position: absolute
     left: 50% !important
     transform: translate(-50%, var(--marker-height) ) !important
-
   
 @media screen and ( max-width: 640px )
-  .map-section-watch-online-button-wrapper 
-    padding-top: 50px;
-
+  .map__element
+    height: 279px
 @media screen and ( max-width: 500px )
+  .map__element
+    height: 100%
   .marker__image
     top: 6px
     width: 21px
@@ -123,9 +130,9 @@
     justify-content: center
     gap: 8px
     max-width: 238px
-    height: 113px
+    min-height: 113px
   .marker__animal-info:hover
-    height: 156px
+    min-height: 156px
   .marker__animal-info .animal-info__content-wrapper
     max-width: 151px
   .marker__animal-info .animal-info__image
@@ -138,5 +145,9 @@
   .marker__animal-info .animal-info__content-wrapper .animal-info__name
     font-size: 14px
     line-height: 16px
-  .map-section-watch-online-button-wrapper 
-    padding-top: 44px;
+  .marker__animal-info .animal-info__content-wrapper .animal-info__watch-button
+    margin-top: 0
+
+@media screen and ( max-width: 400px )
+  .map__element
+    height: 146px

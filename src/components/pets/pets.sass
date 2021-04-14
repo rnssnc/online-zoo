@@ -10,7 +10,7 @@
   flex-direction: column
   gap: 30px
   width: 100%;
-  padding-top: 35px
+  padding-top: 36px
 
 .pets-slider-wrapper
   display: flex
@@ -68,34 +68,40 @@
 //   display: flex
 .pets-section__pets-slider .pet-card__wrapper .pet-card__content-wrapper
   transition: all 0.3s ease
-  bottom: -100px
+  bottom: -110px
   display: flex
 
 .pets-section__pets-slider .slide-active .pet-card__content-wrapper,
 .pets-section__pets-slider .pet-card__wrapper:hover .pet-card__content-wrapper
-  bottom: 33px;
+  bottom: 42px;
 
 .pets-section__pets-slider .slide-active .pet-card__image,
 .pets-section__pets-slider .pet-card__wrapper:hover .pet-card__image
   filter: brightness(50%)
 
 .pets-section__choose-button-wrapper
-  padding-top: 25px
+  padding-top: 30px
   display: flex
   justify-content: center
 
 @media only screen and (max-width: 1350px) 
-  .pets-section__pets-slider-track .pet-card__wrapper
+  .pets-section__pets-slider .pet-card__wrapper
     max-height: 301px 
+  .pets-section__pets-slider .pet-card__content-wrapper
+    padding-left: 9px
+  .pets-section__pets-slider .pet-card__buttons-wrapper
+    gap: 0
+    justify-content: space-between
   .pets-section__pets-slider.rnssnc-slider
     max-width: 920px
   .pets-section__pets-slider .pet-card
     width: 210px
     height: 301px
-  .pets-section__pets-slider
-    margin-right: 0
-  .pets-slider__button-prev
-    left: -20px
+  .pets-section__pets-slider-wrapper
+    padding-top: 32px
+  .pets-section__pets-slider .slide-active .pet-card__content-wrapper,
+  .pets-section__pets-slider .pet-card__wrapper:hover .pet-card__content-wrapper
+    bottom: 30px
 
 @media only screen and (max-width: 900px) 
   .pets-slider__button-prev,
