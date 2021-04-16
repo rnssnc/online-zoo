@@ -19,7 +19,7 @@ import Control from '../../js/contol';
 const sliderWrapper = document.querySelector('.pet-slider__wrapper');
 const sliderElement = document.querySelector('.pet-slider');
 const sliderTrack = sliderElement.querySelector('.pet-slider__track');
-const markers = document.querySelector('.map__markers-wrapper').childNodes;
+const markers = document.querySelector('.map__markers-wrapper').querySelectorAll('.map__marker');
 
 let slidesArr = [];
 
@@ -61,6 +61,39 @@ function installSlider(initialSlideIndex = 0) {
     buttonNext,
     buttonPrev,
     infinite: false,
+    dragDrop: false,
+    responsive: {
+      1920: {
+        from: 1501,
+        slidesToShow: 8,
+        slidesToScroll: 1,
+        startSlide: initialSlideIndex,
+        arrows: true,
+        buttonPrev,
+        buttonNext,
+      },
+      1500: {
+        from: 801,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        startSlide: initialSlideIndex,
+        arrows: false,
+      },
+      800: {
+        from: 501,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        startSlide: initialSlideIndex,
+        arrows: false,
+      },
+      500: {
+        from: 0,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        startSlide: initialSlideIndex,
+        arrows: false,
+      },
+    },
   });
 
   setActiveMarker(initialSlideIndex);

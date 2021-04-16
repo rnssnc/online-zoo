@@ -1,37 +1,47 @@
+.navigation-header-main
+  padding-top: 0
+
 .map-section
   padding-top: 60px
+
+.map-section__describe-wrapper
+  gap: 20px
 
 .map-section-watch-online-button-wrapper
   display: flex;
   justify-content: center;
-
-.map-wrapper
-  padding-top: 80px;
-
+  padding-top: 48px
+  
 .pet-slider__wrapper
   display: flex
   flex-direction: column
   align-items: center
   justify-content: center;
+  padding-bottom: 80px;
+  max-width: 1190px;
+  margin: 0 auto;
 
 .pet-slider__wrapper .slider-scrollbar__container
   padding-top: 30px
+  padding-right: 34px;
 
 .pet-slider__container
   padding-top: 55px
   width: 100%
   display: flex
-  justify-content: space-evenly
+  justify-content: space-between
   align-items: center
 
 .pet-slider
-  max-width: 1070px
+  max-width: 1140px
+  padding-left: 25px
+  padding-right: 25px
   width: 100% 
   height: 157px
 
 .pet-slider__track
   display: flex
-  justify-content: space-between
+  gap: 30px
 
 .player-pet-switch__pet-card
   position: relative
@@ -64,15 +74,14 @@
     color: var(--card-color-text);
 
 .pet-slider .slide-active .player-pet-switch__pet-card
-  width: 157px
-  height: 157px
+  transform: scale(1.27)
   &::before
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: calc(50% - 62px);
+    left: calc(50% - 62px);
+    width: 118px;
+    height: 118px;
     border-radius: 50%;
     padding: 3px;
     background: linear-gradient(106.89deg, #07EEE0 -14.32%, #DF496D 100.68%);
@@ -81,8 +90,6 @@
     mask-composite: exclude;      
   & .pet-card__image
     filter: brightness(60%)
-    max-width: 137px
-    max-height: 137px
 
 .player-pet-switch__pet-card:hover .pet-card__tooltip,
 .pet-slider .slide-active .pet-card__tooltip,
@@ -109,3 +116,85 @@
 
 .map__marker:hover .marker__animal-info
   display: none
+
+@media screen and ( max-width: 1500px )
+  .pet-slider__wrapper
+    max-width: 780px  
+  .pet-slider.rnssnc-slider
+    max-width: 710px
+    padding-left: 25px
+    padding-right: 25px
+  .pet-slider__container
+    padding-top: 35px
+  .pet-slider__wrapper .slider-scrollbar__container
+    padding-top: 26px
+    padding-right: 0
+  .pet-slider__wrapper
+    padding-bottom: 31px
+  .map-section-watch-online-button-wrapper
+    padding-top: 5px
+
+@media screen and ( max-width: 800px )
+  .map-section
+    padding-bottom: 80px
+  .pet-slider.rnssnc-slider
+    max-width: 520px
+    padding-left: 0
+    padding-right: 0
+  .pet-slider__track
+    gap: 15px
+  .pet-slider .rnssnc-slide.slide-active
+    padding: 0 18px
+  .pet-slider .rnssnc-slide:first-child.slide-active
+    padding-left: 25px
+  .map-section-watch-online-button-wrapper 
+      padding-top: 49px;
+
+@media screen and ( max-width: 600px )
+  .map-section
+    padding-left: 20px
+    padding-right: 20px
+
+@media screen and ( max-width: 500px )
+  .player-pet-switch__pet-card
+    width: 60px
+    height: 60px
+  .pet-slider .slide-active .player-pet-switch__pet-card 
+    transform: scale(1.25);
+  .pet-slider .slide-active .player-pet-switch__pet-card::before
+    top: calc(50% - 36px);
+    left: calc(50% - 36px);
+    width: 66px;
+    height: 66px;
+  .pet-slider__track
+    gap: 10px
+  .player-pet-switch__pet-card .pet-card__tooltip
+    bottom: 7px;
+    font-size: 11px;
+  .pet-slider.rnssnc-slider 
+    max-width: 240px;
+  .typography__section-title
+    font-size: 24px
+    line-height: 28px
+  .map-section__description
+    font-size: 12px
+    line-height: 14px
+  .map-section
+    padding-top: 35px
+    padding-bottom: 60px
+  .map-section__describe-wrapper
+    gap: 10px
+  .pet-slider__container
+    padding-top: 25px
+  .pet-slider
+    height: 110px
+  .pet-slider__container
+    max-width: 270px
+  .pet-slider .rnssnc-slide.slide-active
+    padding: 0 10px
+  .pet-slider__wrapper .slider-scrollbar__container 
+    padding-top: 8px;
+    padding-left: 25px;
+  .map-section-watch-online-button-wrapper 
+    padding-top: 39px;
+  

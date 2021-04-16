@@ -1,5 +1,27 @@
 const animals = [
   {
+    id: 'Panda',
+    name: 'Panda',
+    title: 'Flexing Panda',
+    region: 'on an island near Los Angeles',
+    population: 'About 1,590 individuals',
+    habitat: 'Temperate forests high in the mountains of southwest China',
+    diet:
+      "A panda's daily diet consists almost entirely of the leaves, stems and shoots of various bamboo species. Bamboo contains very little nutritional value so pandas must eat 12-38kg every day to meet their energy needs.",
+    src: 'assets/images/pet-cards/panda.png',
+    href: '#',
+    country: 'CN',
+    videoTitle: 'The Beijing Zoo',
+    videos: [
+      'https://www.youtube.com/embed/OObOQ2GElhA',
+      'https://www.youtube.com/embed/D0eqnda8dOk',
+      'https://www.youtube.com/embed/65JHo3Cy2tY',
+    ],
+    descriptions: ['Population', 'habitat', 'diet'],
+    pinX: 76,
+    pinY: 37,
+  },
+  {
     id: 'Eagle',
     name: 'Eagle',
     title: 'West End Bald Eagle',
@@ -11,6 +33,7 @@ const animals = [
     src: 'assets/images/pet-cards/eagle.png',
     href: '#',
     country: 'US',
+    videoTitle: 'West End Bald Eagle Cam',
     videos: [
       'https://www.youtube.com/embed/hTfbB02IRLQ',
       'https://www.youtube.com/embed/7utMaDb1W08',
@@ -19,27 +42,6 @@ const animals = [
     descriptions: ['Population', 'habitat', 'diet'],
     pinX: 13,
     pinY: 32,
-  },
-  {
-    id: 'Panda',
-    name: 'Panda',
-    title: 'Flexing panda',
-    region: 'on an island near Los Angeles',
-    population: 'About 1,590 individuals',
-    habitat: 'Temperate forests high in the mountains of southwest China',
-    diet:
-      "A panda's daily diet consists almost entirely of the leaves, stems and shoots of various bamboo species. Bamboo contains very little nutritional value so pandas must eat 12-38kg every day to meet their energy needs.",
-    src: 'assets/images/pet-cards/panda.png',
-    href: '#',
-    country: 'CN',
-    videos: [
-      'https://www.youtube.com/embed/OObOQ2GElhA',
-      'https://www.youtube.com/embed/D0eqnda8dOk',
-      'https://www.youtube.com/embed/65JHo3Cy2tY',
-    ],
-    descriptions: ['Population', 'habitat', 'diet'],
-    pinX: 76,
-    pinY: 37,
   },
   {
     id: 'Alligator',
@@ -53,6 +55,8 @@ const animals = [
     src: 'assets/images/pet-cards/alligator.png',
     href: '#',
     country: 'US',
+    videoTitle: 'Alligator and Spoonbill Swamp Webcam',
+
     videos: [
       'https://www.youtube.com/embed/X5Im4mMFK4A',
       'https://www.youtube.com/embed/uYEO1GDxsc4',
@@ -75,6 +79,7 @@ const animals = [
     src: 'assets/images/pet-cards/gorilla.png',
     href: '#',
     country: 'CM',
+    videoTitle: 'GRACE Gorilla Forest Corridor Cam',
     videos: [
       'https://www.youtube.com/embed/672cUSe69J0',
       'https://www.youtube.com/embed/ARpl5ffDhiI',
@@ -97,6 +102,7 @@ const animals = [
     src: 'assets/images/pet-cards/fox.png',
     href: '#',
     country: 'US',
+    videoTitle: 'Flexing fox',
     videos: [
       'https://www.youtube.com/embed/hTfbB02IRLQ',
       'https://www.youtube.com/embed/7utMaDb1W08',
@@ -117,6 +123,7 @@ const animals = [
     src: 'assets/images/pet-cards/koala.png',
     href: '#',
     country: 'US',
+    videoTitle: 'Lazy Koala',
     videos: [
       'https://www.youtube.com/embed/X5Im4mMFK4A',
       'https://www.youtube.com/embed/uYEO1GDxsc4',
@@ -137,6 +144,7 @@ const animals = [
     src: 'assets/images/pet-cards/elephant.png',
     href: '#',
     country: 'CM',
+    videoTitle: 'Really big Elephant',
     videos: [
       'https://www.youtube.com/embed/672cUSe69J0',
       'https://www.youtube.com/embed/ARpl5ffDhiI',
@@ -156,9 +164,10 @@ const animals = [
     src: 'assets/images/pet-cards/tiger.png',
     href: '#',
     country: 'CN',
+    videoTitle: 'Angry tiger',
     videos: [
-      'https://www.youtube.com/embed/OObOQ2GElhA',
-      'https://www.youtube.com/embed/D0eqnda8dOk',
+      'https://www.youtube.com/embed/NVCi9yYwRCY',
+      'https://www.youtube.com/embed/9U63FhBdr2E',
       'https://www.youtube.com/embed/65JHo3Cy2tY',
     ],
     descriptions: ['Population', 'habitat', 'diet'],

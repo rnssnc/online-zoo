@@ -1,9 +1,9 @@
 import '../base/base';
 
-import './zoos.sass';
-
 import '../../components/footer/footer';
 import '../../components/header/header';
+
+import './zoos.sass';
 
 import animals from '../../js/animals';
 
@@ -17,12 +17,16 @@ const pageWrapper = new Control(main, 'div', 'section-wrapper animals-player-sec
 
 class MainContent extends Control {
   constructor(animals) {
-    super(pageWrapper, 'section', 'animals-player-section section');
+    super(pageWrapper, 'section', 'section animals-player-section');
 
     this.aside = new Aside(this.node, 'animals-player-section__aside-slider');
     this.renderSlider(animals);
 
-    this.contentWrapper = new Control(this.node, 'div', 'section__content-wrapper');
+    this.contentWrapper = new Control(
+      this.node,
+      'div',
+      'section__content-wrapper animals-section__content-wrapper',
+    );
 
     this.pageheading = new Heading(
       this.contentWrapper.node,
@@ -78,7 +82,7 @@ class MainContent extends Control {
       this.contentWrapper.animalDescription[name].node,
       'h3',
       'typography__cta animal-description__header',
-      name,
+      `${name}:`,
     );
 
     this.contentWrapper.animalDescription[name].content = new Control(
@@ -91,7 +95,7 @@ class MainContent extends Control {
   }
 
   renderContent(animal) {
-    this.pageheading.setContent(`${animal.title} Cam`);
+    this.pageheading.setContent(`${animal.videoTitle}`);
 
     if (animal.videos) this.contentWrapper.videoPlayer.loadVideos(animal.videos);
 
@@ -136,7 +140,7 @@ function findAndRender() {
   if (mainContent.aside.slider.currentSlideIndex !== index) mainContent.aside.slider.goTo(index);
 }
 
-window.addEventListener('hashchange', () => {
+window.addEventListener('hashchange', (e) => {
   findAndRender();
 });
 
