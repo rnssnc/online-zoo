@@ -8,9 +8,10 @@ export default class Slider {
     this.slidesToScroll = options.slidesToScroll;
     this.infinite = options.infinite;
     this.variableWidth = options.variableWidth || false;
+    this.rebuild = options.rebuild === false ? false : true;
+    this.enableDragDrop = options.dragDrop === false ? false : true;
     this.slides = this.track.children;
     this.transitionTime = 0.3;
-    this.slideWidthBeforeCurrent;
 
     this.type = 'horizontal';
     if (options.type == 'vertical') {
@@ -49,22 +50,23 @@ export default class Slider {
 
     // this.shiftX = 0;
     // this.newLeft = 0;
-    this.posX1 = 0;
-    this.posX2 = 0;
-    this.track.addEventListener('pointerdown', (e) => {
-      if (this.track.style.transition == '' || !this.unlockTransitionEnd) {
-        e.preventDefault(); // prevent selection start (browser action)
+    if (this.enableDragDrop) {
+      this.posX1 = 0;
+      this.posX2 = 0;
+      this.track.addEventListener('pointerdown', (e) => {
+        if (this.track.style.transition == '' || !this.unlockTransitionEnd) {
+          e.preventDefault(); // prevent selection start (browser action)
 
-        // this.shiftX = e.clientX - this.track.getBoundingClientRect().left;
-        this.shiftX = 0;
-        this.posX1 = e[this.vector];
+          // this.shiftX = e.clientX - this.track.getBoundingClientRect().left;
+          this.shiftX = 0;
+          this.posX1 = e[this.vector];
 
-        this.track.addEventListener('pointermove', this.handlePointerMove);
-        document.addEventListener('pointerup', this.handlePointerUp);
-      }
-    });
-
-    window.addEventListener('resize', this.setupSlider);
+          this.track.addEventListener('pointermove', this.handlePointerMove);
+          document.addEventListener('pointerup', this.handlePointerUp);
+        }
+      });
+    }
+    if (this.rebuild) window.addEventListener('resize', this.setupSlider);
   }
   setupSlider = () => {
     this.sliderWidth = this.slider.getBoundingClientRect()[this.metric];
