@@ -21,7 +21,7 @@ const slider = new Slider({
   infinite: false,
   responsive: {
     1920: {
-      from: 901,
+      from: 641,
       slidesToShow: 2,
       startSlide: 1,
       arrows: true,
@@ -32,7 +32,7 @@ const slider = new Slider({
     //   from: 801,
     //   slidesToShow: 2,
     // },
-    900: {
+    640: {
       from: 0,
       slidesToShow: 1,
       startSlide: 0,
