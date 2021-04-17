@@ -30,7 +30,7 @@ export default class Aside extends Control {
     slides.map((slide) => {
       const slideWrapper = new Control(this.sliderTrack.node, 'div', 'player-pet-switch__pet-card');
       const sliderCard = new Control(slideWrapper.node, 'div', 'pet-card__image');
-      const sliderCardTooltip = new Control(slideWrapper.node, 'title', 'pet-card__tooltip');
+      const sliderCardTooltip = new Control(slideWrapper.node, 'span', 'pet-card__tooltip');
       // For build
       sliderCard.node.style.backgroundImage = `url('images/${slide.src.slice(
         slide.src.lastIndexOf('/') + 1,
