@@ -123,6 +123,10 @@
 .map__marker:hover .marker__animal-info
   display: none
 
+.map__marker.marker-Panda
+  left: calc(78.2% - var(--marker-width) / 2) !important
+  top: calc(39% - var(--marker-height)) !important
+
 @media screen and ( max-width: 1500px )
   .pet-slider__wrapper
     max-width: 780px  
@@ -140,6 +144,31 @@
   .map-section-watch-online-button-wrapper
     padding-top: 5px
 
+@media screen and ( max-width: 1200px )
+  html
+    --marker-width: 58px
+    --marker-height: 83px
+  .map__marker
+    background-repeat: no-repeat
+    backgroun-size: cover
+  .marker__image
+    width: 35px
+    height: 35px
+    top: 11px
+  .map__marker.marker-Panda
+    left: calc(77% - var(--marker-width) / 2) !important
+    top: calc(38% - var(--marker-height)) !important
+
+  .map-wrapper
+    max-width: 800px
+    margin: 0 auto;
+  .map__element
+    height: 387px
+  .map-section-watch-online-button-wrapper
+    padding-top: 35px
+  .pet-slider__wrapper
+    padding-bottom: 50px
+  
 @media screen and ( max-width: 800px )
   .map-section
     padding-bottom: 80px
@@ -155,13 +184,32 @@
     padding-left: 25px
   .map-section-watch-online-button-wrapper 
       padding-top: 49px;
+  .map__element
+    height: 290px
+  html
+    --marker-width: 68px
+    --marker-height: 94px
+  .pet-slider__wrapper
+    padding-bottom: 35px
+  .map-section-watch-online-button-wrapper
+    padding-top: 34px
 
 @media screen and ( max-width: 600px )
   .map-section
     padding-left: 20px
     padding-right: 20px
-
+    
 @media screen and ( max-width: 500px )
+  html
+    --marker-width: 33px
+    --marker-height: 47px
+  .marker__image
+    width: 22px
+    height: 22px
+    top: 6px
+
+  .map__element
+    height: 150px
   .player-pet-switch__pet-card
     width: 60px
     height: 60px
@@ -202,5 +250,4 @@
     padding-top: 8px;
     padding-left: 25px;
   .map-section-watch-online-button-wrapper 
-    padding-top: 39px;
-  
+    padding-top: 31px;
