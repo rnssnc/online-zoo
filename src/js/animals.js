@@ -18,7 +18,7 @@ const animals = [
       'https://www.youtube.com/embed/65JHo3Cy2tY',
     ],
     descriptions: ['Population', 'habitat', 'diet'],
-    pinX: 76,
+    pinX: 77.2,
     pinY: 37,
   },
   {
@@ -40,8 +40,8 @@ const animals = [
       'https://www.youtube.com/embed/XfoUF8YkB7A',
     ],
     descriptions: ['Population', 'habitat', 'diet'],
-    pinX: 13,
-    pinY: 32,
+    pinX: 12.9,
+    pinY: 33.5,
   },
   {
     id: 'Alligator',
@@ -63,8 +63,8 @@ const animals = [
       'https://www.youtube.com/embed/nJCk-4Ojqaw',
     ],
     descriptions: ['Population', 'habitat', 'diet'],
-    pinX: 24.4,
-    pinY: 41,
+    pinX: 23.2,
+    pinY: 39.2,
   },
   {
     id: 'Gorilla',
@@ -86,7 +86,7 @@ const animals = [
       'https://www.youtube.com/embed/rgXWDk7rh4w',
     ],
     descriptions: ['Population', 'habitat', 'diet'],
-    pinX: 50,
+    pinX: 50.5,
     pinY: 57,
   },
   {
