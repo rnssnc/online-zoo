@@ -50,6 +50,17 @@
 
 .contact-us-form__button-submit
   padding-right: 10px
+  margin-left: auto
+  width: 130px
+  gap: 25px
+  text-transform: uppercase
+  color: var(--input-text-color);
+  &:hover
+    transform: scale(1.1);
+  &:hover .arrow-icon
+    background: linear-gradient(106.89deg, var(--color-primary-gradient-in) -14.32%, var(--color-primary-gradient-out) 100.68%);
+    -webkit-mask: url(../../assets/images/icons/arrow.svg) no-repeat
+    -webkit-mask-size: contain
 
 .footer__contact-us-form-caption
   color: var(--footer-header-color)
@@ -161,4 +172,3 @@
     padding-bottom: 180px
   .footer
     padding-bottom: 30px;
-
