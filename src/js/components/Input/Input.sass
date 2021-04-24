@@ -1,0 +1,75 @@
+
+.input-fieldset
+  max-width: 335px
+  width: 100%
+  min-height: 56px
+  border-radius: 5px
+  border: 1px solid var(--popup-color-text)
+  outline: none
+
+.input-legend
+  font-size: 16px
+  padding: 0 16px
+
+.select-input__wrapper
+  position: relative
+  width: 100%
+  
+.select-input__value-display
+  min-height: 20px
+  width: 100%
+
+.select-input__value-display::after
+  content: ''
+  position: absolute
+  width: 0;
+  height: 0;
+  right: 5px
+  top: 50%
+  transform: translateY(-50%)
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  border-color: #313131 transparent transparent transparent;
+  -webkit-transform:rotate(360deg)
+  transition: all 0.3s ease
+
+.select-input__value-display:hover::after
+  transform: translate(-5px, -50%) rotate(360deg)
+
+.select-input__value-display,
+input.popup-input
+  color: var(--popup-color-title)
+
+.select-input__value-display,
+.select-input__option,
+.popup-input
+  font-size: 18px
+  line-height: 20px
+
+.select-input__options-wrapper
+  position: absolute
+  width: 100%
+  display: none
+  flex-direction: column
+  gap: 5px
+  padding-top: 5px
+  background-color: var(--popup-color-background)
+  border: 1px solid var(--popup-color-text)
+  border-top: none
+  border-radius: 5px
+  // overflow: auto ??
+
+input[type="radio"].select-input__option 
+  display: none
+
+label.select-input__option 
+  padding-left: 5px
+  &:hover
+    color: var(--popup-color-title)
+
+.options-wrapper--active
+  display: flex
+
+// .select-input__value-display:hover + .select-input__options-wrapper,
+// .select-input__options-wrapper:hover
+//   display: flex
