@@ -1,5 +1,7 @@
+import Slider from '../../../components/rnssnc-slider/slider';
 import Control from '../../contol';
 import RadioButtons from '../RadioButtons/RadioButtons';
+
 export default class VideoPlayer extends Control {
   constructor(parentNode, className, options = {}) {
     super(parentNode, 'div', `${className}-wrapper`);
@@ -7,7 +9,18 @@ export default class VideoPlayer extends Control {
 
     this.createVideoElement();
 
-    this.videoPreviewsWrapper = new Control(this.node, 'div', `${this.className}-previews__wrapper`);
+    this.previewsSliderContainer = new Control(
+      this.node,
+      'div',
+      `${this.className}-previews-slider__container`,
+    );
+    this.previewsSliderWrapper = new Control(
+      this.previewsSliderContainer.node,
+      'div',
+      `${this.className}-previews-slider`,
+    );
+
+    this.previewsSliderTrack = new Control(this.previewsSliderWrapper.node, 'div', 'previews-slider__track');
   }
 
   createVideoElement() {
@@ -36,36 +49,77 @@ export default class VideoPlayer extends Control {
     this.radioButtons.setActiveState(0);
 
     if (videos.length > 1) {
-      this.videoPreviewsWrapper.node.innerHTML = '';
-      this.createVideosPreview(videos);
+      this.previewsSliderTrack.node.innerHTML = '';
+      this.createVideosPreview(videos.slice(1));
     }
+  }
+
+  swapVideo(previewLink, index) {
+    const videoId = this.video.node.src.slice(this.video.node.src.lastIndexOf('/') + 1);
+
+    const img = new Image();
+    img.onload = () => {
+      this.videoPreviews[index].previewImage.node.src = img.src;
+      this.videoPreviews[index].link = videoId;
+      this.video.node.src = `https://www.youtube.com/embed/${previewLink}`;
+    };
+
+    img.src = `https://img.youtube.com/vi/${videoId}/0.jpg`;
   }
 
   createVideosPreview(links) {
     this.videoPreviews = [];
 
-    links.map((src) => {
-      const previewWrapper = new Control(this.videoPreviewsWrapper.node, 'div', 'preview__wrapper');
-      const previewImage = new Control(previewWrapper.node, 'img', 'preview__image');
-      const link = src.slice(src.lastIndexOf('/') + 1);
+    links.map((src, index) => {
+      const previewWrapper = new Control(this.previewsSliderTrack.node, 'div', 'preview__wrapper');
+      previewWrapper.previewImage = new Control(previewWrapper.node, 'img', 'preview__image');
+      previewWrapper.link = src.slice(src.lastIndexOf('/') + 1);
+      previewWrapper.index = index;
 
       const img = new Image();
       img.onload = () => {
-        previewImage.node.src = img.src;
+        previewWrapper.previewImage.node.src = img.src;
       };
 
-      img.src = `https://img.youtube.com/vi/${link}/0.jpg`;
+      img.src = `https://img.youtube.com/vi/${previewWrapper.link}/0.jpg`;
 
-      previewImage.node.addEventListener('click', () => {
-        if (src !== this.video.node.src) this.setVideo(src);
+      previewWrapper.previewImage.node.addEventListener('click', () => {
+        if (previewWrapper.previewImage.node.src !== this.video.node.src) {
+          this.swapVideo(previewWrapper.link, index);
+        }
       });
 
       this.videoPreviews.push(previewWrapper);
+    });
+
+    this.slider = new Slider({
+      slider: `.${this.className}-previews-slider`,
+      track: '.previews-slider__track',
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      infinite: false,
+      // rebuild: true,
+      // variableWidth: true,
+      responsive: {
+        1920: {
+          from: 501,
+          slidesToShow: 3,
+        },
+        500: {
+          from: 0,
+          slidesToShow: 2,
+        },
+      },
     });
   }
 
   createRadio(count) {
     this.radioButtons = new RadioButtons(this.node, 'video-player__radio-button');
     this.radioButtons.createRadioButtons(count);
+    this.radioButtons.buttons.map((control, index) => {
+      control.node.addEventListener('click', () => {
+        if (this.slider) this.slider.goTo(index + 3);
+      });
+    });
   }
 }

@@ -54,6 +54,8 @@ export default class Aside extends Control {
       slidesToScroll: 1,
       type: 'vertical',
       variableWidth: true,
+      saveSlideIndex: true,
+
       startSlide: initialSlideIndex,
       arrows: true,
       buttonNext,

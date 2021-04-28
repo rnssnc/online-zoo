@@ -13,6 +13,7 @@ const slider = new Slider({
   track: '.pets-section__pets-slider-track',
   slidesToShow: 4,
   slidesToScroll: 1,
+  loop: true,
   arrows: true,
   buttonPrev,
   buttonNext,

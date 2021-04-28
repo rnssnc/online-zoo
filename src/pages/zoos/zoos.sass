@@ -34,8 +34,17 @@
   gap: 29px
   max-width: 790px;
   width: 100%;
+ 
+.animals-player-section__video-previews-slider__container
+  position: relative  
+  height: 141px
+  overflow: hidden
+  
+.animals-player-section__video-previews-slider
+  position: absolute
+  max-width: 100%
 
-.animals-player-section__video-previews__wrapper
+.previews-slider__track
   display: flex
   justify-content: space-between
   gap: 10px
@@ -230,7 +239,9 @@
     gap: 20px
   .animals-player-section__video-element__wrapper
     height: 297px
-  .animals-player-section__video-previews__wrapper .preview__wrapper
+  .animals-player-section__video-previews-slider__container
+    height: 94px
+  .previews-slider__track .preview__wrapper
     max-width: 164px
     height: 94px
   .player-pet-switch-slider .slide-active .player-pet-switch__pet-card 
@@ -332,13 +343,17 @@
     height: 200px
   .player-pet-switch__pet-card
     padding-bottom: 0
+    padding-top: 0
+  .player-pet-switch__pet-card .pet-card__image
+    max-width: 40px
+    max-height: 40px
   .animals-player-section__video-element__wrapper 
     height: 116px;
-  .animals-player-section__video-previews__wrapper .preview__wrapper
+  .animals-player-section__video-previews-slider__container
+    height: 56px
+  .previews-slider__track .preview__wrapper
     width: 98px
     height: 56px
-  .animals-player-section__video-previews__wrapper .preview__wrapper:nth-child(3)
-    display: none
   .video-player__radio-buttons-wrapper
     padding-top: 2px
   .animal-description__header

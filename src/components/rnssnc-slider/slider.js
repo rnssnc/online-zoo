@@ -12,6 +12,9 @@ export default class Slider {
     this.enableDragDrop = options.dragDrop === false ? false : true;
     this.slides = this.track.children;
     this.transitionTime = 0.3;
+    this.loop = options.loop === true ? true : false;
+    this.saveSlideIndex = options.saveSlideIndex === true ? true : false;
+    this.fixedSlideWidth = options.fixedSlideWidth;
 
     this.type = 'horizontal';
     if (options.type == 'vertical') {
@@ -66,8 +69,13 @@ export default class Slider {
         }
       });
     }
-    if (this.rebuild) window.addEventListener('resize', this.setupSlider);
+    if (this.rebuild)
+      window.addEventListener('resize', () => {
+        if (this.saveSlideIndex) this.startSlide = this.currentSlideIndex;
+        this.setupSlider();
+      });
   }
+
   setupSlider = () => {
     this.sliderWidth = this.slider.getBoundingClientRect()[this.metric];
     this.slideWidth = this.sliderWidth / this.slidesToShow;
@@ -96,8 +104,6 @@ export default class Slider {
 
     this.isClonesAdded = false;
     this.defaultLength = this.slides.length;
-
-    //Different listeners for infinite
 
     this.track.style.transform = `${this.translateFunction}(${this.defaultTranslate}px)`;
     this.currentSlide = this.slides[this.currentSlideIndex];
@@ -194,11 +200,13 @@ export default class Slider {
       this.nextSlide = (e) => {
         if (this.currentSlideIndex < this.slides.length - 1)
           this.goTo(+this.currentSlideIndex + +this.slidesToScroll) || e.preventDefault();
+        else if (this.loop && this.currentSlideIndex == this.slides.length - 1) this.goTo(0);
       };
 
       this.prevSlide = (e) => {
         if (this.currentSlideIndex > 0)
           this.goTo(+this.currentSlideIndex - +this.slidesToScroll) || e.preventDefault();
+        else if (this.loop && this.currentSlideIndex == 0) this.goTo(this.slides.length - 1);
       };
     }
   };
@@ -306,10 +314,12 @@ export default class Slider {
   };
 
   handleSliderEdge(slideIndex) {
-    if (slideIndex == 0) this.buttonPrev.classList.add('button-disabled');
-    else this.buttonPrev.classList.remove('button-disabled');
-    if (slideIndex == this.slides.length - 1) this.buttonNext.classList.add('button-disabled');
-    else this.buttonNext.classList.remove('button-disabled');
+    if (!this.loop) {
+      if (slideIndex == 0) this.buttonPrev.classList.add('button-disabled');
+      else this.buttonPrev.classList.remove('button-disabled');
+      if (slideIndex == this.slides.length - 1) this.buttonNext.classList.add('button-disabled');
+      else this.buttonNext.classList.remove('button-disabled');
+    }
   }
 
   goTo(slideIndex) {
@@ -320,8 +330,15 @@ export default class Slider {
 
       const countToSlide = slideIndex - this.currentSlideIndex;
 
-      if (!this.centerMode && slideIndex >= this.defaultLength - this.slidesToShow && countToSlide > 0) {
-        this.shiftSlide(this.defaultLength - this.rightVisibleSlideIndex);
+      if (!this.centerMode && slideIndex < this.slidesToShow && countToSlide > 0) {
+        this.shiftSlide(0);
+      } else if (
+        !this.centerMode &&
+        slideIndex >= this.defaultLength - this.slidesToShow &&
+        countToSlide > 0
+      ) {
+        if (countToSlide == 1) this.shiftSlide(1);
+        else this.shiftSlide(this.defaultLength - this.rightVisibleSlideIndex);
       } else if (!this.centerMode && slideIndex < this.slidesToShow && countToSlide < 0) {
         if (countToSlide == -1 && this.rightVisibleSlideIndex > this.slidesToShow) this.shiftSlide(-1);
         else this.shiftSlide(-this.rightVisibleSlideIndex + this.slidesToShow);
@@ -336,9 +353,12 @@ export default class Slider {
   }
 
   shiftSlide(count) {
-    if (this.variableWidth)
+    if (this.fixedSlideWidth) {
+      this.slideWidth = this.fixedSlideWidth;
+    } else if (this.variableWidth) {
+      // this.slideWidth = this.slideWidths[+this.currentSlideIndex + +count];
       this.slideWidth = this.slides[+this.currentSlideIndex + +count].getBoundingClientRect()[this.metric];
-
+    }
     this.transformValue += -count * this.slideWidth;
     this.track.style.transition = `transform ${this.transitionTime}s`;
     this.track.style.transform = `${this.translateFunction}(${this.transformValue}px)`;

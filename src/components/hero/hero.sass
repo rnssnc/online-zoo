@@ -44,6 +44,7 @@
   overflow: hidden
 
 .hero-section__pets-slider-container
+  position: relative
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -51,7 +52,7 @@
   align-items: flex-end;
   gap: 10px;
   background: url('../../assets/images/icons/line.svg') no-repeat
-  background-position-y: 53%
+  background-position-y: 50%
 
 .hero-section__pets-slider-wrapper .slider-scrollbar__container
   align-self: center;
@@ -60,6 +61,9 @@
 .hero-section__pets-slider-wrapper .slider-scrollbar__current-index,
 .hero-section__pets-slider-wrapper .slider-scrollbar__separator,
   color: #fefefe
+
+.pets-slider__track
+  z-index: 2
 
 .hero-section__pets-slider-wrapper .slider-scrollbar__input::-webkit-slider-thumb,
   background-color: #fefefe
@@ -75,26 +79,37 @@
   height: 352px
 
 .hero-section__pets-slider .rnssnc-slide
-  padding-top: 28px
   padding-left: 23px
   padding-right: 23px
 
+.hero-section__pets-slider .rnssnc-slide:hover,
 .hero-section__pets-slider .rnssnc-slide.slide-active
   padding-top: 0
 
+//  
 .hero-section__pets-slider .rnssnc-slide.slide-active .pet-card__image,
 .hero-section__pets-slider .rnssnc-slide:hover .pet-card__image,
   transition: all 0.3s ease
   width: 245px
   height: 352px
 
+.rnssnc-slide:hover .pet-card__content-wrapper,
+.rnssnc-slide.slide-active .pet-card__content-wrapper,
+  display: flex
+
 .rnssnc-slide:hover .pet-card__image,
 .hero-section__pets-slider .slick-slide:hover .pet-card__image,
   filter: brightness(50%)
   
-.rnssnc-slide:hover .pet-card__content-wrapper,
-.rnssnc-slide.slide-active .pet-card__content-wrapper,
-  display: flex
+
+.pets-slider__checkmark
+  position: absolute
+  width: 13px
+  height: 13px
+  z-index: 1
+  top: 50%
+  transform: translate(-50%, -50%)
+  background: url('../../assets/images/icons/line.svg') no-repeat
 
 @media only screen and (max-width: 1201px) 
   .hero-section-wrapper

@@ -20,6 +20,7 @@ const sliderWrapper = document.querySelector('.pet-slider__wrapper');
 const sliderElement = document.querySelector('.pet-slider');
 const sliderTrack = sliderElement.querySelector('.pet-slider__track');
 const markers = document.querySelector('.map__markers-wrapper').querySelectorAll('.map__marker');
+const watchOnlineButton = document.querySelector('.map-section__watch-online-button');
 
 let slidesArr = [];
 
@@ -57,6 +58,7 @@ function installSlider(initialSlideIndex = 0) {
     slidesToScroll: 1,
     variableWidth: true,
     startSlide: initialSlideIndex,
+    loop: true,
     arrows: true,
     buttonNext,
     buttonPrev,
@@ -98,6 +100,14 @@ function installSlider(initialSlideIndex = 0) {
 
   setActiveMarker(initialSlideIndex);
 
+  [...markers].map((marker, mIndex) => {
+    marker.addEventListener('pointerdown', () => {
+      if (slider.currentSlideIndex !== mIndex) {
+        slider.goTo(mIndex);
+      }
+    });
+  });
+
   slidesArr.map((slide, index) => {
     slide.addEventListener('pointerdown', () => slider.goTo(index));
   });
@@ -114,4 +124,6 @@ slider.slider.addEventListener('activeSlideChange', (e) => {
   setActiveMarker(e.detail);
   scrollbar.range.value = e.detail;
   scrollbar.updateValue();
+
+  watchOnlineButton.href = `./zoos.html#${animals[e.detail].id}`;
 });
