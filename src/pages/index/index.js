@@ -11,3 +11,5 @@ import '../../components/testimonials/testimonials';
 import '../../components/map/map';
 
 import './index.sass';
+
+// donationPopup.showPopup();

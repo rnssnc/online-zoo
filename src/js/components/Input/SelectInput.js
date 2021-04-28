@@ -62,22 +62,29 @@ export default class SelectInput extends InputController {
 
     this.setupListeners();
 
-    console.log(this.inputs[this.startValue].node.checked);
     this.inputs[this.startValue].node.click();
-    console.log(this.inputs[this.startValue].node.checked);
   }
 
   setupListeners() {
     this.node.addEventListener('click', this.showOptions);
-    this.optionsWrapper.node.addEventListener('mouseleave', this.hideOptions);
+
+    this.optionsWrapper.node.addEventListener('mouseleave', (e) => {
+      if (e.toElement != this.node) this.hideOptions();
+    });
+
+    this.node.addEventListener('mouseleave', (e) => {
+      if (e.toElement != this.optionsWrapper.node) this.hideOptions();
+    });
   }
 
   showOptions = () => {
     this.optionsWrapper.node.classList.add('options-wrapper--active');
+    this.node.classList.add('value-display--active');
   };
 
   hideOptions = () => {
     this.optionsWrapper.node.classList.remove('options-wrapper--active');
+    this.node.classList.remove('value-display--active');
   };
 
   setDisplayValue(value) {

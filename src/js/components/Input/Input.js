@@ -5,7 +5,9 @@ import InputController from './InputController';
 
 export default class Input extends InputController {
   constructor(options = {}) {
-    super({ ...options, tagName: 'input', className: `${options.className}-input` });
+    if (options.addClass === false)
+      super({ ...options, tagName: 'input', className: `${options.className}` });
+    else super({ ...options, tagName: 'input', className: `${options.className}-input input__element` });
 
     if (options.label) {
       this.label = new Control(options.parentNode, 'label', `${options.className}-label`);

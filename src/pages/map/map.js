@@ -8,11 +8,10 @@ import '../../components/slider-scrollbar/scrollbar.sass';
 import '../../components/button/button';
 import '../../components/svg-map/svg-map';
 
-import Scrollbar from '../../components/slider-scrollbar/Scrollbar';
-// import '../../components/rnssnc-slider/slider.css';
-import Slider from '../../components/rnssnc-slider/slider';
-
 import animals from '../../js/animals';
+
+import Scrollbar from '../../components/slider-scrollbar/Scrollbar';
+import Slider from '../../components/rnssnc-slider/slider';
 
 import Control from '../../js/contol';
 

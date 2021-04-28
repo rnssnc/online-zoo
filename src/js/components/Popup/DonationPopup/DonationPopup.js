@@ -1,11 +1,11 @@
-import './DonationPopup.sass';
-
 import Popup from '../Popup';
 import Control from '../../../contol';
 import Heading from '../../Heading/Heading';
 
 import Input from '../../Input/Input';
 import SelectInput from '../../Input/SelectInput';
+
+import './DonationPopup.sass';
 
 import animals from '../../../animals';
 /*
@@ -63,7 +63,7 @@ export default class DonationPopup extends Popup {
     this.form.inputs.push(
       new Input({
         parentNode: this.form.topSection.inputsWrapper.node,
-        className: 'popup-input to-donate',
+        className: 'donation-popup__input to-donate',
         legend: 'To donate',
         fieldset: true,
         attributes: {
@@ -97,7 +97,7 @@ export default class DonationPopup extends Popup {
     this.form.inputs.push(
       new Input({
         parentNode: this.form.middleSection.columnLeft.inputsWrapper.node,
-        className: 'name',
+        className: 'donation-popup__input name',
         legend: 'Name',
         type: 'text',
         required: true,
@@ -108,10 +108,9 @@ export default class DonationPopup extends Popup {
     this.form.inputs.push(
       new Input({
         parentNode: this.form.middleSection.columnLeft.inputsWrapper.node,
-        className: 'email',
+        className: 'donation-popup__input email',
         legend: 'Email',
-        type: 'email',
-        required: true,
+        attributes: { type: 'email', required: true },
         fieldset: true,
       }),
     );
@@ -124,8 +123,7 @@ export default class DonationPopup extends Popup {
         radioName: 'phone-county-code',
         inputOptions: [
           { label: 'Ru +7', value: '+7' },
-          { label: 'Uk +3', value: '+3' },
-          { label: 'Be +375', value: '+375' },
+          { label: 'Ua +3', value: '+3' },
         ],
         fieldset: true,
       }),
@@ -133,20 +131,20 @@ export default class DonationPopup extends Popup {
 
     new Input({
       parentNode: this.form.inputs[this.form.inputs.length - 1].fieldSet.node,
-      className: 'phone',
+      className: 'donation-popup__input phone',
       attributes: { type: 'text', required: true },
     });
 
     this.form.middleSection.columnRight = new Control(
       this.form.middleSection.node,
       'div',
-      'popup-form__middle-section__column-right popup-form__subheading',
+      'popup-form__middle-section__column-right',
     );
 
     this.form.middleSection.columnRight.heading = new Heading(
       this.form.middleSection.columnRight.node,
       'h3',
-      'form__middle-section__column-right__title',
+      'form__middle-section__column-right__title popup-form__subheading',
       'Checkout',
     );
 
@@ -159,10 +157,11 @@ export default class DonationPopup extends Popup {
     this.form.inputs.push(
       new Input({
         parentNode: this.form.middleSection.columnRight.inputsWrapper.node,
-        className: 'card-number',
+        className: 'donation-popup__input card-number',
         legend: 'Card number',
         type: 'text',
-        attributes: { required: true, fieldset: true },
+        fieldset: true,
+        attributes: { required: true },
       }),
     );
 
@@ -192,11 +191,37 @@ export default class DonationPopup extends Popup {
       }),
     });
 
-    new Input({
-      parentNode: this.form.middleSection.columnRight.inputsWrapper.node,
-      className: 'card-cvc',
-      attributes: { type: 'number', required: true, min: '100', max: '999' },
+    this.form.inputs.push(
+      new Input({
+        parentNode: this.form.middleSection.columnRight.inputsWrapper.node,
+        className: 'donation-popup__input card-cvc',
+        legend: 'CVC',
+        attributes: { type: 'number', required: true, min: '100', max: '999' },
+        fieldset: true,
+      }),
+    );
+
+    this.caption = new Control(
+      this.form.node,
+      'p',
+      `${this.name}-popup__caption`,
+      'If don’t cancel your subscription before the trial ends on April 15, 2021, you agree that you will automatically be charged',
+    );
+
+    this.submitButtonWrapper = new Control(this.form.node, 'div', 'submit-button__wrapper');
+
+    this.submitButton = new Input({
+      parentNode: this.submitButtonWrapper.node,
+      className: 'donation-popup__button button button-filled',
+      addClass: false,
+      attributes: { type: 'submit', value: 'DONATE' },
     });
-    this.caption = new Control(this.contentWrapper.node, 'p', `${this.name}-popup__caption`);
+
+    this.closeButton = new Control(this.popup.node, 'button', 'popup__close-button button');
+
+    this.closeButton.node.addEventListener('click', () => {
+      console.log('as?');
+      this.hidePopup();
+    });
   }
 }
