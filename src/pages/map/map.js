@@ -67,7 +67,6 @@ function installSlider(initialSlideIndex = 0) {
       1920: {
         from: 1501,
         slidesToShow: 8,
-        slidesToScroll: 1,
         startSlide: initialSlideIndex,
         arrows: true,
         buttonPrev,
@@ -76,21 +75,18 @@ function installSlider(initialSlideIndex = 0) {
       1500: {
         from: 801,
         slidesToShow: 4,
-        slidesToScroll: 1,
         startSlide: initialSlideIndex,
-        arrows: false,
+        arrows: true,
       },
       800: {
         from: 501,
         slidesToShow: 3,
-        slidesToScroll: 1,
         startSlide: initialSlideIndex,
-        arrows: false,
+        arrows: true,
       },
       500: {
         from: 0,
         slidesToShow: 2,
-        slidesToScroll: 1,
         startSlide: initialSlideIndex,
         arrows: false,
       },
