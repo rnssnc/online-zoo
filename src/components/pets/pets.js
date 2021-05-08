@@ -8,7 +8,48 @@ import Slider from '../rnssnc-slider/slider';
 const buttonPrev = document.querySelector('.pets-slider__button-prev');
 const buttonNext = document.querySelector('.pets-slider__button-next');
 
-const slider = new Slider({
+class PetsSlider extends Slider {
+  constructor(options) {
+    super(options);
+  }
+
+  goTo(slideIndex) {
+    if (slideIndex !== this.currentSlideIndex) {
+      if (this.arrows) this.handleSliderEdge(slideIndex);
+
+      this.removeActiveState(this.currentSlide);
+
+      const countToSlide = slideIndex - this.currentSlideIndex;
+
+      if (!this.centerMode && slideIndex < this.slidesToShow && countToSlide > 0) {
+        this.shiftSlide(0);
+      } else if (
+        !this.centerMode &&
+        slideIndex >= this.defaultLength - this.slidesToShow &&
+        countToSlide > 0
+      ) {
+        if (countToSlide == 1 && this.rightVisibleSlideIndex < this.slides.length) this.shiftSlide(1);
+        else this.shiftSlide(this.defaultLength - this.rightVisibleSlideIndex);
+      } else if (!this.centerMode && slideIndex < this.slidesToShow && countToSlide < 0) {
+        if (countToSlide == -1 && this.rightVisibleSlideIndex > this.slidesToShow) this.shiftSlide(-1);
+        else this.shiftSlide(-this.rightVisibleSlideIndex + this.slidesToShow);
+      } else if (this.currentSlideIndex > this.slides.length - 1 - this.slidesToShow && countToSlide < 0) {
+        this.shiftSlide(0);
+      } else {
+        console.log(countToSlide);
+        console.log(this.currentSlideIndex);
+        console.log(this.slides.length - 1 - this.slidesToShow);
+        this.unlockTransitionEnd = true;
+        this.shiftSlide(countToSlide);
+      }
+      this.currentSlideIndex = slideIndex;
+      this.currentSlide = this.slides[this.currentSlideIndex];
+      this.addActiveState(slideIndex);
+    }
+  }
+}
+
+const slider = new PetsSlider({
   slider: '.pets-section__pets-slider',
   track: '.pets-section__pets-slider-track',
   slidesToShow: 4,
